@@ -1,6 +1,6 @@
-import { Environment, Float, OrbitControls, useGLTF } from "@react-three/drei";
+import { Environment, Float, OrbitControls, useGLTF, AdaptiveDpr } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 
 const TechIconCardExperience = ({ model }) => {
@@ -18,8 +18,12 @@ const TechIconCardExperience = ({ model }) => {
     }
   }, [scene]);
 
+  const isMobile = useMemo(() =>
+    typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 640px)").matches,
+  []);
+
   return (
-    <Canvas>
+    <Canvas dpr={isMobile ? [1, 1.25] : [1, 2]} gl={{ antialias: !isMobile, powerPreference: "high-performance" }}>
       <ambientLight intensity={0.3} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <spotLight
@@ -54,6 +58,7 @@ const TechIconCardExperience = ({ model }) => {
       </Float>
 
       <OrbitControls enableZoom={false} />
+      <AdaptiveDpr pixelated />
     </Canvas>
   );
 };
