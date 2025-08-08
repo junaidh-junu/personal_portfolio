@@ -51,8 +51,9 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Junaidh Haneefa M, a Flutter developer based in Palakkad, Kerala.
-              I build scalable cross-platform mobile apps and love crafting smooth user experiences.
+              Hi, I’m Junaidh Haneefa M — Flutter developer, web designer, project manager,
+              and DevOps engineer based in Palakkad, Kerala. I build scalable apps,
+              design clean interfaces, lead delivery, and automate reliable deployments.
             </p>
 
             <Button

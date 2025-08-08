@@ -118,6 +118,8 @@ const expCards = [
       "Led development of Zai Toon Kids, Mishkath, Vision 2026, Thafheem ul Quran, Muhasabah, and Alquran Malayalam.",
       "Managed timelines, feature delivery, and quality assurance across Android and iOS.",
       "Implemented cross-platform solutions with Flutter, Dart, Firebase, REST APIs, and Provider.",
+      "Coordinated cross-functional planning and delivery as Project Manager for multiple releases.",
+      "Owned CI/CD and release workflows (DevOps), improving deployment reliability and speed.",
     ],
   },
   {
