@@ -29,10 +29,10 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 15, suffix: "+", label: "Years of Experience" },
-  { value: 200, suffix: "+", label: "Satisfied Clients" },
-  { value: 108, suffix: "+", label: "Completed Projects" },
-  { value: 90, suffix: "%", label: "Client Retention Rate" },
+  { value: 1, suffix: "+", label: "Years of Experience" },
+  { value: 6, suffix: "+", label: "Projects Delivered" },
+  { value: 2, suffix: "+", label: "Publications / Talks" },
+  { value: 3, suffix: "+", label: "Teams Led / Collaborations" },
 ];
 
 const logoIconsList = [
@@ -90,96 +90,58 @@ const abilities = [
 ];
 
 const techStackImgs = [
-  {
-    name: "React Developer",
-    imgPath: "/images/logos/react.png",
-  },
-  {
-    name: "Python Developer",
-    imgPath: "/images/logos/python.svg",
-  },
-  {
-    name: "Backend Developer",
-    imgPath: "/images/logos/node.png",
-  },
-  {
-    name: "Interactive Developer",
-    imgPath: "/images/logos/three.png",
-  },
-  {
-    name: "Project Manager",
-    imgPath: "/images/logos/git.svg",
-  },
+  { name: "Flutter", imgPath: "/images/logos/three.png" },
+  { name: "Dart", imgPath: "/images/logos/react.png" },
+  { name: "Firebase", imgPath: "/images/logos/node.png" },
+  { name: "React", imgPath: "/images/logos/react.png" },
+  { name: "Django", imgPath: "/images/logos/python.svg" },
 ];
 
 const techStackIcons = [
-  {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
-  },
-  {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
-  },
+  { name: "Flutter", modelPath: "/models/three.js-transformed.glb", scale: 0.05, rotation: [0, 0, 0] },
+  { name: "Dart", modelPath: "/models/react_logo-transformed.glb", scale: 1, rotation: [0, 0, 0] },
+  { name: "Firebase", modelPath: "/models/node-transformed.glb", scale: 5, rotation: [0, -Math.PI / 2, 0] },
+  { name: "React", modelPath: "/models/react_logo-transformed.glb", scale: 1, rotation: [0, 0, 0] },
+  { name: "Django", modelPath: "/models/python-transformed.glb", scale: 0.8, rotation: [0, 0, 0] },
 ];
 
 const expCards = [
   {
-    review: "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    review:
+      "Team Lead - Flutter Developer at D4DX Innovations LLP, leading multiple mobile app projects with a focus on quality and timely delivery.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
+    title: "Team Lead - Flutter Developer",
+    date: "Aug 2024 – Present | D4DX Innovations LLP, Kozhikode",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Promoted from Junior Flutter Developer (Aug 2024) to Team Lead (Apr 2025).",
+      "Led development of Zai Toon Kids, Mishkath, Vision 2026, Thafheem ul Quran, Muhasabah, and Alquran Malayalam.",
+      "Managed timelines, feature delivery, and quality assurance across Android and iOS.",
+      "Implemented cross-platform solutions with Flutter, Dart, Firebase, REST APIs, and Provider.",
     ],
   },
   {
-    review: "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+    review:
+      "Academic project demonstrating IoT systems integration with real-time alerting and recognition.",
     imgPath: "/images/exp2.png",
     logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+    title: "Anti Theft Flooring Mat System (IoT)",
+    date: "2024 | Publication: 10.36548/jei.2024.1.004",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Built ESP32-based smart mat with pressure sensing and camera integrations.",
+      "Implemented alerting and notifications; integrated facial recognition to reduce false positives.",
     ],
   },
   {
-    review: "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
+    review:
+      "Full-stack web project for school operations and communication.",
     imgPath: "/images/exp3.png",
     logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
+    title: "School Management Website",
+    date: "2023",
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Developed modules for attendance, grades, and parent communication.",
+      "Delivered a user-friendly UI with secure data handling.",
     ],
   },
 ];
@@ -201,46 +163,25 @@ const expLogos = [
 
 const testimonials = [
   {
-    name: "Esther Howard",
-    mentions: "@estherhoward",
+    name: "LinkedIn",
+    mentions: "linkedin.com/in/junaidh-haneefa",
     review:
-      "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+      "Connect with me on LinkedIn for updates on Flutter, cross-platform development, and project highlights.",
     imgPath: "/images/client1.png",
   },
   {
-    name: "Wade Warren",
-    mentions: "@wadewarren",
+    name: "GitHub",
+    mentions: "github.com/junaidh-junu",
     review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
+      "Explore my code samples, personal projects, and open-source contributions.",
     imgPath: "/images/client3.png",
   },
   {
-    name: "Guy Hawkins",
-    mentions: "@guyhawkins",
+    name: "Contact",
+    mentions: "junaidhhaneef.m@gmail.com | 7558958789",
     review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      "I’m open to roles in Flutter and cross-platform development. Let’s collaborate on impactful mobile products.",
     imgPath: "/images/client2.png",
-  },
-  {
-    name: "Marvin McKinney",
-    mentions: "@marvinmckinney",
-    review:
-      "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
-    imgPath: "/images/client5.png",
-  },
-  {
-    name: "Floyd Miles",
-    mentions: "@floydmiles",
-    review:
-      "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
-    imgPath: "/images/client4.png",
-  },
-  {
-    name: "Albert Flores",
-    mentions: "@albertflores",
-    review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
-    imgPath: "/images/client6.png",
   },
 ];
 
