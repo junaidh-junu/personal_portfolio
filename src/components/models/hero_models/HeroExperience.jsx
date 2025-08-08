@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, PerformanceMonitor, AdaptiveDpr } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 
@@ -11,8 +11,14 @@ const HeroExperience = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
+  const isPhone = useMediaQuery({ query: "(max-width: 640px)" });
+
   return (
-    <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
+    <Canvas
+      camera={{ position: [0, 0, 15], fov: 45 }}
+      dpr={isPhone ? [1, 1.25] : [1, 2]}
+      gl={{ antialias: !isPhone, powerPreference: "high-performance" }}
+    >
       {/* deep blue ambient */}
       <ambientLight intensity={0.2} color="#1a1a40" />
       {/* Configure OrbitControls to disable panning and control zoom based on device type */}
@@ -27,7 +33,7 @@ const HeroExperience = () => {
 
       <Suspense fallback={null}>
         <HeroLights />
-        <Particles count={100} />
+        <Particles count={isPhone ? 30 : 100} size={isPhone ? 0.035 : 0.05} />
         <group
           scale={isMobile ? 0.7 : 1}
           position={[0, -3.5, 0]}
@@ -36,6 +42,10 @@ const HeroExperience = () => {
           <Room />
         </group>
       </Suspense>
+
+      {/* Auto-tune quality under FPS drops */}
+      <PerformanceMonitor onDecline={(fps) => {}} />
+      <AdaptiveDpr pixelated />
     </Canvas>
   );
 };

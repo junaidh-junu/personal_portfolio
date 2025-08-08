@@ -1,21 +1,33 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, PerformanceMonitor, AdaptiveDpr } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { useMemo } from "react";
 
 import Computer from "./Computer";
 
 const ContactExperience = () => {
+  const isMobile = useMemo(() =>
+    typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 640px)").matches,
+  []);
+
   return (
-    <Canvas shadows camera={{ position: [0, 3, 7], fov: 45 }}>
+    <Canvas
+      shadows={!isMobile}
+      camera={{ position: [0, 3, 7], fov: 45 }}
+      dpr={isMobile ? [1, 1.25] : [1, 2]}
+      gl={{ antialias: !isMobile, powerPreference: "high-performance" }}
+    >
       <ambientLight intensity={0.5} color="#fff4e6" />
 
       <directionalLight position={[5, 5, 3]} intensity={2.5} color="#ffd9b3" />
 
-      <directionalLight
-        position={[5, 9, 1]}
-        castShadow
-        intensity={2.5}
-        color="#ffd9b3"
-      />
+      {!isMobile && (
+        <directionalLight
+          position={[5, 9, 1]}
+          castShadow
+          intensity={2.5}
+          color="#ffd9b3"
+        />
+      )}
 
       <OrbitControls
         enableZoom={false}
@@ -34,9 +46,12 @@ const ContactExperience = () => {
         </mesh>
       </group>
 
-      <group scale={0.03} position={[0, -1.49, -2]} castShadow>
+      <group scale={0.03} position={[0, -1.49, -2]} castShadow={!isMobile}>
         <Computer />
       </group>
+
+      <PerformanceMonitor onDecline={() => {}} />
+      <AdaptiveDpr pixelated />
     </Canvas>
   );
 };
