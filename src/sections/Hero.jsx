@@ -51,8 +51,9 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Junaidh Haneefa M, a developer based in Kearla with a passion for
-              code.
+              Hi, I'm Junaidh Haneefa — Flutter developer, web designer, project manager,
+              and DevOps engineer based in Dublin, Ireland. I build scalable apps,
+              design clean interfaces, lead delivery, and automate reliable deployments.
             </p>
 
             <Button

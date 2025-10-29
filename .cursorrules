@@ -1,0 +1,188 @@
+# Cursor Rules for 3D Portfolio Project
+
+## Project Overview
+
+This is a modern 3D portfolio website built with React, Three.js (React Three Fiber), GSAP animations, and Tailwind CSS. The project showcases a personal portfolio with interactive 3D models, smooth animations, and responsive design.
+
+## Tech Stack
+
+- **Frontend**: React 19.2.0, Vite 7.1.12
+- **3D Graphics**: Three.js 0.180.0, React Three Fiber 9.4.0 (@react-three/fiber), Drei 10.7.6 (@react-three/drei)
+- **Animations**: GSAP 3.13.0 (@gsap/react 2.1.2)
+- **Styling**: Tailwind CSS v4.1.16
+- **Email**: EmailJS 4.4.1 (@emailjs/browser)
+- **Responsive**: react-responsive 10.0.1
+
+## Code Style & Best Practices
+
+### React Components
+
+- Use functional components with hooks (React 19)
+- Prefer named exports for components
+- Keep components focused on a single responsibility
+- Extract reusable logic into custom hooks or utility functions
+- Use JSX fragments (`<>...</>`) when no wrapper element is needed
+
+### Three.js / React Three Fiber
+
+- Always optimize 3D models (use transformed/optimized .glb files)
+- Use `useFrame` for animations instead of requestAnimationFrame
+- Implement proper cleanup for event listeners and animations
+- Use Drei helpers when available (e.g., `OrbitControls`, `Html`, `useGLTF`)
+- Cache 3D models using `useMemo` or preload them
+- Keep canvas components separate from page components
+
+### GSAP Animations
+
+- Use `useGSAP` hook from `@gsap/react` for React components
+- Always clean up animations and timelines
+- Use refs to target DOM elements for animations
+- Prefer `useGSAP` over `useEffect` + `gsap` when possible
+- Create reusable animation utilities in a separate folder if needed
+
+### Styling Guidelines
+
+- Use Tailwind CSS utility classes (Tailwind v4)
+- Follow mobile-first responsive design approach
+- Use custom CSS only when Tailwind utilities aren't sufficient
+- Keep responsive breakpoints consistent (md:, xl:, etc.)
+- Use semantic class names when creating custom styles
+
+### File Organization
+
+```
+src/
+  components/        # Reusable UI components
+    models/         # 3D model components (React Three Fiber)
+  sections/         # Page sections (Hero, Experience, etc.)
+  constants/        # Shared constants and configuration
+```
+
+### Component Structure
+
+- Sections (`src/sections/`) are top-level page sections
+- Components (`src/components/`) are reusable UI elements
+- 3D models (`src/components/models/`) are React Three Fiber components
+- Constants (`src/constants/`) contain shared data and configuration
+
+### Naming Conventions
+
+- Components: PascalCase (e.g., `Hero.jsx`, `AnimatedCounter.jsx`)
+- Files: Match component name exactly
+- Functions: camelCase
+- Constants: UPPER_SNAKE_CASE or camelCase for exported objects
+- Props: camelCase
+
+### Performance Optimization
+
+- Use React.memo for components that don't need frequent re-renders
+- Memoize expensive calculations with `useMemo`
+- Use `useCallback` for functions passed as props to memoized components
+- Lazy load 3D models where possible
+- Optimize images and 3D models (use optimized/transformed versions)
+- Implement loading states for 3D scenes
+
+### Error Handling
+
+- Always handle loading errors for 3D models gracefully
+- Provide fallback UI for failed image/model loads
+- Use try-catch blocks for async operations (like EmailJS)
+- Show user-friendly error messages
+
+### Code Quality
+
+- Remove unused imports and variables
+- Keep functions small and focused
+- Add comments for complex 3D math or animation logic
+- Use meaningful variable names
+- Avoid deeply nested conditionals
+
+### Environment Variables
+
+- Store EmailJS credentials in `.env` file
+- Use `VITE_APP_` prefix for Vite environment variables
+- Never commit `.env` file to version control
+- Document required environment variables in README
+
+### Git Workflow
+
+- Use Gitmoji for commit messages
+- Make atomic commits (one feature/fix per commit)
+- Write clear, descriptive commit messages
+- Never commit large binary files (models, images) directly - use CDN or optimize
+
+### Testing Considerations
+
+- Test animations on different devices and browsers
+- Verify 3D scenes work on lower-end devices
+- Test responsive breakpoints thoroughly
+- Validate EmailJS integration works correctly
+
+### Accessibility
+
+- Add alt text to all images
+- Ensure keyboard navigation works for interactive elements
+- Maintain proper color contrast
+- Add ARIA labels where appropriate for 3D scenes
+
+### Build & Deployment
+
+- Use Vite build commands (`npm run build`)
+- Optimize assets before deploying
+- Check bundle size and optimize if needed
+- Test production build locally before deploying
+
+## Specific Patterns for This Project
+
+### GSAP Animations in Sections
+
+```jsx
+useGSAP(() => {
+  gsap.fromTo(
+    ".hero-text h1",
+    { y: 50, opacity: 0 },
+    { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
+  );
+});
+```
+
+### 3D Model Components
+
+- Create separate component files for each 3D scene
+- Use `useGLTF` from Drei to load models
+- Implement camera controls and lighting appropriately
+- Handle responsive behavior for 3D scenes
+
+### Constants Management
+
+- Keep all static data in `src/constants/index.js`
+- Export named exports for better tree-shaking
+- Group related constants together (e.g., `expCards`, `testimonials`)
+
+### Section Components
+
+- Each section should be self-contained
+- Use semantic HTML5 elements (`<section>`, `<header>`, etc.)
+- Include proper IDs for anchor links in navigation
+- Keep section logic minimal - extract to components when needed
+
+## What to Avoid
+
+- Don't import entire libraries when you only need specific functions
+- Don't create inline styles when Tailwind classes work
+- Don't mutate props directly
+- Don't forget to clean up GSAP animations and Three.js resources
+- Don't hardcode configuration values - use constants or env variables
+- Don't commit large binary assets to git
+- Don't skip responsive design considerations
+
+## Code Review Checklist
+
+- [ ] Components are properly exported
+- [ ] No console.log statements in production code
+- [ ] All images have alt text
+- [ ] 3D models are optimized versions
+- [ ] Animations have proper cleanup
+- [ ] Responsive design tested on multiple screen sizes
+- [ ] Environment variables are properly configured
+- [ ] No unused imports or dead code
