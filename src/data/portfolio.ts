@@ -11,6 +11,7 @@ export const experiences: Experience[] = [
     current: true,
     description: [
       'Developed mobile applications using Flutter, emphasizing clean UI and smooth performance',
+      'Worked on applications like Enteward, including both counselor and user applications with comprehensive functionality',
       'Integrated REST APIs and Firebase services, enhancing app functionality and user experience',
       'Collaborated with design team to implement pixel-perfect UI components'
     ],
@@ -21,9 +22,9 @@ export const experiences: Experience[] = [
     title: 'Team Lead - Flutter Developer',
     company: 'D4DX Innovations LLP',
     location: 'Kozhikode, Kerala, India',
-    period: 'July 2024 - Present',
+    period: 'July 2024 - Sept 2025',
     type: 'Full-time',
-    current: true,
+    current: false,
     description: [
       'Promoted to Team Lead position in April 2025 after starting as Junior Flutter Developer',
       'Led development of multiple mobile applications including Zai Toon Kids App, Mishkath, Vision 2026, Thafheem ul Quran, Muhasabah, and Alquran Malayalam',
@@ -31,7 +32,7 @@ export const experiences: Experience[] = [
       'Managed project timelines, feature implementation, and quality assurance processes',
       'Implemented cross-platform solutions using Flutter and Dart for both Android and iOS'
     ],
-    skills: ['Flutter', 'Dart', 'Team Leadership', 'Project Management', 'Cross-platform Development', 'Quality Assurance']
+    skills: ['Flutter', 'Team Leadership', 'Project Management', 'Cross-platform Development', 'Quality Assurance','CI/CD Pipeline','Server Management']
   },
   {
     id: '3',
@@ -76,13 +77,13 @@ export const projects: Project[] = [
     title: 'Anti Theft Flooring Mat System Using IOT',
     description: 'Developed an IoT-based smart security mat using ESP32, pressure sensor, and camera to detect intruders, trigger alarms, and send alerts. Integrated facial recognition to avoid false alarms for authorized users.',
     technologies: ['IoT', 'ESP32', 'Python', 'Computer Vision', 'Firebase'],
-    date: 'Jan 2024'
+    date: '2024'
   },
   {
     id: '2',
     title: 'Zai Toon Kids App',
-    description: 'Educational mobile application for children featuring interactive content, animations, and engaging UI. Built with Flutter for cross-platform compatibility.',
-    technologies: ['Flutter', 'Dart', 'Firebase', 'Provider'],
+    description: 'Mobile application for children featuring interactive content, animations, and engaging UI. Built with Flutter for cross-platform compatibility.',
+    technologies: ['Flutter', 'Dart', 'Directus', 'Provider','REST APIs'],
     date: '2024'
   },
   {
@@ -97,7 +98,7 @@ export const projects: Project[] = [
     title: 'School Management Website',
     description: 'Developed a user-friendly School Management Website for efficient attendance tracking, grade management, and parent communication. Streamlined administrative processes.',
     technologies: ['JavaScript', 'Node.js', 'MongoDB', 'Express', 'React'],
-    date: 'Feb 2023'
+    date: '2023'
   },
   {
     id: '5',
@@ -112,6 +113,34 @@ export const projects: Project[] = [
     description: 'Quran reading application with Malayalam translation. Features include bookmarking, audio recitation, and search functionality.',
     technologies: ['Flutter', 'Dart', 'Audio Player', 'SQLite'],
     date: '2024'
+  },
+  {
+    id: '7',
+    title: 'Muhasabah',
+    description: 'Islamic educational app providing Quranic content with translation and tafseer. Optimized for smooth performance and elegant UI.',
+    technologies: ['Flutter', 'Dart', 'Directus', 'Provider','REST APIs'],
+    date: '2025'
+  },
+  {
+    id: '8',
+    title: 'Enteward',
+    description: 'A simple app to report issues,get local news and see what your councilors are doing in your area.',
+    technologies: ['Flutter', 'Dart', 'Audio Player', 'SQLite'],
+    date: '2025'
+  },
+  {
+    id: '9',
+    title: 'New Leaf School Website',
+    description: 'A user-friendly School Management Website focusing on school\'s events, notices, and other important information.',
+    technologies: ['JavaScript', 'Node.js', 'MongoDB', 'Express', 'React'],
+    date: '2025'
+  },
+  {
+    id: '10',
+    title: 'Hira Plus',
+    description: 'An application for the administration and management of internal operations of Hira Center in Kozhikode.',
+    technologies: ['Flutter', 'Dart', 'Directus', 'Provider','REST APIs','Firebase'],
+    date: '2025'
   }
 ];
 
@@ -155,6 +184,7 @@ export const skills: Skill[] = [
   { name: 'Xcode', category: 'Tools' },
   { name: 'SQLite', category: 'Tools' },
   { name: 'Provider', category: 'Tools' },
+  { name: 'CDN', category: 'Tools' },
 
   // Cloud & DevOps
   { name: 'Cloudflare', category: 'Cloud & DevOps' },
