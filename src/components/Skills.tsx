@@ -16,14 +16,6 @@ const Skills = () => {
     return acc;
   }, {} as Record<string, typeof skills>);
 
-  const categoryColors: Record<string, string> = {
-    'Languages': 'from-neutral-400 to-neutral-500',
-    'Frameworks': 'from-neutral-400 to-neutral-500',
-    'Tools': 'from-neutral-400 to-neutral-500',
-    'Cloud & DevOps': 'from-neutral-400 to-neutral-500',
-    'Project Management': 'from-neutral-400 to-neutral-500',
-  };
-
   return (
     <section id="skills" className="py-20 relative overflow-hidden bg-dark-surface/30">
 
