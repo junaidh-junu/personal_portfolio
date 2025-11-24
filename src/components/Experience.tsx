@@ -15,85 +15,107 @@ const Experience = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Work <span className="text-white">Experience</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Work <span className="gradient-text">Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-neutral-700 mx-auto" />
+          <div className="section-divider" />
+          <p className="text-neutral-400 mt-6 max-w-2xl mx-auto text-lg">
+            My professional journey and the experiences that shaped my expertise
+          </p>
         </motion.div>
 
         {/* Timeline */}
-        <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-5xl mx-auto relative">
           {/* Timeline Line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-neutral-800 transform -translate-x-1/2 hidden md:block" />
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/30 via-accent/30 to-primary/30 transform -translate-x-1/2 hidden md:block rounded-full" />
 
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.id}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
               className={`relative mb-12 md:mb-20 ${
                 index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:text-right'
               }`}
             >
               {/* Timeline Dot */}
-              <div className="absolute left-0 md:left-1/2 top-8 w-4 h-4 bg-white rounded-full transform -translate-x-1/2 z-10 hidden md:block" />
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : {}}
+                transition={{ delay: index * 0.15 + 0.3, type: 'spring' }}
+                className="absolute left-0 md:left-1/2 top-8 w-5 h-5 bg-gradient-to-br from-primary to-accent rounded-full transform -translate-x-1/2 z-10 hidden md:block border-4 border-dark-bg shadow-lg"
+              />
 
               <motion.div
-                whileHover={{ scale: 1.01 }}
-                className={`card card-hover p-6 md:p-8 rounded-xl ${
-                  index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
+                whileHover={{ y: -5, scale: 1.01 }}
+                className={`card-elegant card-hover p-6 md:p-8 rounded-xl relative overflow-hidden ${
+                  index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'
                 }`}
               >
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 {/* Header */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                <div className="mb-6 relative z-10">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
                     <h3 className="text-xl md:text-2xl font-bold text-white">{exp.title}</h3>
                     {exp.current && (
-                      <span className="px-3 py-1 bg-neutral-800 text-white text-xs font-semibold rounded-full border border-neutral-700">
+                      <motion.span
+                        initial={{ scale: 0 }}
+                        animate={isInView ? { scale: 1 } : {}}
+                        transition={{ delay: index * 0.15 + 0.2 }}
+                        className="px-3 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs font-semibold rounded-full shadow-md"
+                      >
                         Current
-                      </span>
+                      </motion.span>
                     )}
                   </div>
-                  <div className="text-neutral-300 font-semibold text-lg mb-1">{exp.company}</div>
-                  <div className="flex flex-wrap gap-3 text-sm text-neutral-400">
-                    <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="text-neutral-300 font-semibold text-lg mb-3">{exp.company}</div>
+                  <div className="flex flex-wrap gap-4 text-sm text-neutral-400">
+                    <span className="flex items-center gap-2 px-3 py-1 bg-neutral-900/50 rounded-lg">
+                      <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                       {exp.period}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span className="flex items-center gap-2 px-3 py-1 bg-neutral-900/50 rounded-lg">
+                      <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       </svg>
                       {exp.location}
                     </span>
-                    <span className="px-2 py-0.5 bg-dark-card rounded text-xs">{exp.type}</span>
+                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-lg text-xs font-medium border border-primary/20">{exp.type}</span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <ul className="space-y-2 mb-4 text-neutral-400">
+                <ul className="space-y-3 mb-6 text-neutral-400 relative z-10">
                   {exp.description.map((desc, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-neutral-500 mt-1.5">▹</span>
-                      <span className="flex-1">{desc}</span>
-                    </li>
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: index * 0.15 + 0.4 + i * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <span className="text-primary mt-1.5 flex-shrink-0">▹</span>
+                      <span className="flex-1 leading-relaxed">{desc}</span>
+                    </motion.li>
                   ))}
                 </ul>
 
                 {/* Skills */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 relative z-10">
                   {exp.skills.map((skill) => (
-                    <span
+                    <motion.span
                       key={skill}
-                      className="px-3 py-1 bg-neutral-800 text-neutral-300 text-xs rounded-full border border-neutral-700 hover:bg-neutral-700 transition-colors duration-300"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="px-3 py-1.5 bg-neutral-900/70 text-neutral-300 text-xs rounded-lg border border-neutral-800 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 font-medium"
                     >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>

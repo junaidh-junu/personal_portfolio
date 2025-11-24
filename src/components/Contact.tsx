@@ -71,13 +71,13 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Get In <span className="text-white">Touch</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Get In <span className="gradient-text">Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-neutral-700 mx-auto mb-4" />
-          <p className="text-neutral-400 max-w-2xl mx-auto">
+          <div className="section-divider" />
+          <p className="text-neutral-400 max-w-2xl mx-auto mt-6 text-lg">
             Have a project in mind or want to collaborate? Feel free to reach out!
           </p>
         </motion.div>
@@ -91,22 +91,23 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -2 }}
-                className="card card-hover p-6 rounded-xl text-center group"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="card-elegant card-hover p-6 rounded-xl text-center group relative overflow-hidden"
               >
-                <div className="w-14 h-14 bg-neutral-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-all duration-300">
-                  <div className="text-neutral-300">{method.icon}</div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative z-10">
+                  <div className="text-primary">{method.icon}</div>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{method.label}</h3>
+                <h3 className="text-lg font-semibold mb-2 relative z-10">{method.label}</h3>
                 {method.link ? (
                   <a
                     href={method.link}
-                    className="text-neutral-400 hover:text-white transition-colors duration-300 break-all"
+                    className="text-neutral-400 hover:text-primary transition-colors duration-300 break-all relative z-10 font-medium"
                   >
                     {method.value}
                   </a>
                 ) : (
-                  <p className="text-neutral-400">{method.value}</p>
+                  <p className="text-neutral-400 relative z-10">{method.value}</p>
                 )}
               </motion.div>
             ))}
@@ -117,43 +118,46 @@ const Contact = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="card p-8 md:p-12 rounded-xl text-center"
+            className="card-elegant p-8 md:p-12 rounded-xl text-center relative overflow-hidden"
           >
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Let's Create Something Amazing Together</h3>
-            <p className="text-neutral-400 mb-8 max-w-2xl mx-auto">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-            </p>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+            <div className="relative z-10">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 gradient-text">Let's Create Something Amazing Together</h3>
+              <p className="text-neutral-400 mb-8 max-w-2xl mx-auto text-lg">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              </p>
 
-            {/* CTA Button */}
-            <motion.a
-              href={`mailto:${contactInfo.email}`}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-dark-bg rounded-lg font-semibold hover:bg-neutral-100 transition-all duration-300 shadow-soft mb-8"
-            >
+              {/* CTA Button */}
+              <motion.a
+                href={`mailto:${contactInfo.email}`}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 shadow-medium mb-8"
+              >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Send Me an Email
             </motion.a>
 
-            {/* Social Links */}
-            <div className="flex justify-center gap-6">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all duration-300"
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
+              {/* Social Links */}
+              <div className="flex justify-center gap-6">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                    whileHover={{ scale: 1.15, y: -3 }}
+                    className="w-14 h-14 bg-neutral-900/70 backdrop-blur-sm border border-neutral-800 rounded-full flex items-center justify-center text-neutral-400 hover:text-white hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -167,7 +171,7 @@ const Contact = () => {
         className="text-center mt-20 text-neutral-500"
       >
         <p>© {new Date().getFullYear()} {contactInfo.name}. All rights reserved.</p>
-        <p className="mt-2 text-sm">Built with React, TypeScript, Tailwind CSS & Framer Motion</p>
+       
       </motion.footer>
     </section>
   );

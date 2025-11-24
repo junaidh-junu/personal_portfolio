@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,33 +7,53 @@
 @layer base {
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
-  body {
-    @apply bg-dark-bg text-white font-['Inter'];
+  html {
     scroll-behavior: smooth;
   }
 
+  body {
+    @apply bg-dark-bg text-white;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-['Space_Grotesk'];
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-neutral-900/50 backdrop-blur-md border border-neutral-800;
+    @apply bg-neutral-900/70 backdrop-blur-xl border border-neutral-800/50;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
 
   .glass-hover {
-    @apply hover:bg-neutral-800/50 hover:border-neutral-700 transition-all duration-300;
+    @apply hover:bg-neutral-800/70 hover:border-neutral-700/50 transition-all duration-300;
   }
 
   .card {
-    @apply bg-dark-card border border-dark-border rounded-lg;
+    @apply bg-dark-card border border-dark-border rounded-xl;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .card-hover {
-    @apply hover:border-neutral-600 transition-all duration-300;
+    @apply hover:border-neutral-600/50 hover:shadow-lg transition-all duration-300;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-elegant {
+    @apply bg-gradient-to-br from-dark-card to-dark-surface border border-dark-border/50 rounded-xl;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
   }
 
   .shadow-soft {
@@ -41,28 +63,62 @@
   .shadow-medium {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
   }
+
+  .shadow-elegant {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-accent {
+    @apply bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500;
+  }
+
+  .section-divider {
+    @apply w-24 h-1 mx-auto;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #404040;
-  border-radius: 4px;
+  background: linear-gradient(to bottom, #404040, #525252);
+  border-radius: 5px;
+  border: 2px solid #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #525252;
+  background: linear-gradient(to bottom, #525252, #636363);
 }
 
 /* Selection */
 ::selection {
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(59, 130, 246, 0.4);
   color: white;
+}
+
+::-moz-selection {
+  background: rgba(59, 130, 246, 0.4);
+  color: white;
+}
+
+/* Smooth focus styles */
+*:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

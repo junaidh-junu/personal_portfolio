@@ -16,42 +16,47 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="text-white">Projects</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Featured <span className="gradient-text">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-neutral-700 mx-auto mb-4" />
-          <p className="text-neutral-400 max-w-2xl mx-auto">
+          <div className="section-divider" />
+          <p className="text-neutral-400 max-w-2xl mx-auto mt-6 text-lg">
             A collection of projects showcasing my expertise in mobile and web development
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="card card-hover p-6 rounded-xl group cursor-pointer h-full flex flex-col"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="card-elegant card-hover p-6 rounded-xl group cursor-pointer h-full flex flex-col relative overflow-hidden"
             >
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
               {/* Project Icon */}
-              <div className="w-12 h-12 bg-neutral-800 rounded-lg flex items-center justify-center mb-4 group-hover:scale-105 transition-all duration-300">
-                <svg className="w-6 h-6 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
 
               {/* Project Title */}
-              <h3 className="text-xl font-bold mb-2 group-hover:text-neutral-200 transition-colors duration-300">
+              <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors duration-300 relative z-10">
                 {project.title}
               </h3>
 
               {/* Project Date */}
-              <div className="text-sm text-neutral-500 mb-3">{project.date}</div>
+              <div className="text-sm text-neutral-500 mb-4 relative z-10">
+                <span className="px-2 py-1 bg-neutral-900/50 rounded text-xs font-medium">{project.date}</span>
+              </div>
 
               {/* Project Description */}
               <p className="text-neutral-400 text-sm leading-relaxed mb-4 flex-grow">
@@ -113,19 +118,21 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
+          className="text-center mt-16"
         >
-          <a
+          <motion.a
             href="https://github.com/junaidh-junu"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-neutral-700 hover:border-neutral-600 rounded-lg font-semibold group transition-all duration-300"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-3 px-8 py-3.5 border-2 border-neutral-700 hover:border-primary/50 rounded-lg font-semibold group transition-all duration-300 hover:bg-neutral-900/50 backdrop-blur-sm"
           >
             <span>View More on GitHub</span>
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

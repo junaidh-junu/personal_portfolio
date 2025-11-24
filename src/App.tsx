@@ -11,8 +11,10 @@ import Contact from './components/Contact';
 function App() {
   return (
     <div className="min-h-screen bg-dark-bg text-white overflow-x-hidden">
+      {/* Background gradient overlay */}
+      <div className="fixed inset-0 bg-gradient-to-b from-dark-bg via-dark-surface to-dark-bg pointer-events-none" />
       <Navigation />
-      <main>
+      <main className="relative z-0">
         <Hero />
         <About />
         <Experience />
