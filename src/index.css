@@ -19,23 +19,27 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    @apply bg-neutral-900/50 backdrop-blur-md border border-neutral-800;
   }
 
   .glass-hover {
-    @apply hover:bg-white/10 hover:border-primary/50 transition-all duration-300;
+    @apply hover:bg-neutral-800/50 hover:border-neutral-700 transition-all duration-300;
   }
 
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent-purple to-accent-pink;
+  .card {
+    @apply bg-dark-card border border-dark-border rounded-lg;
   }
 
-  .glow-effect {
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  .card-hover {
+    @apply hover:border-neutral-600 transition-all duration-300;
   }
 
-  .glow-effect-hover:hover {
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.5), 0 0 60px rgba(0, 240, 255, 0.3);
+  .shadow-soft {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  .shadow-medium {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -45,20 +49,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #12121a;
+  background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00f0ff;
+  background: #404040;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00b8c4;
+  background: #525252;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(0, 240, 255, 0.3);
+  background: rgba(37, 99, 235, 0.3);
   color: white;
 }

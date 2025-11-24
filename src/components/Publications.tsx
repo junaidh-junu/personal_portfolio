@@ -18,10 +18,10 @@ const Publications = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Research <span className="gradient-text">Publications</span>
+            Research <span className="text-white">Publications</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-4" />
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-neutral-700 mx-auto mb-4" />
+          <p className="text-neutral-400 max-w-2xl mx-auto">
             Contributions to academic research and published work
           </p>
         </motion.div>
@@ -34,24 +34,24 @@ const Publications = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.02 }}
-              className="glass glass-hover p-6 md:p-8 rounded-2xl group"
+              whileHover={{ scale: 1.01 }}
+              className="card card-hover p-6 md:p-8 rounded-xl group"
             >
               {/* Header */}
               <div className="flex items-start gap-4">
                 {/* Icon */}
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-purple rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-neutral-800 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-all duration-300">
+                  <svg className="w-6 h-6 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-neutral-200 transition-colors duration-300">
                     {pub.title}
                   </h3>
-                  <div className="flex flex-wrap items-center gap-3 mb-4 text-sm text-gray-400">
+                  <div className="flex flex-wrap items-center gap-3 mb-4 text-sm text-neutral-400">
                     <span className="flex items-center gap-1">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
@@ -67,7 +67,7 @@ const Publications = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-400 leading-relaxed mb-4">
+                  <p className="text-neutral-400 leading-relaxed mb-4">
                     {pub.description}
                   </p>
 
@@ -77,7 +77,7 @@ const Publications = () => {
                       href={`https://doi.org/${pub.doi}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-semibold hover:bg-primary/20 transition-colors duration-300 border border-primary/20"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-800 text-neutral-300 rounded-lg text-sm font-semibold hover:bg-neutral-700 hover:text-white transition-colors duration-300 border border-neutral-700"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

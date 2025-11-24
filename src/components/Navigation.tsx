@@ -57,10 +57,10 @@ const Navigation = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold cursor-pointer"
+            className="text-2xl font-bold cursor-pointer text-white"
             onClick={() => scrollToSection('home')}
           >
-            <span className="gradient-text">JH</span>
+            <span>JH</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -71,15 +71,15 @@ const Navigation = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`px-4 py-2 rounded-lg transition-all duration-300 relative ${
                   activeSection === item.id
-                    ? 'text-primary'
-                    : 'text-gray-400 hover:text-white'
+                    ? 'text-white'
+                    : 'text-neutral-400 hover:text-neutral-200'
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -89,10 +89,10 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => scrollToSection('contact')}
-            className="hidden md:block px-6 py-2 bg-primary text-dark-bg rounded-lg font-semibold hover:bg-primary-light transition-all duration-300 glow-effect-hover"
+            className="hidden md:block px-6 py-2 bg-white text-dark-bg rounded-lg font-semibold hover:bg-neutral-100 transition-all duration-300"
           >
             Let's Talk
           </motion.button>

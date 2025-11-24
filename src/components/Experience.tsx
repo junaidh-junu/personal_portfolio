@@ -18,15 +18,15 @@ const Experience = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Work <span className="gradient-text">Experience</span>
+            Work <span className="text-white">Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto" />
+          <div className="w-20 h-1 bg-neutral-700 mx-auto" />
         </motion.div>
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto relative">
           {/* Timeline Line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent-purple to-accent-pink transform -translate-x-1/2 hidden md:block" />
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-neutral-800 transform -translate-x-1/2 hidden md:block" />
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -39,11 +39,11 @@ const Experience = () => {
               }`}
             >
               {/* Timeline Dot */}
-              <div className="absolute left-0 md:left-1/2 top-8 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 z-10 animate-pulse hidden md:block" />
+              <div className="absolute left-0 md:left-1/2 top-8 w-4 h-4 bg-white rounded-full transform -translate-x-1/2 z-10 hidden md:block" />
 
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                className={`glass glass-hover p-6 md:p-8 rounded-2xl ${
+                whileHover={{ scale: 1.01 }}
+                className={`card card-hover p-6 md:p-8 rounded-xl ${
                   index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
                 }`}
               >
@@ -52,13 +52,13 @@ const Experience = () => {
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <h3 className="text-xl md:text-2xl font-bold text-white">{exp.title}</h3>
                     {exp.current && (
-                      <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full border border-primary/30">
+                      <span className="px-3 py-1 bg-neutral-800 text-white text-xs font-semibold rounded-full border border-neutral-700">
                         Current
                       </span>
                     )}
                   </div>
-                  <div className="text-primary font-semibold text-lg mb-1">{exp.company}</div>
-                  <div className="flex flex-wrap gap-3 text-sm text-gray-400">
+                  <div className="text-neutral-300 font-semibold text-lg mb-1">{exp.company}</div>
+                  <div className="flex flex-wrap gap-3 text-sm text-neutral-400">
                     <span className="flex items-center gap-1">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -76,10 +76,10 @@ const Experience = () => {
                 </div>
 
                 {/* Description */}
-                <ul className="space-y-2 mb-4 text-gray-400">
+                <ul className="space-y-2 mb-4 text-neutral-400">
                   {exp.description.map((desc, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-primary mt-1.5">▹</span>
+                      <span className="text-neutral-500 mt-1.5">▹</span>
                       <span className="flex-1">{desc}</span>
                     </li>
                   ))}
@@ -90,7 +90,7 @@ const Experience = () => {
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20 hover:bg-primary/20 transition-colors duration-300"
+                      className="px-3 py-1 bg-neutral-800 text-neutral-300 text-xs rounded-full border border-neutral-700 hover:bg-neutral-700 transition-colors duration-300"
                     >
                       {skill}
                     </span>

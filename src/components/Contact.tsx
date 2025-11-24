@@ -64,11 +64,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute w-96 h-96 bg-primary/20 rounded-full blur-3xl top-0 left-0 animate-float" />
-        <div className="absolute w-96 h-96 bg-accent-purple/20 rounded-full blur-3xl bottom-0 right-0 animate-float" style={{ animationDelay: '2s' }} />
-      </div>
 
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         {/* Section Title */}
@@ -79,10 +74,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Get In <span className="gradient-text">Touch</span>
+            Get In <span className="text-white">Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-4" />
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-neutral-700 mx-auto mb-4" />
+          <p className="text-neutral-400 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? Feel free to reach out!
           </p>
         </motion.div>
@@ -96,22 +91,22 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="glass glass-hover p-6 rounded-2xl text-center group"
+                whileHover={{ scale: 1.02, y: -2 }}
+                className="card card-hover p-6 rounded-xl text-center group"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent-purple rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                  <div className="text-white">{method.icon}</div>
+                <div className="w-14 h-14 bg-neutral-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-all duration-300">
+                  <div className="text-neutral-300">{method.icon}</div>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{method.label}</h3>
                 {method.link ? (
                   <a
                     href={method.link}
-                    className="text-gray-400 hover:text-primary transition-colors duration-300 break-all"
+                    className="text-neutral-400 hover:text-white transition-colors duration-300 break-all"
                   >
                     {method.value}
                   </a>
                 ) : (
-                  <p className="text-gray-400">{method.value}</p>
+                  <p className="text-neutral-400">{method.value}</p>
                 )}
               </motion.div>
             ))}
@@ -122,19 +117,19 @@ const Contact = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="glass p-8 md:p-12 rounded-2xl text-center"
+            className="card p-8 md:p-12 rounded-xl text-center"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Let's Create Something Amazing Together</h3>
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-neutral-400 mb-8 max-w-2xl mx-auto">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
 
             {/* CTA Button */}
             <motion.a
               href={`mailto:${contactInfo.email}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-dark-bg rounded-lg font-semibold hover:bg-primary-light transition-all duration-300 glow-effect-hover mb-8"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-dark-bg rounded-lg font-semibold hover:bg-neutral-100 transition-all duration-300 shadow-soft mb-8"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -153,8 +148,8 @@ const Contact = () => {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  className="w-12 h-12 bg-dark-card rounded-full flex items-center justify-center text-gray-400 hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all duration-300"
                 >
                   {social.icon}
                 </motion.a>
@@ -169,7 +164,7 @@ const Contact = () => {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="text-center mt-20 text-gray-500"
+        className="text-center mt-20 text-neutral-500"
       >
         <p>© {new Date().getFullYear()} {contactInfo.name}. All rights reserved.</p>
         <p className="mt-2 text-sm">Built with React, TypeScript, Tailwind CSS & Framer Motion</p>

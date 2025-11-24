@@ -8,43 +8,40 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#00f0ff',
-          dark: '#00b8c4',
-          light: '#5ff4ff',
+          DEFAULT: '#2563eb',
+          dark: '#1e40af',
+          light: '#3b82f6',
         },
-        accent: {
-          purple: '#a855f7',
-          pink: '#ec4899',
-          blue: '#3b82f6',
+        neutral: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
         },
         dark: {
-          bg: '#0a0a0f',
-          surface: '#12121a',
-          card: '#1a1a24',
-          border: '#2a2a3a',
+          bg: '#0f0f0f',
+          surface: '#1a1a1a',
+          card: '#242424',
+          border: '#333333',
         }
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
+        'fade-in': 'fadeIn 0.6s ease-out',
         'slide-up': 'slideUp 0.5s ease-out',
-        'slide-down': 'slideDown 0.5s ease-out',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-        glow: {
-          '0%': { boxShadow: '0 0 5px #00f0ff, 0 0 10px #00f0ff' },
-          '100%': { boxShadow: '0 0 20px #00f0ff, 0 0 30px #00f0ff, 0 0 40px #00f0ff' },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { transform: 'translateY(100px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        slideDown: {
-          '0%': { transform: 'translateY(-100px)', opacity: '0' },
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
