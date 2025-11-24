@@ -174,7 +174,7 @@ export const contactInfo = {
   name: 'Junaidh Haneefa Muhammedhaneefa',
   title: 'Full Stack Developer | Flutter & Kotlin Developer',
   subtitle: 'Web Developer | Domain & DNS Specialist | CI/CD Pipeline Monitor | MSc Computing Science',
-  email: 'junaidhhaneefi.m@gmail.com',
+  email: 'junaidhhaneef.m@gmail.com',
   phone: '+353 892534784',
   location: 'Dublin, Ireland',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
