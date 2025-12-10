@@ -2,9 +2,13 @@ export const seoConfig = {
   siteName: 'Junaidh Haneefa Portfolio',
   siteUrl: 'https://junaidh.me',
   defaultTitle: 'Junaidh Haneefa | Full Stack Developer & Flutter Specialist',
-  defaultDescription: 'Experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. Currently pursuing MSc in Computer Science at Griffith College Dublin.',
+  defaultDescription: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. Currently pursuing MSc in Computer Science at Griffith College Dublin. View portfolio, projects, and contact information.',
   defaultKeywords: [
     'Junaidh Haneefa',
+    'junaidh haneefa',
+    'Junaidh Haneefa developer',
+    'Junaidh Haneefa portfolio',
+    'Junaidh Haneefa Flutter developer',
     'Full Stack Developer',
     'Flutter Developer',
     'Mobile App Development',
@@ -36,8 +40,12 @@ export const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Junaidh Haneefa Muhammedhaneefa',
-    jobTitle: 'Full Stack Developer',
-    description: 'Experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development',
+    alternateName: ['Junaidh Haneefa', 'junaidh haneefa', 'Junaidh Haneefa Muhammedhaneefa'],
+    givenName: 'Junaidh',
+    familyName: 'Haneefa',
+    additionalName: 'Muhammedhaneefa',
+    jobTitle: ['Full Stack Developer', 'Flutter Developer', 'Mobile App Developer', 'Team Lead'],
+    description: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. Currently pursuing MSc in Computer Science at Griffith College Dublin.',
     url: seoConfig.siteUrl,
     email: seoConfig.socialMedia.email,
     image: `${seoConfig.siteUrl}/images/profile.jpg`,
@@ -45,6 +53,11 @@ export const structuredData = {
       '@type': 'PostalAddress',
       addressLocality: seoConfig.location.city,
       addressCountry: seoConfig.location.country
+    },
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Appetite Studio',
+      jobTitle: 'Flutter Developer'
     },
     sameAs: [
       seoConfig.socialMedia.linkedin,

@@ -46,15 +46,15 @@ const About = () => {
             </h3>
             <div className="space-y-4 text-neutral-400 leading-relaxed">
               <p>
-                {contactInfo.bio}
+                <span className="text-white font-semibold">Junaidh Haneefa</span> is an aspiring and passionate Flutter developer with a Bachelor's degree in Computer Science and hands-on experience in building cross-platform mobile applications since graduation. Eager to contribute to innovative and scalable mobile solutions using Flutter, Dart, and modern development practices. Seeking a challenging role where I can apply my technical skills, grow as a developer, and collaborate on impactful projects that enhance user experiences.
               </p>
               <p>
                 Currently pursuing my <span className="text-white font-semibold">Master's in Computer Science</span> at
-                Griffith College Dublin, I specialize in mobile and web development with expertise in
+                Griffith College Dublin, <span className="text-white font-semibold">Junaidh Haneefa</span> specializes in mobile and web development with expertise in
                 <span className="text-white font-semibold"> Flutter, Kotlin, MERN stack, Django</span>, and more.
               </p>
               <p>
-                As a <span className="text-white font-semibold">Team Lead at D4DX Innovations</span>, I've successfully
+                As a <span className="text-white font-semibold">Team Lead at D4DX Innovations</span>, <span className="text-white font-semibold">Junaidh Haneefa</span> has successfully
                 led the development of multiple cross-platform applications, managed project timelines, and mentored
                 junior developers while maintaining high code quality standards.
               </p>

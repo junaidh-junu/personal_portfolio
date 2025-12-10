@@ -51,8 +51,14 @@ const Hero = () => {
           <motion.h1
             variants={item}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6"
+            itemScope
+            itemType="https://schema.org/Person"
           >
-            <span className="block bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text text-transparent">
+            <span 
+              className="block bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text text-transparent"
+              itemProp="name"
+              aria-label="Junaidh Haneefa - Full Stack Developer"
+            >
               Junaidh Haneefa
             </span>
           </motion.h1>
