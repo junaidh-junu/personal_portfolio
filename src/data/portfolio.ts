@@ -124,8 +124,15 @@ export const projects: Project[] = [
   {
     id: '8',
     title: 'Enteward',
-    description: 'A simple app to report issues,get local news and see what your councilors are doing in your area.',
-    technologies: ['Flutter', 'Dart', 'Audio Player', 'SQLite'],
+    description: 'A comprehensive citizen engagement application that allows users to report local issues, access community news, and stay informed about councilor activities in their area. Features real-time notifications and issue tracking.',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'SQLite'],
+    date: '2025'
+  },
+  {
+    id: '8a',
+    title: 'Enteward Admin App',
+    description: 'Councilor-facing version of Enteward that enables local representatives to manage citizen reports, publish updates, share news, and communicate directly with constituents. Includes analytics dashboard and issue management system.',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'Admin Panel'],
     date: '2025'
   },
   {
@@ -140,6 +147,35 @@ export const projects: Project[] = [
     title: 'Hira Plus',
     description: 'An application for the administration and management of internal operations of Hira Center in Kozhikode.',
     technologies: ['Flutter', 'Dart', 'Directus', 'Provider','REST APIs','Firebase'],
+    date: '2025'
+  },
+  {
+    id: '11',
+    title: 'Toy Car Showroom',
+    description: 'An interactive e-commerce application for browsing and purchasing miniature collectible cars. Features include detailed car specifications, high-quality images, virtual garage management, wishlist functionality, and secure checkout. Users can build and organize their personal collection in a virtual garage.',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'Payment Gateway', 'SQLite'],
+    date: '2024'
+  },
+  {
+    id: '12',
+    title: 'ReadmeForger - GitHub Profile Generator',
+    description: 'A powerful web application for creating professional GitHub profile READMEs with live preview. Features customizable sections, badges, statistics, tech stacks, and social links. Generates markdown code instantly with one-click copy functionality.',
+    technologies: ['React', 'JavaScript', 'Markdown', 'CSS', 'GitHub API'],
+    date: '2024',
+    demo: 'https://readmeforger.junaidh.me/'
+  },
+  {
+    id: '13',
+    title: 'Gemini Audio Transcriber',
+    description: 'A JavaScript-based npm module for converting audio files to text using Google\'s Gemini API. Supports multiple audio formats, handles large files with chunking, provides real-time transcription progress, and includes error handling with retry logic. Easy integration with Node.js applications.',
+    technologies: ['JavaScript', 'Node.js', 'Gemini API', 'npm', 'Audio Processing'],
+    date: '2025'
+  },
+  {
+    id: '14',
+    title: 'Spotify Discovery Plugin',
+    description: 'An intelligent Spotify plugin featuring multi-language support (Hindi, Malayalam, Tamil, Telugu, Kannada, Punjabi, Urdu, English) for discovering fresh music. Includes a novelty engine that blacklists played tracks for 7 days, audio-feature matching for similar vibes, cross-language discovery for finding tracks with similar energy across different languages, auto-queue that injects fresh tracks before the current song ends, one-click playlist generation, and ensures no repetition unlike standard Spotify.',
+    technologies: ['Spotify API', 'JavaScript', 'Audio Analysis', 'Machine Learning', 'React'],
     date: '2025'
   }
 ];
@@ -203,11 +239,11 @@ export const skills: Skill[] = [
 export const contactInfo = {
   name: 'Junaidh Haneefa Muhammedhaneefa',
   title: 'Full Stack Developer | Flutter & Kotlin Developer',
-  subtitle: 'Web Developer | Domain & DNS Specialist | CI/CD Pipeline Monitor | MSc Computing Science',
+  subtitle: 'Mobile & Web Developer | MERN Stack | Domain & DNS Specialist | CI/CD Pipeline | MSc Computing Science',
   email: 'junaidhhaneef.m@gmail.com',
   phone: '+353 892534784',
-  location: 'Dublin, Ireland',
+  location: '14 Parkleigh Grove, Seven Mills, Clondalkin, Dublin, Ireland',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
-  bio: 'Aspiring and passionate Flutter developer with a Bachelor\'s degree in Computer Science and hands-on experience in building cross-platform mobile applications since graduation. Eager to contribute to innovative and scalable mobile solutions using Flutter, Dart, and modern development practices. Seeking a challenging role where I can apply my technical skills, grow as a developer, and collaborate on impactful projects that enhance user experiences.'
+  bio: 'Full-stack developer with expertise in Flutter/Dart, MERN stack, and Kotlin/Jetpack Compose. Currently pursuing MSc in Computing Science at Griffith College Dublin. Passionate about building innovative cross-platform mobile applications and scalable web solutions. Experienced in developing production-ready applications with modern development practices, clean architecture, and user-centric design. Seeking opportunities to contribute to impactful projects that enhance user experiences and solve real-world problems.'
 };
