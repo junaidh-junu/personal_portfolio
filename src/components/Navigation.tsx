@@ -5,10 +5,18 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Calculate scroll progress
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
+      const scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
+      setScrollProgress(scrollPercentage);
 
       // Update active section based on scroll position
       const sections = ['home', 'about', 'experience', 'education', 'skills', 'projects', 'publications', 'contact'];
@@ -24,6 +32,7 @@ const Navigation = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -132,6 +141,15 @@ const Navigation = () => {
             </button>
           </div>
         </div>
+
+        {/* Progress Bar */}
+        <motion.div
+          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary via-accent to-accent-purple origin-left"
+          style={{ width: `${scrollProgress}%` }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.1 }}
+        />
       </motion.nav>
 
       {/* Mobile Menu */}

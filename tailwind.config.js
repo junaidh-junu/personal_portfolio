@@ -8,15 +8,16 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#3b82f6',
-          dark: '#2563eb',
-          light: '#60a5fa',
-          lighter: '#93c5fd',
+          DEFAULT: '#00F5FF',  // electric cyan
+          dark: '#00D4DD',
+          light: '#33F7FF',
+          lighter: '#66F9FF',
         },
         accent: {
-          DEFAULT: '#8b5cf6',
-          dark: '#7c3aed',
-          light: '#a78bfa',
+          DEFAULT: '#FF0080',  // hot pink
+          dark: '#DD006E',
+          light: '#FF3399',
+          purple: '#7B2FF7',   // vivid purple
         },
         neutral: {
           50: '#fafafa',
@@ -32,8 +33,8 @@ export default {
           950: '#0a0a0a',
         },
         dark: {
-          bg: '#0a0a0a',
-          surface: '#141414',
+          bg: '#050505',        // deep black
+          surface: '#0F0F0F',   // dark gray
           card: '#1a1a1a',
           'card-elevated': '#202020',
           border: '#2a2a2a',
@@ -42,7 +43,9 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        display: ['Syne', 'system-ui', 'sans-serif'],
+        heading: ['Outfit', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       fontSize: {
         'display': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
