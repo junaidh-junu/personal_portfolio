@@ -34,7 +34,7 @@ const Experience = () => {
   }, [mouseX, mouseY]);
 
   return (
-    <section ref={sectionRef} id="experience" className="py-20 relative overflow-hidden bg-dark-surface/30">
+    <section ref={sectionRef} id="experience" className="py-32 relative overflow-hidden">
       {/* Parallax Background Layers */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-dark-surface/50 via-dark-bg to-dark-surface/50"

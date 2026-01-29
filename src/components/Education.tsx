@@ -34,7 +34,7 @@ const Education = () => {
   }, [mouseX, mouseY]);
 
   return (
-    <section ref={sectionRef} id="education" className="py-20 relative overflow-hidden">
+    <section ref={sectionRef} id="education" className="py-32 relative overflow-hidden">
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg"
         style={{

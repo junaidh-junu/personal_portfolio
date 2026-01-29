@@ -34,7 +34,7 @@ const Publications = () => {
   }, [mouseX, mouseY]);
 
   return (
-    <section ref={sectionRef} id="publications" className="py-20 relative overflow-hidden bg-dark-surface/30">
+    <section ref={sectionRef} id="publications" className="py-32 relative overflow-hidden">
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-dark-surface/50 via-dark-bg to-dark-surface/50"
         style={{

@@ -46,7 +46,7 @@ const About = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="about" className="py-20 relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-32 relative overflow-hidden">
       {/* Parallax Background Layers */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg"

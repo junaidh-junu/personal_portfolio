@@ -48,7 +48,7 @@ const Skills = () => {
   }, {} as Record<string, typeof skills>);
 
   return (
-    <section ref={sectionRef} id="skills" className="py-20 relative overflow-hidden bg-dark-surface/30">
+    <section ref={sectionRef} id="skills" className="py-32 relative overflow-hidden">
       {/* Parallax Background Layers */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-dark-surface/50 via-dark-bg to-dark-surface/50"
@@ -159,49 +159,6 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Skills Visualization */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-24 max-w-5xl mx-auto"
-        >
-          <div className="card-elegant p-8 md:p-10 rounded-xl">
-            <h3 className="text-2xl md:text-3xl font-bold mb-2 text-center gradient-text">Core Competencies</h3>
-            <p className="text-neutral-400 text-center mb-8">Proficiency levels across key areas</p>
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                { name: 'Mobile Development', level: 95 },
-                { name: 'Web Development', level: 90 },
-                { name: 'Backend Development', level: 85 },
-                { name: 'DevOps & Cloud', level: 80 },
-                { name: 'UI/UX Design', level: 85 },
-                { name: 'Project Management', level: 90 },
-              ].map((competency, index) => (
-                <motion.div
-                  key={competency.name}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                  className="group"
-                >
-                  <div className="flex justify-between mb-3">
-                    <span className="text-neutral-300 font-semibold group-hover:text-white transition-colors">{competency.name}</span>
-                    <span className="text-white font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{competency.level}%</span>
-                  </div>
-                  <div className="h-3 bg-neutral-900 rounded-full overflow-hidden border border-neutral-800">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: `${competency.level}%` } : {}}
-                      transition={{ duration: 1.2, delay: 1 + index * 0.1, ease: 'easeOut' }}
-                      className="h-full bg-gradient-to-r from-primary via-accent to-primary rounded-full shadow-lg"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   );
