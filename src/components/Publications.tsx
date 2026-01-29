@@ -1,15 +1,82 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { publications } from '../data/portfolio';
 
 const Publications = () => {
   const ref = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth < 1024) return;
+      const { clientX, clientY } = e;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      setMousePosition({
+        x: (clientX - centerX) / centerX,
+        y: (clientY - centerY) / centerY,
+      });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   return (
-    <section id="publications" className="py-20 relative overflow-hidden bg-dark-surface/30">
-      <div className="container mx-auto px-4" ref={ref}>
+    <section ref={sectionRef} id="publications" className="py-20 relative overflow-hidden bg-dark-surface/30">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-dark-surface/50 via-dark-bg to-dark-surface/50"
+        style={{
+          x: useMotionValue(mousePosition.x * 5),
+          y: useMotionValue(mousePosition.y * 5),
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(123,47,247,0.12),transparent_50%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 15),
+          y: useMotionValue(mousePosition.y * 15),
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_20%_70%,rgba(255,0,128,0.1),transparent_50%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 25),
+          y: useMotionValue(mousePosition.y * 25),
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,rgba(0,245,255,0.08),transparent_60%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 35),
+          y: useMotionValue(mousePosition.y * 35),
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          x: useMotionValue(mousePosition.x * 10),
+          y: useMotionValue(mousePosition.y * 10),
+        }}
+      >
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(rgba(0,245,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.2) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }} />
+      </motion.div>
+
+      <motion.div className="container mx-auto px-4 relative z-10" ref={ref} style={{ opacity, scale, y }}>
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +159,7 @@ const Publications = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

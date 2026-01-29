@@ -1,11 +1,42 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { contactInfo } from '../data/portfolio';
 
 const About = () => {
   const ref = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  // Scroll-based transformations for parallax
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  // Mouse parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth < 1024) return; // Disable on mobile/tablet
+
+      const { clientX, clientY } = e;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      setMousePosition({
+        x: (clientX - centerX) / centerX,
+        y: (clientY - centerY) / centerY,
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const stats = [
     { label: 'Years Experience', value: '2+' },
@@ -15,9 +46,62 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-20 relative overflow-hidden">
+      {/* Parallax Background Layers */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg"
+        style={{
+          x: useMotionValue(mousePosition.x * 5),
+          y: useMotionValue(mousePosition.y * 5),
+        }}
+      />
 
-      <div className="container mx-auto px-4 relative z-10" ref={ref}>
+      {/* Layer 1 - Slowest */}
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(0,245,255,0.12),transparent_50%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 15),
+          y: useMotionValue(mousePosition.y * 15),
+        }}
+      />
+
+      {/* Layer 2 - Medium */}
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(255,0,128,0.1),transparent_50%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 25),
+          y: useMotionValue(mousePosition.y * 25),
+        }}
+      />
+
+      {/* Layer 3 - Fastest */}
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,47,247,0.08),transparent_60%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 35),
+          y: useMotionValue(mousePosition.y * 35),
+        }}
+      />
+
+      {/* Animated Grid Pattern with parallax */}
+      <motion.div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          x: useMotionValue(mousePosition.x * 10),
+          y: useMotionValue(mousePosition.y * 10),
+        }}
+      >
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(rgba(0,245,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.2) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }} />
+      </motion.div>
+
+      <motion.div
+        className="container mx-auto px-4 relative z-10"
+        ref={ref}
+        style={{ opacity, scale, y }}
+      >
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -173,7 +257,7 @@ const About = () => {
             ))}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

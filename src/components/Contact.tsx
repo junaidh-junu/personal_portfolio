@@ -1,11 +1,37 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { contactInfo } from '../data/portfolio';
 
 const Contact = () => {
   const ref = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth < 1024) return;
+      const { clientX, clientY } = e;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      setMousePosition({
+        x: (clientX - centerX) / centerX,
+        y: (clientY - centerY) / centerY,
+      });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const contactMethods = [
     {
@@ -63,9 +89,49 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="py-20 relative overflow-hidden">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg"
+        style={{
+          x: useMotionValue(mousePosition.x * 5),
+          y: useMotionValue(mousePosition.y * 5),
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(0,245,255,0.12),transparent_50%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 15),
+          y: useMotionValue(mousePosition.y * 15),
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(123,47,247,0.1),transparent_50%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 25),
+          y: useMotionValue(mousePosition.y * 25),
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(255,0,128,0.08),transparent_60%)]"
+        style={{
+          x: useMotionValue(mousePosition.x * 35),
+          y: useMotionValue(mousePosition.y * 35),
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          x: useMotionValue(mousePosition.x * 10),
+          y: useMotionValue(mousePosition.y * 10),
+        }}
+      >
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(rgba(0,245,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.2) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }} />
+      </motion.div>
 
-      <div className="container mx-auto px-4 relative z-10" ref={ref}>
+      <motion.div className="container mx-auto px-4 relative z-10" ref={ref} style={{ opacity, scale, y }}>
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -175,8 +241,9 @@ const Contact = () => {
         <p>
           © {new Date().getFullYear()} <span itemProp="name">{contactInfo.name}</span>. All rights reserved.
         </p>
-       
+
       </motion.footer>
+      </motion.div>
     </section>
   );
 };
