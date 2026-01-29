@@ -227,22 +227,21 @@ const Contact = () => {
             </div>
           </motion.div>
         </div>
-      </div>
 
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="text-center mt-20 text-neutral-500"
-        itemScope
-        itemType="https://schema.org/Person"
-      >
-        <p>
-          © {new Date().getFullYear()} <span itemProp="name">{contactInfo.name}</span>. All rights reserved.
-        </p>
+        {/* Footer */}
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center mt-20 text-neutral-500"
+          itemScope
+          itemType="https://schema.org/Person"
+        >
+          <p>
+            © {new Date().getFullYear()} <span itemProp="name">{contactInfo.name}</span>. All rights reserved.
+          </p>
 
-      </motion.footer>
+        </motion.footer>
       </motion.div>
     </section>
   );
