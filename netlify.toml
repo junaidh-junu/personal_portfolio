@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = "dist"
   base = "."
 
@@ -9,7 +9,9 @@
   status = 200
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "22.22.0"
+  NPM_FLAGS = "--legacy-peer-deps"
+  CI = "true"
 
 # Opt out of Google's FLoC tracking
 [[headers]]
