@@ -1,12 +1,15 @@
 import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { contactInfo } from '../data/portfolio';
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollY } = useScroll();
+
+  // Mouse motion values (no re-renders)
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   // Scroll-based transformations for parallax
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -22,15 +25,13 @@ const Hero = () => {
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
 
-      setMousePosition({
-        x: (clientX - centerX) / centerX,
-        y: (clientY - centerY) / centerY,
-      });
+      mouseX.set((clientX - centerX) / centerX);
+      mouseY.set((clientY - centerY) / centerY);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [mouseX, mouseY]);
 
   const container = {
     hidden: { opacity: 0 },
@@ -54,8 +55,8 @@ const Hero = () => {
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg"
         style={{
-          x: useMotionValue(mousePosition.x * 5),
-          y: useMotionValue(mousePosition.y * 5),
+          x: useTransform(mouseX, (x) => x * 5),
+          y: useTransform(mouseY, (y) => y * 5),
         }}
       />
 
@@ -63,8 +64,8 @@ const Hero = () => {
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,245,255,0.15),transparent_50%)]"
         style={{
-          x: useMotionValue(mousePosition.x * 15),
-          y: useMotionValue(mousePosition.y * 15),
+          x: useTransform(mouseX, (x) => x * 15),
+          y: useTransform(mouseY, (y) => y * 15),
         }}
       />
 
@@ -72,8 +73,8 @@ const Hero = () => {
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,0,128,0.12),transparent_50%)]"
         style={{
-          x: useMotionValue(mousePosition.x * 25),
-          y: useMotionValue(mousePosition.y * 25),
+          x: useTransform(mouseX, (x) => x * 25),
+          y: useTransform(mouseY, (y) => y * 25),
         }}
       />
 
@@ -81,8 +82,8 @@ const Hero = () => {
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,47,247,0.1),transparent_60%)]"
         style={{
-          x: useMotionValue(mousePosition.x * 35),
-          y: useMotionValue(mousePosition.y * 35),
+          x: useTransform(mouseX, (x) => x * 35),
+          y: useTransform(mouseY, (y) => y * 35),
         }}
       />
 
@@ -90,8 +91,8 @@ const Hero = () => {
       <motion.div
         className="absolute inset-0 opacity-[0.04]"
         style={{
-          x: useMotionValue(mousePosition.x * 10),
-          y: useMotionValue(mousePosition.y * 10),
+          x: useTransform(mouseX, (x) => x * 10),
+          y: useTransform(mouseY, (y) => y * 10),
         }}
       >
         <div className="absolute inset-0" style={{
@@ -125,17 +126,17 @@ const Hero = () => {
             itemScope
             itemType="https://schema.org/Person"
           >
-            <span
+            <motion.span
               className="block bg-gradient-to-r from-white via-primary/90 to-white bg-clip-text text-transparent"
               itemProp="name"
               aria-label="Junaidh Haneefa - Full Stack Developer"
               style={{
-                transform: `translate(${mousePosition.x * 8}px, ${mousePosition.y * 8}px)`,
-                transition: 'transform 0.2s ease-out',
+                x: useTransform(mouseX, (x) => x * 8),
+                y: useTransform(mouseY, (y) => y * 8),
               }}
             >
               Junaidh Haneefa
-            </span>
+            </motion.span>
           </motion.h1>
 
           {/* Title with gradient accent */}
@@ -177,7 +178,7 @@ const Hero = () => {
               href="#contact"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="group px-10 py-4 bg-gradient-to-r from-primary to-accent text-black font-heading font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 relative overflow-hidden text-lg"
+              className="group px-10 py-4 bg-gradient-to-r from-primary to-accent text-dark-bg font-heading font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 relative overflow-hidden text-lg"
             >
               <span className="relative z-10">Get In Touch</span>
               <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

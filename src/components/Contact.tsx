@@ -1,13 +1,15 @@
 import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { contactInfo } from '../data/portfolio';
 
 const Contact = () => {
   const ref = useRef(null);
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -24,14 +26,12 @@ const Contact = () => {
       const { clientX, clientY } = e;
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
-      setMousePosition({
-        x: (clientX - centerX) / centerX,
-        y: (clientY - centerY) / centerY,
-      });
+      mouseX.set((clientX - centerX) / centerX);
+      mouseY.set((clientY - centerY) / centerY);
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [mouseX, mouseY]);
 
   const contactMethods = [
     {
@@ -93,36 +93,36 @@ const Contact = () => {
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg"
         style={{
-          x: useMotionValue(mousePosition.x * 5),
-          y: useMotionValue(mousePosition.y * 5),
+          x: useTransform(mouseX, (x) => x * 5),
+          y: useTransform(mouseY, (y) => y * 5),
         }}
       />
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(0,245,255,0.12),transparent_50%)]"
         style={{
-          x: useMotionValue(mousePosition.x * 15),
-          y: useMotionValue(mousePosition.y * 15),
+          x: useTransform(mouseX, (x) => x * 15),
+          y: useTransform(mouseY, (y) => y * 15),
         }}
       />
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(123,47,247,0.1),transparent_50%)]"
         style={{
-          x: useMotionValue(mousePosition.x * 25),
-          y: useMotionValue(mousePosition.y * 25),
+          x: useTransform(mouseX, (x) => x * 25),
+          y: useTransform(mouseY, (y) => y * 25),
         }}
       />
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(255,0,128,0.08),transparent_60%)]"
         style={{
-          x: useMotionValue(mousePosition.x * 35),
-          y: useMotionValue(mousePosition.y * 35),
+          x: useTransform(mouseX, (x) => x * 35),
+          y: useTransform(mouseY, (y) => y * 35),
         }}
       />
       <motion.div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          x: useMotionValue(mousePosition.x * 10),
-          y: useMotionValue(mousePosition.y * 10),
+          x: useTransform(mouseX, (x) => x * 10),
+          y: useTransform(mouseY, (y) => y * 10),
         }}
       >
         <div className="absolute inset-0" style={{
