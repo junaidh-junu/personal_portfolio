@@ -153,17 +153,90 @@ Deferred enhancements for future iterations.
 
 ## Traceability
 
-Populated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (To be filled by roadmapper) | - | - |
+| DESIGN-01 | Phase 1 | Pending |
+| DESIGN-02 | Phase 1 | Pending |
+| DESIGN-03 | Phase 1 | Pending |
+| DESIGN-04 | Phase 1 | Pending |
+| DESIGN-05 | Phase 1 | Pending |
+| DESIGN-06 | Phase 1 | Pending |
+| DESIGN-07 | Phase 1 | Pending |
+| DESIGN-08 | Phase 1 | Pending |
+| NAV-01 | Phase 2 | Pending |
+| NAV-02 | Phase 2 | Pending |
+| NAV-03 | Phase 2 | Pending |
+| NAV-04 | Phase 2 | Pending |
+| NAV-05 | Phase 2 | Pending |
+| NAV-06 | Phase 2 | Pending |
+| HERO-01 | Phase 2 | Pending |
+| HERO-02 | Phase 2 | Pending |
+| HERO-03 | Phase 2 | Pending |
+| HERO-04 | Phase 2 | Pending |
+| HERO-05 | Phase 2 | Pending |
+| HERO-06 | Phase 2 | Pending |
+| ABOUT-01 | Phase 3 | Pending |
+| ABOUT-02 | Phase 3 | Pending |
+| ABOUT-03 | Phase 3 | Pending |
+| ABOUT-04 | Phase 3 | Pending |
+| ABOUT-05 | Phase 3 | Pending |
+| CONTACT-01 | Phase 3 | Pending |
+| CONTACT-02 | Phase 3 | Pending |
+| CONTACT-03 | Phase 3 | Pending |
+| CONTACT-04 | Phase 3 | Pending |
+| CONTACT-05 | Phase 3 | Pending |
+| CONTACT-06 | Phase 3 | Pending |
+| PROJ-01 | Phase 4 | Pending |
+| PROJ-02 | Phase 4 | Pending |
+| PROJ-03 | Phase 4 | Pending |
+| PROJ-04 | Phase 4 | Pending |
+| PROJ-05 | Phase 4 | Pending |
+| PROJ-06 | Phase 4 | Pending |
+| PROJ-07 | Phase 4 | Pending |
+| PROJ-08 | Phase 4 | Pending |
+| PROJ-09 | Phase 4 | Pending |
+| PROJ-10 | Phase 4 | Pending |
+| EXP-01 | Phase 5 | Pending |
+| EXP-02 | Phase 5 | Pending |
+| EXP-03 | Phase 5 | Pending |
+| EXP-04 | Phase 5 | Pending |
+| EXP-05 | Phase 5 | Pending |
+| EXP-06 | Phase 5 | Pending |
+| EXP-07 | Phase 5 | Pending |
+| EXP-08 | Phase 5 | Pending |
+| EDU-01 | Phase 5 | Pending |
+| EDU-02 | Phase 5 | Pending |
+| EDU-03 | Phase 5 | Pending |
+| EDU-04 | Phase 5 | Pending |
+| EDU-05 | Phase 5 | Pending |
+| EDU-06 | Phase 5 | Pending |
+| SKILL-01 | Phase 5 | Pending |
+| SKILL-02 | Phase 5 | Pending |
+| SKILL-03 | Phase 5 | Pending |
+| SKILL-04 | Phase 5 | Pending |
+| SKILL-05 | Phase 5 | Pending |
+| INTERACT-01 | Phase 6 | Pending |
+| INTERACT-02 | Phase 6 | Pending |
+| INTERACT-03 | Phase 6 | Pending |
+| INTERACT-04 | Phase 6 | Pending |
+| INTERACT-05 | Phase 6 | Pending |
+| INTERACT-06 | Phase 6 | Pending |
+| INTERACT-07 | Phase 6 | Pending |
+| INTERACT-08 | Phase 6 | Pending |
+| INTERACT-09 | Phase 6 | Pending |
+| SEO-01 | Phase 7 | Pending |
+| SEO-02 | Phase 7 | Pending |
+| SEO-03 | Phase 7 | Pending |
+| SEO-04 | Phase 7 | Pending |
+| SEO-05 | Phase 7 | Pending |
+| SEO-06 | Phase 7 | Pending |
+| SEO-07 | Phase 7 | Pending |
 
 **Coverage:**
-- v1 requirements: 69 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 69 ⚠️
+- v1 requirements: 76 total
+- Mapped to phases: 76 (100%)
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-31*
-*Last updated: 2026-01-31 after initial definition*
+*Last updated: 2026-01-31 after roadmap creation*
