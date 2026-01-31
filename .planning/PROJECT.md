@@ -4,18 +4,16 @@
 
 A professional portfolio website showcasing Junaidh Haneefa's work as a Full Stack Developer specializing in Flutter, MERN stack, and Kotlin. Currently features 14 projects (mobile apps, web applications, IoT systems, npm modules, and plugins), experience timeline, education, skills, and contact information. Built with React, Framer Motion, and Tailwind CSS.
 
-## Current Milestone: v2.0 Immersive Flow Experience
+## Current Milestone: v2.0 Minimalistic Classic Redesign
 
-**Goal:** Transform the static scrolling portfolio into a modern, immersive experience with smooth scroll physics, horizontal sections, 3D depth, and dynamic transitions that makes the portfolio memorable, demonstrates technical mastery, and increases visitor engagement.
+**Goal:** Create a sophisticated, minimalistic portfolio with Apple-inspired design principles - generous whitespace, perfect typography, subtle refined animations, and high attention to detail. Dark theme with slate blue accents, classic serif + sans pairing, and clean project grid with filtering.
 
-**Target features:**
-- Lenis smooth scroll with momentum physics
-- Horizontal projects carousel with 3D perspective (showcase 14 projects cinematically)
-- Parallax layers and depth throughout all sections
-- Custom magnetic cursor for premium feel
-- GSAP scroll-triggered animations
-- Dynamic navigation with progress indicators
-- Responsive design with graceful degradation
+**Design Philosophy:**
+- Minimalistic & refined (not flashy or neon)
+- Classic typography (serif + sans pairing)
+- Apple minimalism (generous whitespace, subtle depth)
+- High standards, not rushed
+- Professional & timeless
 
 ## Requirements
 
@@ -35,32 +33,42 @@ A professional portfolio website showcasing Junaidh Haneefa's work as a Full Sta
 
 ### Active
 
-<!-- v2.0 Immersive Flow Experience scope -->
+<!-- v2.0 Minimalistic Classic Redesign scope -->
 
-- [ ] Lenis smooth scroll integration with momentum physics
-- [ ] Horizontal projects carousel (vertical scroll triggers horizontal movement)
-- [ ] 3D transforms on project cards (rotateY, scale based on position)
-- [ ] Custom magnetic cursor (desktop only)
-- [ ] Parallax layers in Hero section
-- [ ] GSAP ScrollTrigger animations throughout
-- [ ] Progress bar showing scroll depth
-- [ ] Position-aware navigation (highlights current section)
-- [ ] Hero text scale/fade on scroll
-- [ ] Skills as 3D rotating cards with hover effects
-- [ ] Experience timeline horizontal scroll
-- [ ] Mobile-friendly fallbacks (vertical scroll for projects, no 3D)
+**Design System:**
+- [ ] Color palette: Dark background + slate blue accent (professional, not neon)
+- [ ] Typography: Classic serif (headings) + sans-serif (body) pairing
+- [ ] Generous whitespace and breathing room (Apple-inspired)
+- [ ] Subtle refined animations (quality over flash)
 - [ ] Reduced motion support (prefers-reduced-motion)
-- [ ] New typography system (Syne, Outfit, JetBrains Mono)
-- [ ] Updated color palette (electric cyan, hot pink, vivid purple accents)
+
+**Layout & Structure:**
+- [ ] Clean navigation with smooth scroll
+- [ ] Hero section with elegant typography and subtle parallax
+- [ ] About section with professional photo and refined copy
+- [ ] Projects grid with category filtering (Mobile, Web, IoT, Tools)
+- [ ] Project cards with hover states and clean imagery
+- [ ] Experience timeline (vertical, clean layout)
+- [ ] Skills organized by category (minimalistic presentation)
+- [ ] Contact section with clear CTAs
+
+**Interactions:**
+- [ ] Smooth scroll behavior (Lenis for refined physics)
+- [ ] Fade-in on scroll (subtle, not jarring)
+- [ ] Hover micro-interactions on cards
+- [ ] Project filtering with smooth transitions
+- [ ] Mobile-responsive with touch-friendly interactions
 
 ### Out of Scope
 
-- Three.js 3D scenes — Too heavy, CSS 3D transforms sufficient
-- WebGL shaders — Unnecessary complexity for portfolio
-- Video backgrounds — Performance concerns
-- Real-time multiplayer/collaboration — Not relevant to portfolio
+- Neon colors (cyan, hot pink, purple) — Want classic, not flashy
+- Heavy 3D animations or horizontal carousels — Prefer minimalistic
+- Three.js/WebGL — Unnecessary complexity
+- Custom magnetic cursor — Too gimmicky for classic aesthetic
+- Video backgrounds — Performance and aesthetic concerns
 - Blog/CMS integration — Focus is on project showcase
 - Backend API — Static portfolio sufficient
+- Dark/light mode toggle — Committed to dark theme
 
 ## Context
 
@@ -86,10 +94,11 @@ A professional portfolio website showcasing Junaidh Haneefa's work as a Full Sta
 - Currently on `production` branch
 
 **Design Inspiration:**
-- Apple product pages (smooth scroll, 3D)
-- awwwards.com winners (horizontal sections)
-- Lenis demo site (smooth physics)
-- Contemporary flow-based portfolios (2024-2026)
+- Apple's minimalism (generous whitespace, perfect typography, subtle depth)
+- Linear.app (clean, refined, professional dark theme)
+- Stripe.com (sophisticated, elegant, restrained)
+- Medium's editorial layout (typography-first, breathing room)
+- Classic Swiss design (grid-based, hierarchy, precision)
 
 ## Constraints
 
@@ -104,13 +113,14 @@ A professional portfolio website showcasing Junaidh Haneefa's work as a Full Sta
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Lenis over Locomotive Scroll | Lenis is modern, lighter, better maintained (2024-2026) | — Pending |
-| GSAP for scroll animations | Industry standard, powerful ScrollTrigger plugin, better than CSS alone | — Pending |
-| No Three.js | Bundle size concern, CSS 3D transforms sufficient for portfolio | — Pending |
-| Horizontal projects carousel | Best way to showcase 14 projects cinematically, modern pattern | — Pending |
-| Custom cursor | Premium feel, demonstrates attention to detail, easy to implement | — Pending |
-| Syne + Outfit fonts | Distinctive, not overused (avoid Inter/Space Grotesk), bold and modern | — Pending |
-| Dark theme with vibrant accents | High contrast, modern, makes accents pop (cyan, pink, purple) | — Pending |
+| Complete redesign over refinement | Current design doesn't match minimalistic vision, fresh start needed | — Pending |
+| Dark theme + slate blue accent | Professional, tech-forward, not neon or flashy | — Pending |
+| Classic serif + sans pairing | Timeless typography (Crimson/Playfair + Inter/Work Sans) | — Pending |
+| Apple minimalism aesthetic | Generous whitespace, subtle animations, perfect typography | — Pending |
+| Projects grid with filtering | Clean organization of 14 projects by category (Mobile/Web/IoT/Tools) | — Pending |
+| Lenis for smooth scroll | Modern, lightweight, refined scroll physics | — Pending |
+| Framer Motion for animations | Already installed, perfect for subtle refined interactions | — Pending |
+| No heavy 3D/horizontal scrolling | Prefer classic, minimalistic over flashy | — Pending |
 
 ---
-*Last updated: 2026-01-28 after milestone v2.0 initialization*
+*Last updated: 2026-01-31 after v2.0 redesign pivot to minimalistic classic*
