@@ -5,20 +5,11 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Calculate scroll progress
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY;
-      const scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
-      setScrollProgress(scrollPercentage);
-
-      // Update active section based on scroll position
       const sections = ['home', 'about', 'experience', 'education', 'skills', 'projects', 'publications', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
@@ -32,7 +23,7 @@ const Navigation = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -60,45 +51,43 @@ const Navigation = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? 'glass py-3 shadow-elegant' : 'bg-transparent py-5'
+          isScrolled
+            ? 'bg-dark-bg/90 backdrop-blur-md border-b border-dark-border py-4'
+            : 'bg-transparent py-6'
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative cursor-pointer group"
+            <button
               onClick={() => scrollToSection('home')}
+              className="relative cursor-pointer group"
             >
-              <div className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                <span className="bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent">
-                  JH
-                </span>
-              </div>
-              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-            </motion.div>
+              <span className="font-display text-3xl text-ivory tracking-wide">
+                JH
+              </span>
+              <span className="absolute -bottom-1 left-0 w-full h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+            </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-2">
+            <div className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-2 rounded-lg transition-all duration-300 relative font-medium text-sm ${
+                  className={`px-4 py-2 transition-all duration-300 relative font-body text-sm tracking-wide ${
                     activeSection === item.id
-                      ? 'text-white'
-                      : 'text-neutral-400 hover:text-neutral-200'
+                      ? 'text-accent'
+                      : 'text-ivory-muted hover:text-ivory'
                   }`}
                 >
                   {item.label}
                   {activeSection === item.id && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary"
+                      className="absolute bottom-0 left-4 right-4 h-px bg-accent"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -107,21 +96,19 @@ const Navigation = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="hidden lg:flex items-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            <div className="hidden lg:block">
+              <button
                 onClick={() => scrollToSection('contact')}
-                className="px-6 py-2.5 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 shadow-medium"
+                className="px-6 py-2.5 border border-accent/40 text-accent text-sm font-body font-medium tracking-wide hover:bg-accent/10 transition-all duration-300"
               >
                 Let's Talk
-              </motion.button>
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-white p-2 rounded-lg hover:bg-neutral-800/50 transition-colors duration-300"
+              className="lg:hidden text-ivory p-2 transition-colors duration-300"
               aria-label="Toggle menu"
             >
               <motion.div
@@ -129,27 +116,18 @@ const Navigation = () => {
                 transition={{ duration: 0.3 }}
               >
                 {isMobileMenuOpen ? (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 ) : (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 )}
               </motion.div>
             </button>
           </div>
         </div>
-
-        {/* Progress Bar */}
-        <motion.div
-          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary via-accent to-accent-purple origin-left"
-          style={{ width: `${scrollProgress}%` }}
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.1 }}
-        />
       </motion.nav>
 
       {/* Mobile Menu */}
@@ -161,27 +139,27 @@ const Navigation = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-dark-surface border-l border-dark-border z-50 lg:hidden overflow-y-auto"
+              transition={{ type: 'spring', damping: 30, stiffness: 250 }}
+              className="fixed top-0 right-0 bottom-0 w-72 bg-dark-surface border-l border-dark-border z-50 lg:hidden overflow-y-auto"
             >
-              <div className="p-6 space-y-4 mt-16">
+              <div className="p-8 space-y-2 mt-16">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.id}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.05 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
+                    className={`w-full text-left px-4 py-3 font-body text-sm tracking-wide transition-all duration-300 border-l-2 ${
                       activeSection === item.id
-                        ? 'bg-primary/20 text-white border-l-2 border-primary'
-                        : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
+                        ? 'border-accent text-accent'
+                        : 'border-transparent text-ivory-muted hover:text-ivory hover:border-dark-border-light'
                     }`}
                   >
                     {item.label}
@@ -190,9 +168,9 @@ const Navigation = () => {
                 <motion.button
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.1 }}
+                  transition={{ delay: navItems.length * 0.05 }}
                   onClick={() => scrollToSection('contact')}
-                  className="w-full mt-6 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  className="w-full mt-6 px-6 py-3 border border-accent/40 text-accent text-sm font-body font-medium tracking-wide hover:bg-accent/10 transition-all duration-300"
                 >
                   Let's Talk
                 </motion.button>

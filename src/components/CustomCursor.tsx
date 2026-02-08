@@ -7,7 +7,6 @@ const CustomCursor = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if device is mobile/tablet
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024 || 'ontouchstart' in window);
     };
@@ -31,22 +30,18 @@ const CustomCursor = () => {
     let dotX = 0;
     let dotY = 0;
 
-    // Mouse move handler
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
 
-    // Check if hovering over interactive element
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const isInteractive = target.closest('a, button, input, textarea, [role="button"]');
       setIsPointer(!!isInteractive);
     };
 
-    // Animation loop for smooth cursor following
     const animateCursor = () => {
-      // Smooth cursor following with lerp
       const speed = 0.15;
       const dotSpeed = 0.3;
 
@@ -61,14 +56,11 @@ const CustomCursor = () => {
       requestAnimationFrame(animateCursor);
     };
 
-    // Start animation loop
     const animationId = requestAnimationFrame(animateCursor);
 
-    // Add event listeners
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseover', handleMouseOver);
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', checkMobile);
       document.removeEventListener('mousemove', handleMouseMove);
@@ -77,7 +69,6 @@ const CustomCursor = () => {
     };
   }, [isMobile]);
 
-  // Don't render on mobile
   if (isMobile) {
     return null;
   }
@@ -87,12 +78,12 @@ const CustomCursor = () => {
       {/* Main cursor circle */}
       <div
         ref={cursorRef}
-        className={`fixed top-0 left-0 w-10 h-10 border-2 border-primary rounded-full pointer-events-none z-[9999] transition-all duration-200 ${
-          isPointer ? 'scale-150 border-accent' : 'scale-100'
+        className={`fixed top-0 left-0 w-8 h-8 border rounded-full pointer-events-none z-[9999] transition-all duration-200 ${
+          isPointer ? 'scale-150 border-accent' : 'scale-100 border-ivory-faint'
         }`}
         style={{
-          marginLeft: '-20px',
-          marginTop: '-20px',
+          marginLeft: '-16px',
+          marginTop: '-16px',
           mixBlendMode: 'difference',
         }}
       />
@@ -100,12 +91,12 @@ const CustomCursor = () => {
       {/* Cursor dot */}
       <div
         ref={cursorDotRef}
-        className={`fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none z-[9999] transition-all duration-100 ${
-          isPointer ? 'bg-accent scale-150' : 'bg-primary scale-100'
+        className={`fixed top-0 left-0 w-1 h-1 rounded-full pointer-events-none z-[9999] transition-all duration-100 ${
+          isPointer ? 'bg-accent scale-150' : 'bg-ivory-dim scale-100'
         }`}
         style={{
-          marginLeft: '-3px',
-          marginTop: '-3px',
+          marginLeft: '-2px',
+          marginTop: '-2px',
         }}
       />
     </>

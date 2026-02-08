@@ -1,44 +1,12 @@
-import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { skills } from '../data/portfolio';
 
 const Skills = () => {
   const ref = useRef(null);
-  const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Scroll-based transformations for parallax
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
-  // Mouse parallax effect
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (window.innerWidth < 1024) return;
-
-      const { clientX, clientY } = e;
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-
-      mouseX.set((clientX - centerX) / centerX);
-      mouseY.set((clientY - centerY) / centerY);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // Group skills by category
   const groupedSkills = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = [];
@@ -48,118 +16,61 @@ const Skills = () => {
   }, {} as Record<string, typeof skills>);
 
   return (
-    <section ref={sectionRef} id="skills" className="py-32 relative overflow-hidden">
-      {/* Parallax Background Layers */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-dark-surface/50 via-dark-bg to-dark-surface/50"
-        style={{
-          x: useTransform(mouseX, (x) => x * 5),
-          y: useTransform(mouseY, (y) => y * 5),
-        }}
-      />
+    <section id="skills" className="py-32 relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent to-dark-border" />
 
-      {/* Layer 1 - Slowest */}
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,0,128,0.12),transparent_50%)]"
-        style={{
-          x: useTransform(mouseX, (x) => x * 15),
-          y: useTransform(mouseY, (y) => y * 15),
-        }}
-      />
-
-      {/* Layer 2 - Medium */}
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,rgba(123,47,247,0.1),transparent_50%)]"
-        style={{
-          x: useTransform(mouseX, (x) => x * 25),
-          y: useTransform(mouseY, (y) => y * 25),
-        }}
-      />
-
-      {/* Layer 3 - Fastest */}
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,245,255,0.08),transparent_60%)]"
-        style={{
-          x: useTransform(mouseX, (x) => x * 35),
-          y: useTransform(mouseY, (y) => y * 35),
-        }}
-      />
-
-      {/* Animated Grid Pattern with parallax */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          x: useTransform(mouseX, (x) => x * 10),
-          y: useTransform(mouseY, (y) => y * 10),
-        }}
-      >
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(rgba(0,245,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.2) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }} />
-      </motion.div>
-
-      <motion.div
-        className="container mx-auto px-4 relative z-10"
-        ref={ref}
-        style={{ opacity, scale, y }}
-      >
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12" ref={ref}>
         {/* Section Title */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Technical <span className="gradient-text">Skills</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6 text-ivory">
+            Technical <span className="italic text-accent">Skills</span>
           </h2>
-          <div className="section-divider" />
-          <p className="text-neutral-400 max-w-2xl mx-auto mt-6 text-lg">
-            A comprehensive toolkit of technologies and tools I use to bring ideas to life
+          <div className="gold-rule w-16" />
+          <p className="font-body text-ivory-muted max-w-xl mx-auto mt-6 text-base font-light">
+            Technologies and tools I use to bring ideas to life
           </p>
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-5xl mx-auto space-y-14">
           {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
             <motion.div
               key={category}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              transition={{ duration: 0.8, delay: categoryIndex * 0.08, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Category Title */}
-              <div className="mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold mb-3 gradient-text">
+              <div className="mb-6">
+                <h3 className="font-display text-xl md:text-2xl text-ivory mb-3">
                   {category}
                 </h3>
-                <div className="h-1 w-24 bg-gradient-to-r from-primary via-accent to-primary rounded-full" />
+                <div className="gold-rule-left w-12" />
               </div>
 
               {/* Skills Pills */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 {categorySkills.map((skill, skillIndex) => (
-                  <motion.div
+                  <motion.span
                     key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.3, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-                    whileHover={{ scale: 1.08, y: -4 }}
-                    className="card-elegant card-hover px-5 py-3 rounded-lg cursor-pointer group relative overflow-hidden"
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : {}}
+                    transition={{ duration: 0.4, delay: categoryIndex * 0.08 + skillIndex * 0.03 }}
+                    className="px-4 py-2 border border-dark-border text-ivory-dim font-body text-sm font-light tracking-wide hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="relative z-10 text-neutral-200 font-medium group-hover:text-white transition-colors duration-300">
-                      {skill.name}
-                    </span>
-                  </motion.div>
+                    {skill.name}
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
-
-      </motion.div>
+      </div>
     </section>
   );
 };
