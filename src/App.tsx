@@ -10,14 +10,12 @@ import Contact from './components/Contact';
 import SEOHead from './components/SEO/SEOHead';
 import StructuredData from './components/SEO/StructuredData';
 import SmoothScroll from './components/SmoothScroll';
-import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
     <>
       <SEOHead />
       <StructuredData />
-      <CustomCursor />
       <SmoothScroll>
         <div className="min-h-screen bg-dark-bg text-ivory overflow-x-hidden noise">
           <Navigation />
