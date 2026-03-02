@@ -66,7 +66,7 @@ const Hero = () => {
               itemProp="name"
               aria-label="Junaidh Haneefa - Full Stack Developer"
             >
-              Junaidh Haneefa
+              Junaidh Haneefa Muhammedhaneefa
             </span>
           </motion.h1>
 
