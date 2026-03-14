@@ -242,7 +242,7 @@ export const contactInfo = {
   subtitle: 'Mobile & Web Developer | MERN Stack | Domain & DNS Specialist | CI/CD Pipeline | MSc Computing Science',
   email: 'junaidhhaneef.m@gmail.com',
   phone: '+353 892534784',
-  location: '14 Parkleigh Grove, Seven Mills, Clondalkin, Dublin, Ireland',
+  location: '15 St. Helens Gardens, Adamstown, Lucan, Dublin, Ireland',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
   bio: 'Full-stack developer with expertise in Flutter/Dart, MERN stack, and Kotlin/Jetpack Compose. Currently pursuing MSc in Computing Science at Griffith College Dublin. Passionate about building innovative cross-platform mobile applications and scalable web solutions. Experienced in developing production-ready applications with modern development practices, clean architecture, and user-centric design. Seeking opportunities to contribute to impactful projects that enhance user experiences and solve real-world problems.'
