@@ -85,9 +85,9 @@ const Hero = () => {
           {/* Subtitles */}
           <motion.div variants={item} className="mb-10">
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-body text-sm text-ivory-muted tracking-wide">
-              <span>Flutter & Kotlin</span>
+              <span>MERN Stack & Next.js</span>
               <span className="text-ivory-faint">|</span>
-              <span>Web Development</span>
+              <span>Flutter & Kotlin</span>
               <span className="text-ivory-faint">|</span>
               <span>MSc Computing Science</span>
             </div>
@@ -98,8 +98,7 @@ const Hero = () => {
             variants={item}
             className="font-body text-ivory-dim max-w-2xl mx-auto mb-14 leading-relaxed text-base font-light"
           >
-            Building cross-platform mobile applications and scalable web solutions
-            with a focus on clean architecture and thoughtful design.
+            Shipping full-stack web applications and cross-platform mobile apps with a focus on clean architecture, scalable backends, and thoughtful design.
           </motion.p>
 
           {/* CTA Buttons */}

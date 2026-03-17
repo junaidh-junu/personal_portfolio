@@ -3,57 +3,76 @@ import { Experience, Education, Project, Publication, Skill } from '../types';
 export const experiences: Experience[] = [
   {
     id: '1',
-    title: 'Flutter Developer',
+    title: 'Full-Stack Developer',
     company: 'Appetite Studio',
     location: 'Remote',
     period: 'Nov 2025 - Present',
     type: 'Full-time',
     current: true,
     description: [
-      'Developed mobile applications using Flutter, emphasizing clean UI and smooth performance',
-      'Worked on applications like Enteward, including both counselor and user applications with comprehensive functionality',
-      'Integrated REST APIs and Firebase services, enhancing app functionality and user experience',
-      'Collaborated with design team to implement pixel-perfect UI components'
+      'Engineered the QuantumX admin dashboard and public landing page with React and Node.js, delivering internal analytics and client-facing product information',
+      'Architected the Ente Ward backend on Supabase and led full migration from Appwrite — redesigned database schema, row-level security policies, and real-time data flows for a civic engagement platform serving Kerala constituencies',
+      'Developed a Next.js web application for a Quran reading platform with server-side rendering, dynamic content loading, and SEO-optimized routing',
+      'Designed and shipped ToyCar Showroom as a full-stack MERN application with user authentication, virtual garage system, social features, leaderboards, and peer-to-peer digital asset transfers',
+      'Delivering cross-platform mobile applications in Flutter for the above products, handling end-to-end delivery from UI implementation to backend API integration'
     ],
-    skills: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'UI/UX Design']
+    skills: ['React', 'Node.js', 'Next.js', 'Supabase', 'Flutter', 'Dart', 'MERN Stack', 'REST APIs']
   },
   {
     id: '2',
-    title: 'Team Lead - Flutter Developer',
+    title: 'Team Lead & Full-Stack Developer',
     company: 'D4DX Innovations LLP',
-    location: 'Kozhikode, Kerala, India',
-    period: 'July 2024 - Sept 2025',
+    location: 'Kozhikode, India',
+    period: 'Mar 2025 - Oct 2025',
     type: 'Full-time',
     current: false,
     description: [
-      'Promoted to Team Lead position in April 2025 after starting as Junior Flutter Developer',
-      'Led development of multiple mobile applications including Zai Toon Kids App, Mishkath, Vision 2026, Thafheem ul Quran, Muhasabah, and Alquran Malayalam',
-      'Served as main developer on projects while overseeing development work with team members',
-      'Managed project timelines, feature implementation, and quality assurance processes',
-      'Implemented cross-platform solutions using Flutter and Dart for both Android and iOS'
+      'Promoted from Junior Developer to Team Lead within 9 months based on technical delivery and architectural contributions',
+      'Led a 12-member cross-functional team shipping 20+ web applications and 5+ mobile apps; orchestrated sprint planning, backlog grooming, code reviews (~10 PRs/week), and release cycles using ClickUp and Notion',
+      'Architected the Tafheem ul Quran web platform end-to-end using MERN — React frontend, Express/Node.js REST API, SQL database with auth, custom audio streaming service, and admin CMS, growing to 30,000+ active users',
+      'Spearheaded 5 production MERN web applications: admin panels and dashboards for Thanima Hajj & Umrah, Hira+, ToyCar Showroom, and Ente Ward — each with role-based access control, CRUD operations, and analytics views',
+      'Engineered an internal ERP system using the MERN stack, automating resource allocation and centralizing project tracking and employee management',
+      'Provisioned and managed production infrastructure across DigitalOcean, Cloudways, and WHM/cPanel — deployments, SSL, DNS routing, database backups, and server migrations',
+      'Implemented GitHub Actions CI/CD pipelines for frontend, backend, and mobile repositories, standardizing deployment workflow across the organization'
     ],
-    skills: ['Flutter', 'Team Leadership', 'Project Management', 'Cross-platform Development', 'Quality Assurance','CI/CD Pipeline','Server Management']
+    skills: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Team Leadership', 'CI/CD Pipeline', 'DigitalOcean', 'Cloudways', 'GitHub Actions', 'Project Management']
   },
   {
     id: '3',
-    title: 'Internship Trainee',
-    company: 'iROHUB Infotech',
+    title: 'Junior Full-Stack Developer',
+    company: 'D4DX Innovations LLP',
+    location: 'Kozhikode, India',
+    period: 'July 2024 - Feb 2025',
+    type: 'Full-time',
+    current: false,
+    description: [
+      'Developed the Tafheem ul Quran Flutter mobile app with audio streaming, prayer times, quizzes, and multi-language support, contributing to a user base of 30,000+',
+      'Reduced flagship mobile app size by 60% (150MB to 60MB) through asset optimization, code refactoring, and cloud migration of bundled resources, improving user acquisition',
+      'Shipped Thanima Hajj & Umrah (GPS-based pilgrimage guide with offline-first architecture), Zaitoon Kids (educational app with Razorpay subscription integration), and Hira Plus (office management system)',
+      'Implemented a RAG-based AI chatbot for Tafheem ul Quran using Python, enabling context-aware Q&A with vector search and LLM-powered responses over Quran content',
+      'Wrote widget and unit tests for Flutter applications to ensure reliability across releases'
+    ],
+    skills: ['Flutter', 'Dart', 'Python', 'RAG', 'Firebase', 'REST APIs', 'Flutter Testing', 'MVVM']
+  },
+  {
+    id: '4',
+    title: 'Flutter Developer',
+    company: 'IroHub Infotech Pvt. Ltd.',
     location: 'Ernakulam, Kerala, India',
     period: 'Mar 2023 - Sep 2023',
     type: 'Internship',
     description: [
-      'Completed internship in Flutter, Git and other technologies',
-      'Gained hands-on experience in mobile app development',
-      'Learned industry best practices and development workflows'
+      'Engineered cross-platform mobile applications using Flutter and Dart over a 6-month period, shipping production-ready UI components and integrating RESTful APIs',
+      'Implemented state management patterns with Provider and built reusable component libraries adopted across multiple project teams'
     ],
-    skills: ['Flutter', 'Git', 'Mobile Development', 'User Experience (UX)']
+    skills: ['Flutter', 'Dart', 'Provider', 'REST APIs', 'Git']
   }
 ];
 
 export const education: Education[] = [
   {
     id: '1',
-    degree: "Master's degree, Computer Science",
+    degree: 'MSc in Computing Science',
     institution: 'Griffith College Dublin',
     location: 'Dublin, Ireland',
     period: 'Sep 2025 - Oct 2026',
@@ -66,7 +85,6 @@ export const education: Education[] = [
     institution: 'APJ Abdul Kalam Technological University',
     location: 'Kerala, India',
     period: 'Sep 2019 - Apr 2024',
-    gpa: '65%',
     description: 'Completed Bachelor of Technology from Jawaharlal College of Engineering and Technology. Gained strong foundation in computer science fundamentals, software engineering, and mobile application development.'
   }
 ];
@@ -124,8 +142,8 @@ export const projects: Project[] = [
   {
     id: '8',
     title: 'Enteward',
-    description: 'A comprehensive citizen engagement application that allows users to report local issues, access community news, and stay informed about councilor activities in their area. Features real-time notifications and issue tracking.',
-    technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'SQLite'],
+    description: 'A civic engagement platform for Kerala constituencies. The Flutter mobile app allows citizens to report local issues, access community news, and track councilor activities. Backend migrated from Appwrite to Supabase with redesigned database schema, row-level security policies, and real-time data flows.',
+    technologies: ['Flutter', 'Dart', 'Supabase', 'REST APIs', 'SQLite'],
     date: '2025'
   },
   {
@@ -152,8 +170,8 @@ export const projects: Project[] = [
   {
     id: '11',
     title: 'Toy Car Showroom',
-    description: 'An interactive e-commerce application for browsing and purchasing miniature collectible cars. Features include detailed car specifications, high-quality images, virtual garage management, wishlist functionality, and secure checkout. Users can build and organize their personal collection in a virtual garage.',
-    technologies: ['Flutter', 'Dart', 'Firebase', 'Payment Gateway', 'SQLite'],
+    description: 'A full-stack MERN web application and Flutter mobile app for miniature collectible cars. Web platform features user authentication, virtual garage system, social features, leaderboards, and peer-to-peer digital asset transfers. Mobile app provides a rich browsing and collection management experience.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Flutter', 'Dart', 'Firebase'],
     date: '2024'
   },
   {
@@ -166,9 +184,17 @@ export const projects: Project[] = [
   },
   {
     id: '13',
-    title: 'Gemini Audio Transcriber',
-    description: 'A JavaScript-based npm module for converting audio files to text using Google\'s Gemini API. Supports multiple audio formats, handles large files with chunking, provides real-time transcription progress, and includes error handling with retry logic. Easy integration with Node.js applications.',
+    title: 'Transcribio',
+    description: 'An npm package for audio transcription using Google\'s Gemini API. Features speaker detection, timestamps, support for 50+ languages, and export in SRT/VTT/JSON formats. Ships with both a CLI tool and a web UI for flexible integration into Node.js workflows.',
     technologies: ['JavaScript', 'Node.js', 'Gemini API', 'npm', 'Audio Processing'],
+    date: '2025',
+    github: 'https://github.com/junaidh-junu/transcribio'
+  },
+  {
+    id: '15',
+    title: 'Quran Web Application',
+    description: 'A full-featured Quran reading platform built with Next.js and Supabase. Implements server-side rendering, dynamic content routing, and SEO-optimized pages for Quranic content with translation and audio recitation.',
+    technologies: ['Next.js', 'TypeScript', 'Supabase', 'SSR', 'SEO'],
     date: '2025'
   },
   {
@@ -195,6 +221,7 @@ export const skills: Skill[] = [
   // Languages
   { name: 'Dart', category: 'Languages' },
   { name: 'JavaScript', category: 'Languages' },
+  { name: 'TypeScript', category: 'Languages' },
   { name: 'Python', category: 'Languages' },
   { name: 'Kotlin', category: 'Languages' },
   { name: 'C++', category: 'Languages' },
@@ -206,10 +233,12 @@ export const skills: Skill[] = [
   // Frameworks
   { name: 'Flutter', category: 'Frameworks' },
   { name: 'React', category: 'Frameworks' },
+  { name: 'Next.js', category: 'Frameworks' },
   { name: 'Node.js', category: 'Frameworks' },
-  { name: 'Express', category: 'Frameworks' },
+  { name: 'Express.js', category: 'Frameworks' },
   { name: 'Django', category: 'Frameworks' },
   { name: 'MongoDB', category: 'Frameworks' },
+  { name: 'Jetpack Compose', category: 'Frameworks' },
 
   // Tools
   { name: 'Git', category: 'Tools' },
@@ -219,13 +248,28 @@ export const skills: Skill[] = [
   { name: 'Figma', category: 'Tools' },
   { name: 'Xcode', category: 'Tools' },
   { name: 'SQLite', category: 'Tools' },
+  { name: 'PostgreSQL', category: 'Tools' },
+  { name: 'MySQL', category: 'Tools' },
+  { name: 'Supabase', category: 'Tools' },
+  { name: 'Appwrite', category: 'Tools' },
   { name: 'Provider', category: 'Tools' },
+  { name: 'Android Studio', category: 'Tools' },
+  { name: 'Postman', category: 'Tools' },
+  { name: 'VS Code', category: 'Tools' },
+  { name: 'ClickUp', category: 'Tools' },
   { name: 'CDN', category: 'Tools' },
 
   // Cloud & DevOps
   { name: 'Cloudflare', category: 'Cloud & DevOps' },
-  { name: 'Digital Ocean', category: 'Cloud & DevOps' },
+  { name: 'DigitalOcean', category: 'Cloud & DevOps' },
   { name: 'Cloudways', category: 'Cloud & DevOps' },
+  { name: 'Docker', category: 'Cloud & DevOps' },
+  { name: 'Google Cloud Platform', category: 'Cloud & DevOps' },
+  { name: 'Vercel', category: 'Cloud & DevOps' },
+  { name: 'Netlify', category: 'Cloud & DevOps' },
+  { name: 'WHM/cPanel', category: 'Cloud & DevOps' },
+  { name: 'Shorebird OTA', category: 'Cloud & DevOps' },
+  { name: 'GitHub Actions', category: 'Cloud & DevOps' },
   { name: 'DNS Management', category: 'Cloud & DevOps' },
   { name: 'CI/CD Pipeline', category: 'Cloud & DevOps' },
 
@@ -234,16 +278,23 @@ export const skills: Skill[] = [
   { name: 'Trello', category: 'Project Management' },
   { name: 'Notion', category: 'Project Management' },
   { name: 'Slack', category: 'Project Management' },
+
+  // AI/ML
+  { name: 'RAG', category: 'AI/ML' },
+  { name: 'LLM Integration', category: 'AI/ML' },
+  { name: 'scikit-learn', category: 'AI/ML' },
+  { name: 'Pandas', category: 'AI/ML' },
+  { name: 'NumPy', category: 'AI/ML' },
 ];
 
 export const contactInfo = {
   name: 'Junaidh Haneefa Muhammedhaneefa',
-  title: 'Full Stack Developer | Flutter & Kotlin Developer',
-  subtitle: 'Mobile & Web Developer | MERN Stack | Domain & DNS Specialist | CI/CD Pipeline | MSc Computing Science',
+  title: 'Full-Stack Developer',
+  subtitle: 'MERN Stack · Next.js · Flutter · Kotlin · MSc Computing Science',
   email: 'junaidhhaneef.m@gmail.com',
-  phone: '+353 892534784',
-  location: '15 St. Helens Gardens, Adamstown, Lucan, Dublin, Ireland',
+  phone: '+353 89 253 4784',
+  location: '15 St. Helens Garden, Adamstown, Lucan, Dublin K78T2P0',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
-  bio: 'Full-stack developer with expertise in Flutter/Dart, MERN stack, and Kotlin/Jetpack Compose. Currently pursuing MSc in Computing Science at Griffith College Dublin. Passionate about building innovative cross-platform mobile applications and scalable web solutions. Experienced in developing production-ready applications with modern development practices, clean architecture, and user-centric design. Seeking opportunities to contribute to impactful projects that enhance user experiences and solve real-world problems.'
+  bio: 'Results-driven Full-Stack Developer with 1.5+ years of production experience shipping scalable web and cross-platform mobile applications. Delivered 6+ MERN-stack web applications and 9 Flutter apps serving 30,000+ users while leading a 12-member cross-functional team across 20+ concurrent projects. Skilled in end-to-end product delivery from architecture design through cloud infrastructure management and CI/CD automation.'
 };

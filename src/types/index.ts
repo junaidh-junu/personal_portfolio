@@ -43,6 +43,6 @@ export interface Publication {
 
 export interface Skill {
   name: string;
-  category: 'Languages' | 'Frameworks' | 'Tools' | 'Cloud & DevOps' | 'Project Management';
+  category: 'Languages' | 'Frameworks' | 'Tools' | 'Cloud & DevOps' | 'Project Management' | 'AI/ML';
   icon?: string;
 }

@@ -9,8 +9,8 @@ const About = () => {
 
   const stats = [
     { label: 'Years Experience', value: '2+' },
-    { label: 'Projects Completed', value: '15+' },
-    { label: 'Technologies', value: '20+' },
+    { label: 'Projects Completed', value: '20+' },
+    { label: 'Technologies', value: '30+' },
     { label: 'Publications', value: '1' },
   ];
 
@@ -45,16 +45,16 @@ const About = () => {
             </h3>
             <div className="space-y-5 font-body text-ivory-dim text-[15px] leading-relaxed font-light">
               <p>
-                <span className="text-ivory font-normal">Junaidh Haneefa</span> is a passionate Flutter developer with a Bachelor's degree in Computer Science and hands-on experience building cross-platform mobile applications. Driven by a desire to create innovative, scalable solutions using Flutter, Dart, and modern development practices.
+                <span className="text-ivory font-normal">Junaidh Haneefa</span> is a results-driven Full-Stack Developer with 1.5+ years of production experience delivering scalable MERN-stack web applications, Next.js platforms, and cross-platform mobile apps serving 30,000+ users.
               </p>
               <p>
-                Currently pursuing a <span className="text-ivory font-normal">Master's in Computer Science</span> at Griffith College Dublin, with specialization in mobile and web development, including <span className="text-ivory font-normal">Flutter, Kotlin, MERN stack, and Django</span>.
+                Currently pursuing a <span className="text-ivory font-normal">Master's in Computing Science</span> at Griffith College Dublin, with specialization in software engineering, cloud technologies, and emerging areas including <span className="text-ivory font-normal">Next.js, Supabase, and AI/ML tooling</span>.
               </p>
               <p>
-                As a <span className="text-ivory font-normal">Team Lead at D4DX Innovations</span>, led the development of multiple cross-platform applications, managed project timelines, and mentored developers while maintaining high code quality standards.
+                As <span className="text-ivory font-normal">Team Lead at D4DX Innovations</span>, directed a 12-member cross-functional team delivering 20+ web applications and 5+ mobile apps — spanning full-stack development, cloud infrastructure management, and CI/CD automation.
               </p>
               <p>
-                Beyond development, experienced in <span className="text-ivory font-normal">server management, DNS configuration, CI/CD pipelines</span>, and project management tools.
+                Beyond core development, experienced in <span className="text-ivory font-normal">DigitalOcean, GitHub Actions, Docker, and server infrastructure</span>, with a focus on end-to-end product delivery from architecture to production.
               </p>
             </div>
 
