@@ -5,9 +5,9 @@ import {
   SiDart, SiJavascript, SiTypescript, SiPython, SiKotlin, SiCplusplus,
   SiHtml5, SiCss3,
   SiFlutter, SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiDjango,
-  SiMongodb, SiJetpackcompose,
+  SiFlask, SiMongodb, SiRedux, SiJetpackcompose,
   SiGit, SiGithub, SiFirebase, SiFigma, SiXcode, SiSqlite, SiPostgresql,
-  SiMysql, SiSupabase, SiAppwrite, SiAndroidstudio, SiPostman, SiClickup,
+  SiMysql, SiPrisma, SiSupabase, SiAppwrite, SiAndroidstudio, SiPostman, SiClickup,
   SiCloudflare, SiDigitalocean, SiDocker, SiGooglecloud, SiVercel, SiNetlify,
   SiGithubactions,
   SiJira, SiTrello, SiNotion, SiSlack,
@@ -33,7 +33,9 @@ const iconMap: Record<string, IconType> = {
   'Node.js': SiNodedotjs,
   'Express.js': SiExpress,
   'Django': SiDjango,
+  'Flask': SiFlask,
   'MongoDB': SiMongodb,
+  'Redux': SiRedux,
   'Jetpack Compose': SiJetpackcompose,
   // Tools
   'Git': SiGit,
@@ -44,10 +46,12 @@ const iconMap: Record<string, IconType> = {
   'SQLite': SiSqlite,
   'PostgreSQL': SiPostgresql,
   'MySQL': SiMysql,
+  'Prisma': SiPrisma,
   'Supabase': SiSupabase,
   'Appwrite': SiAppwrite,
   'Android Studio': SiAndroidstudio,
   'Postman': SiPostman,
+  'Redux Toolkit': SiRedux,
   'ClickUp': SiClickup,
   // Cloud & DevOps
   'Cloudflare': SiCloudflare,
@@ -146,7 +150,7 @@ const CategoryRow = ({ category, categorySkills, index }: CategoryRowProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="border-b border-dark-border group hover:bg-dark-surface transition-colors duration-300 py-6"
+      className="border-b border-dark-border group hover:bg-dark-surface transition-colors duration-300 py-8"
     >
       <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-x-8 gap-y-3 items-start">
         {/* Category name */}
@@ -155,16 +159,16 @@ const CategoryRow = ({ category, categorySkills, index }: CategoryRowProps) => {
         </span>
 
         {/* Skill pills */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2.5">
           {categorySkills.map((skill) => {
             const Icon = iconMap[skill.name];
             return (
               <span
                 key={skill.name}
-                className="inline-flex items-center gap-1.5 px-3 py-1 border border-dark-border text-ivory-dim font-body text-xs tracking-wide hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default group/pill"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 border border-dark-border text-ivory-dim font-body text-sm tracking-wide hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default group/pill"
               >
                 {Icon && (
-                  <Icon className="w-3 h-3 text-ivory-muted group-hover/pill:text-accent transition-colors duration-300 flex-shrink-0" />
+                  <Icon className="w-4 h-4 text-ivory-muted group-hover/pill:text-accent transition-colors duration-300 flex-shrink-0" />
                 )}
                 {skill.name}
               </span>
