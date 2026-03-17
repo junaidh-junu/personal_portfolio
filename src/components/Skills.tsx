@@ -1,12 +1,76 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import type { IconType } from 'react-icons';
+import {
+  SiDart, SiJavascript, SiTypescript, SiPython, SiKotlin, SiCplusplus,
+  SiHtml5, SiCss3,
+  SiFlutter, SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiDjango,
+  SiMongodb, SiJetpackcompose,
+  SiGit, SiGithub, SiFirebase, SiFigma, SiXcode, SiSqlite, SiPostgresql,
+  SiMysql, SiSupabase, SiAppwrite, SiAndroidstudio, SiPostman, SiClickup,
+  SiCloudflare, SiDigitalocean, SiDocker, SiGooglecloud, SiVercel, SiNetlify,
+  SiGithubactions,
+  SiJira, SiTrello, SiNotion, SiSlack,
+  SiScikitlearn, SiPandas, SiNumpy,
+} from 'react-icons/si';
 import { skills } from '../data/portfolio';
 import WordReveal from './WordReveal';
 
+const iconMap: Record<string, IconType> = {
+  // Languages
+  'Dart': SiDart,
+  'JavaScript': SiJavascript,
+  'TypeScript': SiTypescript,
+  'Python': SiPython,
+  'Kotlin': SiKotlin,
+  'C++': SiCplusplus,
+  'HTML5': SiHtml5,
+  'CSS': SiCss3,
+  // Frameworks
+  'Flutter': SiFlutter,
+  'React': SiReact,
+  'Next.js': SiNextdotjs,
+  'Node.js': SiNodedotjs,
+  'Express.js': SiExpress,
+  'Django': SiDjango,
+  'MongoDB': SiMongodb,
+  'Jetpack Compose': SiJetpackcompose,
+  // Tools
+  'Git': SiGit,
+  'GitHub': SiGithub,
+  'Firebase': SiFirebase,
+  'Figma': SiFigma,
+  'Xcode': SiXcode,
+  'SQLite': SiSqlite,
+  'PostgreSQL': SiPostgresql,
+  'MySQL': SiMysql,
+  'Supabase': SiSupabase,
+  'Appwrite': SiAppwrite,
+  'Android Studio': SiAndroidstudio,
+  'Postman': SiPostman,
+  'ClickUp': SiClickup,
+  // Cloud & DevOps
+  'Cloudflare': SiCloudflare,
+  'DigitalOcean': SiDigitalocean,
+  'Docker': SiDocker,
+  'Google Cloud Platform': SiGooglecloud,
+  'Vercel': SiVercel,
+  'Netlify': SiNetlify,
+  'GitHub Actions': SiGithubactions,
+  // Project Management
+  'Jira': SiJira,
+  'Trello': SiTrello,
+  'Notion': SiNotion,
+  'Slack': SiSlack,
+  // AI/ML
+  'scikit-learn': SiScikitlearn,
+  'Pandas': SiPandas,
+  'NumPy': SiNumpy,
+};
+
 const Skills = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const labelRef = useRef(null);
+  const labelInView = useInView(labelRef, { once: true, margin: '-10% 0px' });
 
   const groupedSkills = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
@@ -16,59 +80,99 @@ const Skills = () => {
     return acc;
   }, {} as Record<string, typeof skills>);
 
-  return (
-    <section id="skills" className="py-32 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent to-dark-border" />
+  const categories = Object.entries(groupedSkills);
+  const totalSkills = skills.length;
 
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12" ref={ref}>
-        {/* Section Title */}
-        <div className="text-center mb-20">
-          <div className="inline-flex flex-wrap items-baseline justify-center gap-[0.25em] mb-6">
+  return (
+    <section id="skills" className="py-24 md:py-32 relative">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+
+        {/* Section label bar */}
+        <motion.div
+          ref={labelRef}
+          initial={{ opacity: 0, y: -8 }}
+          animate={labelInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-5 mb-12"
+        >
+          <span className="font-mono text-[10px] text-accent tracking-[0.3em] uppercase whitespace-nowrap">
+            04 — Skills
+          </span>
+          <div className="h-px flex-1 bg-dark-border" />
+          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
+            {categories.length} categories · {totalSkills} skills
+          </span>
+        </motion.div>
+
+        {/* Section heading */}
+        <div className="mb-4">
+          <div className="inline-flex flex-wrap items-baseline gap-[0.25em]">
             <WordReveal text="Technical" as="h2" className="font-display text-4xl md:text-5xl lg:text-6xl text-ivory" />
             <WordReveal text="Skills" as="h2" className="font-display text-4xl md:text-5xl lg:text-6xl text-accent italic" delay={0.14} />
           </div>
-          <div className="gold-rule w-16" />
-          <p className="font-body text-ivory-muted max-w-xl mx-auto mt-6 text-base font-light">
-            Technologies and tools I use to bring ideas to life
-          </p>
+          <div className="gold-rule-left w-14 mt-4" />
         </div>
 
-        {/* Skills Grid */}
-        <div className="max-w-5xl mx-auto space-y-14">
-          {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
-            <motion.div
+        {/* Category table */}
+        <div className="mt-16 border-t border-dark-border">
+          {categories.map(([category, categorySkills], i) => (
+            <CategoryRow
               key={category}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: categoryIndex * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {/* Category Title */}
-              <div className="mb-6">
-                <h3 className="font-display text-xl md:text-2xl text-ivory mb-3">
-                  {category}
-                </h3>
-                <div className="gold-rule-left w-12" />
-              </div>
-
-              {/* Skills Pills */}
-              <div className="flex flex-wrap gap-2.5">
-                {categorySkills.map((skill, skillIndex) => (
-                  <motion.span
-                    key={skill.name}
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : {}}
-                    transition={{ duration: 0.4, delay: categoryIndex * 0.08 + skillIndex * 0.03 }}
-                    className="px-4 py-2 border border-dark-border text-ivory-dim font-body text-sm font-light tracking-wide hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default"
-                  >
-                    {skill.name}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
+              category={category}
+              categorySkills={categorySkills}
+              index={i}
+            />
           ))}
         </div>
+
       </div>
     </section>
+  );
+};
+
+interface CategoryRowProps {
+  category: string;
+  categorySkills: typeof skills;
+  index: number;
+}
+
+const CategoryRow = ({ category, categorySkills, index }: CategoryRowProps) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-80px' });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      className="border-b border-dark-border group hover:bg-dark-surface transition-colors duration-300 py-6"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-x-8 gap-y-3 items-start">
+        {/* Category name */}
+        <span className="font-mono text-[10px] text-accent tracking-[0.25em] uppercase pt-1">
+          {category}
+        </span>
+
+        {/* Skill pills */}
+        <div className="flex flex-wrap gap-2">
+          {categorySkills.map((skill) => {
+            const Icon = iconMap[skill.name];
+            return (
+              <span
+                key={skill.name}
+                className="inline-flex items-center gap-1.5 px-3 py-1 border border-dark-border text-ivory-dim font-body text-xs tracking-wide hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default group/pill"
+              >
+                {Icon && (
+                  <Icon className="w-3 h-3 text-ivory-muted group-hover/pill:text-accent transition-colors duration-300 flex-shrink-0" />
+                )}
+                {skill.name}
+              </span>
+            );
+          })}
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
