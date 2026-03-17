@@ -27,7 +27,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         ) : (
           <span className="font-mono text-[10px] text-ivory-dim tracking-[0.2em] uppercase select-none">
