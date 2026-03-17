@@ -142,8 +142,8 @@ const About = () => {
             {/* Bio */}
             <div className="space-y-4 font-body text-ivory-dim text-[15px] leading-relaxed font-light mb-10">
               <p>
-                <span className="text-ivory font-normal">Junaidh Haneefa</span> is a results-driven Full-Stack Developer with 2+ years of production experience delivering scalable MERN-stack web applications, Next.js platforms, and cross-platform mobile apps serving{' '}
-                <span className="text-ivory font-normal">30,000+ users</span>.
+                <span className="text-ivory font-normal">Junaidh Haneefa</span> is a Full-Stack and Mobile Developer with 1.5+ years of production experience shipping scalable web and cross-platform mobile apps — including{' '}
+                <span className="text-ivory font-normal">10+ MERN web applications and 13 Flutter apps</span> serving 30,000+ active users.
               </p>
               <p>
                 Currently pursuing a{' '}

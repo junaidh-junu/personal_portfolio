@@ -3,20 +3,20 @@ import { Experience, Education, Project, Publication, Skill, Certification } fro
 export const experiences: Experience[] = [
   {
     id: '1',
-    title: 'Full-Stack Developer',
+    title: 'Full-Stack & Mobile Developer',
     company: 'Appetite Studio',
     location: 'Remote',
     period: 'Nov 2025 - Present',
     type: 'Full-time',
     current: true,
     description: [
-      'Engineered the QuantumX admin dashboard and public landing page with React and Node.js, delivering internal analytics and client-facing product information',
-      'Architected the Ente Ward backend on Supabase and led full migration from Appwrite — redesigned database schema, row-level security policies, and real-time data flows for a civic engagement platform serving Kerala constituencies',
-      'Developed a Next.js web application for a Quran reading platform with server-side rendering, dynamic content loading, and SEO-optimized routing',
-      'Designed and shipped ToyCar Showroom as a full-stack MERN application with user authentication, virtual garage system, social features, leaderboards, and peer-to-peer digital asset transfers',
-      'Delivering cross-platform mobile applications in Flutter for the above products, handling end-to-end delivery from UI implementation to backend API integration'
+      'Built the QuantumX landing page and community-maintained database for tracking cryptographic systems vulnerable to quantum attacks, supporting the transition to post-quantum cryptography — built with React and Directus as the backend',
+      'Supported the Ente Ward backend migration to Supabase — contributed to database schema design, row-level security policies, and real-time data flows; helped develop and maintain the mobile app for the civic engagement platform serving Kerala constituencies',
+      'Built and shipped the Ente Ward admin dashboard for managing ward constituencies, user roles, and civic engagement data',
+      'Designed and shipped ToyCar Showroom as a cross-platform Flutter app and web platform with user auth, virtual garage, social features, leaderboards, and peer-to-peer digital asset transfers',
+      'Delivered cross-platform mobile apps and web apps in Flutter and Kotlin/Jetpack Compose, handling end-to-end delivery from UI implementation to backend API integration'
     ],
-    skills: ['React', 'Node.js', 'Next.js', 'Supabase', 'Flutter', 'Dart', 'MERN Stack', 'REST APIs']
+    skills: ['React', 'Node.js', 'Next.js', 'Supabase', 'Flutter', 'Dart', 'Kotlin', 'Jetpack Compose', 'Directus', 'REST APIs']
   },
   {
     id: '2',
@@ -30,7 +30,7 @@ export const experiences: Experience[] = [
       'Promoted from Junior Developer to Team Lead within 9 months based on technical delivery and architectural contributions',
       'Led a 12-member cross-functional team shipping 20+ web applications and 5+ mobile apps; orchestrated sprint planning, backlog grooming, code reviews (~10 PRs/week), and release cycles using ClickUp and Notion',
       'Architected the Tafheem ul Quran web platform end-to-end using MERN — React frontend, Express/Node.js REST API, SQL database with auth, custom audio streaming service, and admin CMS, growing to 30,000+ active users',
-      'Spearheaded 5 production MERN web applications: admin panels and dashboards for Thanima Hajj & Umrah, Hira+, ToyCar Showroom, and Ente Ward — each with role-based access control, CRUD operations, and analytics views',
+      'Built and shipped production MERN web applications: admin panels for Thanima Hajj & Umrah and Hira+ — each with role-based access control, CRUD operations, and analytics views',
       'Engineered an internal ERP system using the MERN stack, automating resource allocation and centralizing project tracking and employee management',
       'Provisioned and managed production infrastructure across DigitalOcean, Cloudways, and WHM/cPanel — deployments, SSL, DNS routing, database backups, and server migrations',
       'Implemented GitHub Actions CI/CD pipelines for frontend, backend, and mobile repositories, standardizing deployment workflow across the organization'
@@ -46,9 +46,9 @@ export const experiences: Experience[] = [
     type: 'Full-time',
     current: false,
     description: [
-      'Developed the Tafheem ul Quran Flutter mobile app with audio streaming, prayer times, quizzes, and multi-language support, contributing to a user base of 30,000+',
+      'Built the Tafheem ul Quran mobile app with audio streaming, prayer times, quizzes, and multi-language support, and assisted in developing the web platform — contributing to 30,000+ active users',
       'Reduced flagship mobile app size by 60% (150MB to 60MB) through asset optimization, code refactoring, and cloud migration of bundled resources, improving user acquisition',
-      'Shipped Thanima Hajj & Umrah (GPS-based pilgrimage guide with offline-first architecture), Zaitoon Kids (educational app with Razorpay subscription integration), and Hira Plus (office management system)',
+      'Shipped Thanima Hajj & Umrah (GPS pilgrimage guide, offline-first), Zai Toon Kids (educational app with Razorpay subscriptions), Hira Plus (office management), Muhasabah (Islamic education), and Mishkath – JIH Kerala (heritage explorer for Jamaat-e-Islami Kerala)',
       'Implemented a RAG-based AI chatbot for Tafheem ul Quran using Python, enabling context-aware Q&A with vector search and LLM-powered responses over Quran content',
       'Wrote widget and unit tests for Flutter applications to ensure reliability across releases'
     ],
@@ -188,6 +188,15 @@ export const projects: Project[] = [
     date: '2024',
     image: '/images/thanima-hajj-and-umra.png',
     category: 'mobile'
+  },
+  {
+    id: '9a',
+    title: 'holydwarf.com',
+    description: 'Designed and developed a personal portfolio website for a client, featuring project showcases, responsive layout, and custom UI design.',
+    technologies: ['React', 'JavaScript', 'CSS'],
+    date: '2025',
+    demo: 'https://holydwarf.com',
+    category: 'web'
   },
   {
     id: '9',
@@ -428,14 +437,14 @@ export const certifications: Certification[] = [
 
 export const contactInfo = {
   name: 'Junaidh Haneefa Muhammedhaneefa',
-  title: 'Full-Stack Developer',
+  title: 'Full-Stack & Mobile Developer',
   subtitle: 'MERN Stack · Next.js · Flutter · Kotlin · MSc Computing Science',
   email: 'junaidhhaneef.m@gmail.com',
   phone: '+353 89 253 4784',
   location: '15 St. Helens Garden, Adamstown, Lucan, Dublin K78T2P0',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
-  bio: 'Results-driven Full-Stack Developer with 1.5+ years of production experience shipping scalable web and cross-platform mobile applications. Delivered 6+ MERN-stack web applications and 9 Flutter apps serving 30,000+ users while leading a 12-member cross-functional team across 20+ concurrent projects. Skilled in end-to-end product delivery from architecture design through cloud infrastructure management and CI/CD automation.',
+  bio: 'Full-Stack and Mobile Developer with 1.5+ years of production experience building scalable web and cross-platform mobile apps. Shipped 10+ MERN web applications and 13 Flutter apps serving 30,000+ active users. Led a 12-member cross-functional team across 20+ concurrent projects. Works across React, Node.js, Next.js, Flutter, and Kotlin/Jetpack Compose — from database design and REST API development through cloud infrastructure and CI/CD automation.',
   languages: [
     { name: 'English', level: 'Fluent' },
     { name: 'Malayalam', level: 'Native' },
