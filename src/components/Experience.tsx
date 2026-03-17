@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { experiences } from '../data/portfolio';
+import WordReveal from './WordReveal';
 
 const Experience = () => {
   const ref = useRef(null);
@@ -14,20 +15,16 @@ const Experience = () => {
 
       <div className="container mx-auto px-6 sm:px-8 lg:px-12" ref={ref}>
         {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-20"
-        >
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6 text-ivory">
-            Work <span className="italic text-accent">Experience</span>
-          </h2>
+        <div className="text-center mb-20">
+          <div className="inline-flex flex-wrap items-baseline justify-center gap-[0.25em] mb-6">
+            <WordReveal text="Work" as="h2" className="font-display text-4xl md:text-5xl lg:text-6xl text-ivory" />
+            <WordReveal text="Experience" as="h2" className="font-display text-4xl md:text-5xl lg:text-6xl text-accent italic" delay={0.14} />
+          </div>
           <div className="gold-rule w-16" />
           <p className="font-body text-ivory-muted mt-6 max-w-xl mx-auto text-base font-light">
             My professional journey and the experiences that shaped my expertise
           </p>
-        </motion.div>
+        </div>
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto relative">
