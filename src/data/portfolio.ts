@@ -95,21 +95,24 @@ export const projects: Project[] = [
     title: 'Anti Theft Flooring Mat System Using IOT',
     description: 'Developed an IoT-based smart security mat using ESP32, pressure sensor, and camera to detect intruders, trigger alarms, and send alerts. Integrated facial recognition to avoid false alarms for authorized users.',
     technologies: ['IoT', 'ESP32', 'Python', 'Computer Vision', 'Firebase'],
-    date: '2024'
+    date: '2024',
+    image: '/images/anti-theft-system.png'
   },
   {
     id: '2',
     title: 'Zai Toon Kids App',
     description: 'Mobile application for children featuring interactive content, animations, and engaging UI. Built with Flutter for cross-platform compatibility.',
     technologies: ['Flutter', 'Dart', 'Directus', 'Provider','REST APIs'],
-    date: '2024'
+    date: '2024',
+    image: '/images/zai-toon-kids.png'
   },
   {
     id: '3',
     title: 'Vision 2026',
     description: 'Comprehensive mobile application developed as part of community initiative. Features include event management, notifications, and user engagement tools.',
     technologies: ['Flutter', 'Firebase', 'REST APIs', 'SQLite'],
-    date: '2024'
+    date: '2024',
+    image: '/images/vision-2026.png'
   },
   {
     id: '4',
@@ -123,56 +126,80 @@ export const projects: Project[] = [
     title: 'Thafheem ul Quran',
     description: 'Islamic educational app providing Quranic content with translation and tafseer. Optimized for smooth performance and elegant UI.',
     technologies: ['Flutter', 'Dart', 'SQLite', 'Provider'],
-    date: '2024'
+    date: '2024',
+    image: '/images/thafheem-ul-quran.png'
   },
   {
     id: '6',
     title: 'Alquran Malayalam',
     description: 'Quran reading application with Malayalam translation. Features include bookmarking, audio recitation, and search functionality.',
     technologies: ['Flutter', 'Dart', 'Audio Player', 'SQLite'],
-    date: '2024'
+    date: '2024',
+    image: '/images/al-quran-malayalam.png'
   },
   {
     id: '7',
     title: 'Muhasabah',
     description: 'Islamic educational app providing Quranic content with translation and tafseer. Optimized for smooth performance and elegant UI.',
     technologies: ['Flutter', 'Dart', 'Directus', 'Provider','REST APIs'],
-    date: '2025'
+    date: '2025',
+    image: '/images/muhasabah.png'
   },
   {
     id: '8',
     title: 'Enteward',
     description: 'A civic engagement platform for Kerala constituencies. The Flutter mobile app allows citizens to report local issues, access community news, and track councilor activities. Backend migrated from Appwrite to Supabase with redesigned database schema, row-level security policies, and real-time data flows.',
     technologies: ['Flutter', 'Dart', 'Supabase', 'REST APIs', 'SQLite'],
-    date: '2025'
+    date: '2025',
+    image: '/images/enteward.png'
   },
   {
     id: '8a',
     title: 'Enteward Admin App',
     description: 'Councilor-facing version of Enteward that enables local representatives to manage citizen reports, publish updates, share news, and communicate directly with constituents. Includes analytics dashboard and issue management system.',
     technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'Admin Panel'],
-    date: '2025'
+    date: '2025',
+    image: '/images/enteward-admin.png'
+  },
+  {
+    id: '8b',
+    title: 'Mishkath – JIH Kerala',
+    description: 'A comprehensive exploration app for Jamaat-e-Islami Kerala, covering the organization\'s history, departments, institutions, and cultural heritage. Features melodic offerings, institutional profiles, and an immersive journey through JIH Kerala\'s legacy and community impact.',
+    technologies: ['Flutter', 'Dart', 'REST APIs', 'Provider'],
+    date: '2024',
+    image: '/images/mishkath.png'
+  },
+  {
+    id: '8c',
+    title: 'Thanima Hajj & Umra',
+    description: 'A pilgrimage companion app for Hajj and Umrah travelers. Features live weather for Makkah and Madinah, GPS-based location services (camps, hospitals, accommodations), prayer times, Tasbeeh counter, Qibla finder, and quick-access emergency helplines — designed for pilgrims from Kerala and worldwide.',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'GPS'],
+    date: '2024',
+    image: '/images/thanima-hajj-and-umra.png'
   },
   {
     id: '9',
     title: 'New Leaf School Website',
     description: 'A user-friendly School Management Website focusing on school\'s events, notices, and other important information.',
     technologies: ['JavaScript', 'Node.js', 'MongoDB', 'Express', 'React'],
-    date: '2025'
+    date: '2025',
+    image: '/images/new-leaf-school.png'
   },
   {
     id: '10',
     title: 'Hira Plus',
     description: 'An application for the administration and management of internal operations of Hira Center in Kozhikode.',
     technologies: ['Flutter', 'Dart', 'Directus', 'Provider','REST APIs','Firebase'],
-    date: '2025'
+    date: '2025',
+    image: '/images/hira-plus.png'
   },
   {
     id: '11',
     title: 'Toy Car Showroom',
     description: 'A full-stack MERN web application and Flutter mobile app for miniature collectible cars. Web platform features user authentication, virtual garage system, social features, leaderboards, and peer-to-peer digital asset transfers. Mobile app provides a rich browsing and collection management experience.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Flutter', 'Dart', 'Firebase'],
-    date: '2024'
+    date: '2024',
+    image: '/images/toycar-showroom.png'
   },
   {
     id: '12',
@@ -180,7 +207,8 @@ export const projects: Project[] = [
     description: 'A powerful web application for creating professional GitHub profile READMEs with live preview. Features customizable sections, badges, statistics, tech stacks, and social links. Generates markdown code instantly with one-click copy functionality.',
     technologies: ['React', 'JavaScript', 'Markdown', 'CSS', 'GitHub API'],
     date: '2024',
-    demo: 'https://readmeforger.junaidh.me/'
+    demo: 'https://readmeforger.junaidh.me/',
+    image: '/images/readme-forger.png'
   },
   {
     id: '13',
@@ -189,13 +217,6 @@ export const projects: Project[] = [
     technologies: ['JavaScript', 'Node.js', 'Gemini API', 'npm', 'Audio Processing'],
     date: '2025',
     github: 'https://github.com/junaidh-junu/transcribio'
-  },
-  {
-    id: '15',
-    title: 'Quran Web Application',
-    description: 'A full-featured Quran reading platform built with Next.js and Supabase. Implements server-side rendering, dynamic content routing, and SEO-optimized pages for Quranic content with translation and audio recitation.',
-    technologies: ['Next.js', 'TypeScript', 'Supabase', 'SSR', 'SEO'],
-    date: '2025'
   },
   {
     id: '14',
