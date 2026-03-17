@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { projects } from '../../data/portfolio';
 import type { Project } from '../../types';
@@ -113,9 +113,26 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   );
 };
 
+type TabKey = 'all' | 'web' | 'mobile' | 'tool';
+
+const tabs: { key: TabKey; label: string; category?: 'web' | 'mobile' | 'tool' }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'web', label: 'Web & Full-Stack', category: 'web' },
+  { key: 'mobile', label: 'Mobile Apps', category: 'mobile' },
+  { key: 'tool', label: 'Tools', category: 'tool' },
+];
+
 const ProjectsCarousel = () => {
   const labelRef = useRef(null);
   const labelInView = useInView(labelRef, { once: true, margin: '-10% 0px' });
+  const [activeTab, setActiveTab] = useState<TabKey>('all');
+
+  const filteredProjects = activeTab === 'all'
+    ? projects
+    : projects.filter(p => p.category === activeTab);
+
+  const getCount = (key: TabKey) =>
+    key === 'all' ? projects.length : projects.filter(p => p.category === key).length;
 
   return (
     <section id="projects" className="py-24 md:py-32 relative">
@@ -134,7 +151,7 @@ const ProjectsCarousel = () => {
           </span>
           <div className="h-px flex-1 bg-dark-border" />
           <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
-            {projects.length} works
+            {filteredProjects.length} works
           </span>
         </motion.div>
 
@@ -147,12 +164,42 @@ const ProjectsCarousel = () => {
           <div className="gold-rule-left w-14 mt-4" />
         </div>
 
+        {/* Tab filter */}
+        <div className="mt-10 flex flex-wrap gap-1">
+          {tabs.map(tab => {
+            const count = getCount(tab.key);
+            const isActive = activeTab === tab.key;
+            return (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-4 py-2 font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-200 border ${
+                  isActive
+                    ? 'border-accent/60 text-accent bg-accent/5'
+                    : 'border-transparent text-ivory-muted hover:text-ivory hover:border-dark-border'
+                }`}
+              >
+                {tab.label}
+                <span className={`ml-2 ${isActive ? 'text-accent/70' : 'text-ivory-dim'}`}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Projects grid */}
-        <div className="mt-16 grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          {filteredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </div>
+        </motion.div>
 
         {/* View more */}
         <motion.div

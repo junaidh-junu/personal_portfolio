@@ -30,6 +30,7 @@ export interface Project {
   github?: string;
   demo?: string;
   date: string;
+  category?: 'web' | 'mobile' | 'tool' | 'other';
 }
 
 export interface Publication {
