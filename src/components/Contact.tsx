@@ -171,7 +171,7 @@ const Contact = () => {
             &copy; {new Date().getFullYear()} <span itemProp="name">{contactInfo.name}</span>. All rights reserved.
           </p>
           <p className="font-mono text-[10px] text-ivory-muted tracking-wide">
-            Built with React · Framer Motion · Tailwind CSS
+            Built with Love
           </p>
         </motion.footer>
 

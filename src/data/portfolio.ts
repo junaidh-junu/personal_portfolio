@@ -91,15 +91,6 @@ export const education: Education[] = [
 
 export const projects: Project[] = [
   {
-    id: '1',
-    title: 'Anti Theft Flooring Mat System Using IOT',
-    description: 'Developed an IoT-based smart security mat using ESP32, pressure sensor, and camera to detect intruders, trigger alarms, and send alerts. Integrated facial recognition to avoid false alarms for authorized users.',
-    technologies: ['IoT', 'ESP32', 'Python', 'Computer Vision', 'Firebase'],
-    date: '2024',
-    image: '/images/anti-theft-system.png',
-    category: 'other'
-  },
-  {
     id: '2',
     title: 'Zai Toon Kids App',
     description: 'Mobile application for children featuring interactive content, animations, and engaging UI. Built with Flutter for cross-platform compatibility.',
@@ -296,6 +287,15 @@ export const projects: Project[] = [
     date: '2025',
     image: '/images/hiraplus-web.png',
     category: 'web'
+  },
+  {
+    id: '1',
+    title: 'Anti Theft Flooring Mat System Using IOT',
+    description: 'Developed an IoT-based smart security mat using ESP32, pressure sensor, and camera to detect intruders, trigger alarms, and send alerts. Integrated facial recognition to avoid false alarms for authorized users.',
+    technologies: ['IoT', 'ESP32', 'Python', 'Computer Vision', 'Firebase'],
+    date: '2024',
+    image: '/images/anti-theft-system.png',
+    category: 'tool'
   }
 ];
 
