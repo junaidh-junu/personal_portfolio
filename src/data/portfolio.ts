@@ -1,4 +1,4 @@
-import { Experience, Education, Project, Publication, Skill } from '../types';
+import { Experience, Education, Project, Publication, Skill, Certification } from '../types';
 
 export const experiences: Experience[] = [
   {
@@ -127,6 +127,24 @@ export const projects: Project[] = [
     category: 'mobile'
   },
   {
+    id: '6a',
+    title: 'Lalithasaram Quran',
+    description: 'Quran reading application featuring Lalithasaram translation with audio recitation, bookmarking, and search functionality.',
+    technologies: ['Flutter', 'Dart', 'Audio Player', 'SQLite'],
+    date: '2024',
+    image: '/images/lalithasaram-quran.png',
+    category: 'mobile'
+  },
+  {
+    id: '6b',
+    title: 'Janaza Guide',
+    description: 'Islamic funeral rites guide app providing step-by-step guidance for Janaza procedures, prayers, and related supplications.',
+    technologies: ['Flutter', 'Dart', 'SQLite', 'Provider'],
+    date: '2024',
+    image: '/images/janaza-guide.png',
+    category: 'mobile'
+  },
+  {
     id: '7',
     title: 'Muhasabah',
     description: 'Islamic educational app providing Quranic content with translation and tafseer. Optimized for smooth performance and elegant UI.',
@@ -175,7 +193,7 @@ export const projects: Project[] = [
     id: '9',
     title: 'New Leaf School Website',
     description: 'A user-friendly School Management Website focusing on school\'s events, notices, and other important information.',
-    technologies: ['JavaScript', 'Node.js', 'MongoDB', 'Express', 'React'],
+    technologies: ['React', 'JavaScript', 'Supabase', 'REST APIs'],
     date: '2025',
     image: '/images/new-leaf-school.png',
     category: 'web'
@@ -390,6 +408,22 @@ export const skills: Skill[] = [
   { name: 'scikit-learn', category: 'AI/ML' },
   { name: 'Pandas', category: 'AI/ML' },
   { name: 'NumPy', category: 'AI/ML' },
+  { name: 'Jupyter Notebooks', category: 'AI/ML' },
+];
+
+export const certifications: Certification[] = [
+  {
+    id: '1',
+    title: 'Web Design and Development',
+    issuer: 'ICS India, Palakkad',
+    period: 'Nov 2022 – Apr 2023',
+  },
+  {
+    id: '2',
+    title: 'Flutter Development',
+    issuer: 'IroHub Infotech Pvt. Ltd., Kochi',
+    period: 'Mar 2023 – Sep 2023',
+  },
 ];
 
 export const contactInfo = {
@@ -401,5 +435,11 @@ export const contactInfo = {
   location: '15 St. Helens Garden, Adamstown, Lucan, Dublin K78T2P0',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
-  bio: 'Results-driven Full-Stack Developer with 1.5+ years of production experience shipping scalable web and cross-platform mobile applications. Delivered 6+ MERN-stack web applications and 9 Flutter apps serving 30,000+ users while leading a 12-member cross-functional team across 20+ concurrent projects. Skilled in end-to-end product delivery from architecture design through cloud infrastructure management and CI/CD automation.'
+  bio: 'Results-driven Full-Stack Developer with 1.5+ years of production experience shipping scalable web and cross-platform mobile applications. Delivered 6+ MERN-stack web applications and 9 Flutter apps serving 30,000+ users while leading a 12-member cross-functional team across 20+ concurrent projects. Skilled in end-to-end product delivery from architecture design through cloud infrastructure management and CI/CD automation.',
+  languages: [
+    { name: 'English', level: 'Fluent' },
+    { name: 'Malayalam', level: 'Native' },
+    { name: 'Tamil', level: 'Fluent' },
+    { name: 'Hindi', level: 'Fluent' },
+  ],
 };

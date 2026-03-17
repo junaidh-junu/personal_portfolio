@@ -47,3 +47,10 @@ export interface Skill {
   category: 'Languages' | 'Frameworks' | 'Tools' | 'Cloud & DevOps' | 'Project Management' | 'AI/ML';
   icon?: string;
 }
+
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  period: string;
+}

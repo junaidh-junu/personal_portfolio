@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { education } from '../data/portfolio';
-import { Education as EducationType } from '../types';
+import { education, certifications } from '../data/portfolio';
+import { Education as EducationType, Certification } from '../types';
 import WordReveal from './WordReveal';
 
 interface RecordProps {
@@ -66,9 +66,34 @@ const EducationRecord = ({ edu, index }: RecordProps) => {
   );
 };
 
+const CertificationRow = ({ cert, index }: { cert: Certification; index: number }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-80px' });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 14 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      className="border-b border-dark-border py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+    >
+      <div>
+        <p className="font-body text-sm text-ivory">{cert.title}</p>
+        <p className="font-body text-xs text-ivory-muted mt-0.5">{cert.issuer}</p>
+      </div>
+      <span className="font-mono text-[10px] text-ivory-muted tracking-[0.15em] uppercase whitespace-nowrap">
+        {cert.period}
+      </span>
+    </motion.div>
+  );
+};
+
 const Education = () => {
   const labelRef = useRef(null);
   const labelInView = useInView(labelRef, { once: true, margin: '-10% 0px' });
+  const certRef = useRef(null);
+  const certInView = useInView(certRef, { once: true, margin: '-80px' });
 
   return (
     <section id="education" className="py-24 md:py-32 relative">
@@ -106,6 +131,27 @@ const Education = () => {
             <EducationRecord key={edu.id} edu={edu} index={index} />
           ))}
         </div>
+
+        {/* Certifications */}
+        <motion.div
+          ref={certRef}
+          initial={{ opacity: 0, y: 16 }}
+          animate={certInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-16"
+        >
+          <div className="flex items-center gap-5 mb-6">
+            <h3 className="font-display text-2xl md:text-3xl text-accent italic whitespace-nowrap">
+              Certifications
+            </h3>
+            <div className="h-px flex-1 bg-dark-border" />
+          </div>
+          <div className="border-t border-dark-border">
+            {certifications.map((cert, index) => (
+              <CertificationRow key={cert.id} cert={cert} index={index} />
+            ))}
+          </div>
+        </motion.div>
 
       </div>
     </section>

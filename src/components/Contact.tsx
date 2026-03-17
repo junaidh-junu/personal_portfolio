@@ -27,6 +27,11 @@ const Contact = () => {
       value: contactInfo.location,
       link: undefined,
     },
+    {
+      label: 'Languages',
+      value: contactInfo.languages.map(l => l.name).join(' · '),
+      link: undefined,
+    },
   ];
 
   const socialLinks = [
