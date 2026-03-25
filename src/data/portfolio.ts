@@ -441,7 +441,7 @@ export const contactInfo = {
   subtitle: 'MERN Stack · Next.js · Flutter · Kotlin · MSc Computing Science',
   email: 'junaidhhaneef.m@gmail.com',
   phone: '+353 89 253 4784',
-  location: '15 St. Helens Garden, Adamstown, Lucan, Dublin K78T2P0',
+  location: 'Dublin, Ireland',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
   bio: 'Full-Stack and Mobile Developer with 1.5+ years of production experience building scalable web and cross-platform mobile apps. Shipped 10+ MERN web applications and 13 Flutter apps serving 30,000+ active users. Led a 12-member cross-functional team across 20+ concurrent projects. Works across React, Node.js, Next.js, Flutter, and Kotlin/Jetpack Compose — from database design and REST API development through cloud infrastructure and CI/CD automation.',
