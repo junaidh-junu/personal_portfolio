@@ -14,10 +14,14 @@ export const seoConfig = {
     'Mobile App Development',
     'Kotlin Developer',
     'React Developer',
+    'Next.js Developer',
+    'MERN Stack Developer',
+    'TypeScript Developer',
     'Web Development',
     'Cross-platform Development',
     'Dublin Developer',
     'Ireland Developer',
+    'Remote Developer',
     'Computer Science',
     'Software Engineer'
   ],
@@ -31,7 +35,7 @@ export const seoConfig = {
     city: 'Dublin',
     country: 'Ireland'
   },
-  image: '/images/og-image.jpg',
+  image: '/images/og-image.png',
   twitterHandle: '@junaidhhaneefa',
 };
 
@@ -48,7 +52,7 @@ export const structuredData = {
     description: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. Currently pursuing MSc in Computer Science at Griffith College Dublin.',
     url: seoConfig.siteUrl,
     email: seoConfig.socialMedia.email,
-    image: `${seoConfig.siteUrl}/images/profile.jpg`,
+    image: `${seoConfig.siteUrl}/images/profile.png`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: seoConfig.location.city,
@@ -57,7 +61,13 @@ export const structuredData = {
     worksFor: {
       '@type': 'Organization',
       name: 'Appetite Studio',
-      jobTitle: 'Flutter Developer'
+      jobTitle: 'Full-Stack & Mobile Developer'
+    },
+    seeks: {
+      '@type': 'JobPosting',
+      title: 'Full Stack Developer',
+      jobLocationType: 'TELECOMMUTE',
+      employmentType: 'FULL_TIME'
     },
     sameAs: [
       seoConfig.socialMedia.linkedin,
@@ -79,13 +89,39 @@ export const structuredData = {
       'Flutter Development',
       'Mobile App Development',
       'Full Stack Development',
+      'MERN Stack',
       'Kotlin',
       'Dart',
       'React',
+      'Next.js',
+      'Node.js',
+      'Express.js',
+      'TypeScript',
       'JavaScript',
+      'MongoDB',
+      'PostgreSQL',
       'Firebase',
+      'Supabase',
+      'Docker',
+      'DigitalOcean',
+      'GitHub Actions',
       'REST APIs',
-      'Cross-platform Development'
+      'Cross-platform Development',
+      'DevOps',
+      'Cloud Infrastructure'
+    ],
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'Anti Theft Flooring Mat System Using IOT',
+        credentialCategory: 'Research Publication',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Journal of Electronics and Informatics'
+        },
+        identifier: 'DOI: 10.36548/jei.2024.1.004',
+        dateCreated: '2024-01-01'
+      }
     ]
   },
   website: {
