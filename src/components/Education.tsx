@@ -113,7 +113,7 @@ const Education = () => {
             03 — Education
           </span>
           <div className="section-kicker-line" />
-          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
+          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline">
             {education.length} institutions
           </span>
         </motion.div>

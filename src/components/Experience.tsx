@@ -103,7 +103,7 @@ const Experience = () => {
             02 — Experience
           </span>
           <div className="section-kicker-line" />
-          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
+          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline">
             2+ years · 4 roles
           </span>
         </motion.div>

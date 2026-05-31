@@ -26,7 +26,7 @@ const Publications = () => {
             06 — Publications
           </span>
           <div className="section-kicker-line" />
-          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
+          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline">
             peer-reviewed
           </span>
         </motion.div>

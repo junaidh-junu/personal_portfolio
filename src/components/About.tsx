@@ -105,7 +105,7 @@ const About = () => {
                 01 — About
               </span>
               <div className="section-kicker-line" />
-              <span className="font-mono text-[10px] text-ivory-faint tracking-[0.2em] uppercase whitespace-nowrap">
+              <span className="font-mono text-[10px] text-ivory-faint tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline">
                 Full Stack Developer
               </span>
             </motion.div>
@@ -221,7 +221,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 14 }}
                 animate={servicesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.1 + i * 0.1 }}
-                className="group flex gap-6 md:gap-10"
+                className="group flex gap-4 md:gap-10"
               >
                 <span className="font-display text-4xl md:text-5xl leading-none text-accent/25 select-none pt-0.5">
                   {service.num}

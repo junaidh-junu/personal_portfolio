@@ -78,7 +78,7 @@
   }
 
   .section-shell {
-    @apply relative rounded-[2rem] border border-white/[0.06] bg-dark-surface/[0.28] px-6 py-12 shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-8 md:py-16 lg:px-12;
+    @apply relative rounded-[2rem] border border-white/[0.06] bg-dark-surface/[0.28] px-4 py-12 shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-8 md:py-16 lg:px-12;
   }
 
   .section-shell::before {

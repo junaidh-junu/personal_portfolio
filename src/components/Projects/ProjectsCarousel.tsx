@@ -152,7 +152,7 @@ const ProjectsCarousel = () => {
             05 — Projects
           </span>
           <div className="section-kicker-line" />
-          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
+          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline">
             {filteredProjects.length} works
           </span>
         </motion.div>

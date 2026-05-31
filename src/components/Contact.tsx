@@ -73,7 +73,7 @@ const Contact = () => {
             07 — Get In Touch
           </span>
           <div className="section-kicker-line" />
-          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
+          <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline">
             open to work
           </span>
         </motion.div>
@@ -142,7 +142,7 @@ const Contact = () => {
             {contactRows.map((row) => (
               <div
                 key={row.label}
-                className="soft-panel px-5 py-4 flex justify-between items-start gap-8"
+                className="soft-panel px-5 py-4 flex justify-between items-start gap-3 sm:gap-8"
               >
                 <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase pt-0.5">
                   {row.label}

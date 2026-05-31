@@ -106,7 +106,7 @@ const Hero = () => {
         className="relative z-10 flex-1 flex items-center"
         style={{ y }}
       >
-        <div className="container mx-auto px-8 sm:px-10 lg:px-16">
+        <div className="container mx-auto px-5 sm:px-10 lg:px-16">
           <motion.div
             variants={container}
             initial="hidden"
@@ -128,7 +128,7 @@ const Hero = () => {
             <motion.h1
               variants={item}
               className="font-display font-normal leading-[0.96] tracking-tight mb-7 text-ivory"
-              style={{ fontSize: 'clamp(3.5rem, 8.4vw, 8.6rem)' }}
+              style={{ fontSize: 'clamp(2rem, 9vw, 8.6rem)' }}
               itemScope
               itemType="https://schema.org/Person"
             >
@@ -188,7 +188,7 @@ const Hero = () => {
               target={social.href.startsWith('mailto:') ? undefined : '_blank'}
               rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
               aria-label={social.label}
-              className="flex-1 flex items-center justify-center gap-3 rounded-full py-4 text-ivory-muted hover:text-accent hover:bg-white/[0.04] transition-all duration-300 group"
+              className="flex-1 flex items-center justify-center gap-3 rounded-full py-3 sm:py-4 text-ivory-muted hover:text-accent hover:bg-white/[0.04] transition-all duration-300 group"
             >
               <span className="text-accent group-hover:scale-110 transition-transform duration-300">
                 {social.icon}
