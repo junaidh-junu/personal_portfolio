@@ -19,15 +19,15 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
-      className="border border-dark-border group hover:border-accent/20 hover:bg-dark-surface transition-all duration-300 flex flex-col"
+      className="soft-panel group flex flex-col overflow-hidden"
     >
       {/* Image slot */}
-      <div className="aspect-video bg-dark-surface border-b border-dark-border flex items-center justify-center overflow-hidden">
+      <div className="aspect-video bg-dark-bg/45 flex items-center justify-center overflow-hidden">
         {project.image ? (
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
           />
         ) : (
           <span className="font-mono text-[10px] text-ivory-dim tracking-[0.2em] uppercase select-none">
@@ -37,14 +37,14 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       </div>
 
       {/* Body */}
-      <div className="p-5 flex-1 flex flex-col">
+      <div className="p-6 flex-1 flex flex-col">
         {/* Top row: date + featured badge */}
         <div className="flex items-center justify-between mb-2">
           <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase">
             {project.date}
           </span>
           {project.id === '12' && (
-            <span className="px-2.5 py-0.5 border border-accent/40 text-accent font-mono text-[10px] tracking-[0.15em] uppercase">
+            <span className="rounded-full px-3 py-1 border border-accent/40 text-accent font-mono text-[10px] tracking-[0.15em] uppercase">
               Featured
             </span>
           )}
@@ -65,7 +65,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           {project.technologies.slice(0, 5).map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-0.5 border border-dark-border text-ivory-muted font-body text-[11px] tracking-wide hover:border-accent/30 hover:text-accent transition-all duration-300"
+              className="tag-pill text-[11px]"
             >
               {tech}
             </span>
@@ -79,7 +79,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
         {/* Links */}
         {(project.github || project.demo) && (
-          <div className="border-t border-dark-border pt-4 flex gap-5">
+          <div className="pt-4 flex gap-5">
             {project.github && (
               <a
                 href={project.github}
@@ -137,6 +137,8 @@ const ProjectsCarousel = () => {
   return (
     <section id="projects" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="section-shell">
+          <div className="section-content">
 
         {/* Section label bar */}
         <motion.div
@@ -149,7 +151,7 @@ const ProjectsCarousel = () => {
           <span className="font-mono text-[10px] text-accent tracking-[0.3em] uppercase whitespace-nowrap">
             05 — Projects
           </span>
-          <div className="h-px flex-1 bg-dark-border" />
+          <div className="section-kicker-line" />
           <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
             {filteredProjects.length} works
           </span>
@@ -165,7 +167,7 @@ const ProjectsCarousel = () => {
         </div>
 
         {/* Tab filter */}
-        <div className="mt-10 flex flex-wrap gap-1">
+        <div className="mt-10 flex flex-wrap gap-2 rounded-full border border-white/[0.06] bg-white/[0.025] p-2 w-fit">
           {tabs.map(tab => {
             const count = getCount(tab.key);
             const isActive = activeTab === tab.key;
@@ -173,10 +175,10 @@ const ProjectsCarousel = () => {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-4 py-2 font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-200 border ${
+                className={`rounded-full px-4 py-2 font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-200 ${
                   isActive
-                    ? 'border-accent/60 text-accent bg-accent/5'
-                    : 'border-transparent text-ivory-muted hover:text-ivory hover:border-dark-border'
+                    ? 'text-dark-bg bg-accent'
+                    : 'text-ivory-muted hover:text-ivory hover:bg-white/[0.04]'
                 }`}
               >
                 {tab.label}
@@ -212,7 +214,7 @@ const ProjectsCarousel = () => {
             href="https://github.com/junaidh-junu"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 border border-accent text-accent px-8 py-3 font-body text-sm tracking-wide hover:bg-accent/10 transition-all duration-300"
+            className="pill-button inline-flex items-center gap-3"
           >
             <span>View More on GitHub</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -221,6 +223,8 @@ const ProjectsCarousel = () => {
           </a>
         </motion.div>
 
+          </div>
+        </div>
       </div>
     </section>
   );

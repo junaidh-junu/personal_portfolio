@@ -58,6 +58,8 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="section-shell">
+          <div className="section-content">
 
         {/* Section label bar */}
         <motion.div
@@ -70,7 +72,7 @@ const Contact = () => {
           <span className="font-mono text-[10px] text-accent tracking-[0.3em] uppercase whitespace-nowrap">
             07 — Get In Touch
           </span>
-          <div className="h-px flex-1 bg-dark-border" />
+          <div className="section-kicker-line" />
           <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
             open to work
           </span>
@@ -101,7 +103,7 @@ const Contact = () => {
 
             <a
               href={`mailto:${contactInfo.email}`}
-              className="border border-accent text-accent px-8 py-3 font-body text-sm tracking-wide hover:bg-accent/10 transition-all duration-300 inline-flex items-center gap-2.5"
+              className="pill-button inline-flex items-center gap-2.5"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -110,14 +112,14 @@ const Contact = () => {
             </a>
 
             {/* Social links */}
-            <div className="border-t border-dark-border mt-8 pt-8">
+            <div className="mt-8 grid gap-2">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-ivory-muted hover:text-accent transition-colors duration-300 py-2"
+                  className="soft-panel flex items-center gap-3 text-ivory-muted hover:text-accent transition-colors duration-300 px-5 py-4"
                 >
                   {social.icon}
                   <span className="font-body text-sm">{social.name}</span>
@@ -135,12 +137,12 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={rightInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="border-t border-dark-border lg:border-t-0 lg:border-l lg:border-dark-border pt-8 lg:pt-0 lg:pl-16"
+            className="grid gap-3"
           >
             {contactRows.map((row) => (
               <div
                 key={row.label}
-                className="border-b border-dark-border py-5 flex justify-between items-start"
+                className="soft-panel px-5 py-4 flex justify-between items-start gap-8"
               >
                 <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase pt-0.5">
                   {row.label}
@@ -168,7 +170,7 @@ const Contact = () => {
           initial={{ opacity: 0 }}
           animate={labelInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="border-t border-dark-border mt-20 pt-8 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4"
+          className="mt-20 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 rounded-full border border-white/[0.06] bg-white/[0.025] px-6 py-4"
           itemScope
           itemType="https://schema.org/Person"
         >
@@ -180,6 +182,8 @@ const Contact = () => {
           </p>
         </motion.footer>
 
+          </div>
+        </div>
       </div>
     </section>
   );

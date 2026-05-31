@@ -19,10 +19,10 @@ const EducationRecord = ({ edu, index }: RecordProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="border-b border-dark-border group hover:bg-dark-surface transition-colors duration-300 py-10"
+      className="soft-panel group p-6 md:p-8"
     >
       {/* Header row */}
-      <div className="grid grid-cols-[3rem_1fr_auto] gap-x-6 items-start mb-6">
+      <div className="grid grid-cols-[3rem_1fr] gap-x-6 gap-y-4 items-start mb-6 md:grid-cols-[3rem_1fr_auto]">
         {/* Number */}
         <span className="font-display text-5xl leading-none text-accent/30 select-none pt-1">
           {String(index + 1).padStart(2, '0')}
@@ -41,7 +41,7 @@ const EducationRecord = ({ edu, index }: RecordProps) => {
 
         {/* Ongoing badge */}
         {edu.status && (
-          <span className="px-2.5 py-0.5 bg-accent/10 border border-accent/30 text-accent font-mono text-[10px] tracking-widest uppercase whitespace-nowrap">
+          <span className="rounded-full px-3 py-1 bg-accent/10 border border-accent/30 text-accent font-mono text-[10px] tracking-widest uppercase whitespace-nowrap col-start-2 md:col-start-auto">
             {edu.status}
           </span>
         )}
@@ -49,8 +49,8 @@ const EducationRecord = ({ edu, index }: RecordProps) => {
 
       {/* Content */}
       {edu.description && (
-        <div className="pl-[calc(3rem+1.5rem)]">
-          <div className="border-t border-dark-border pt-6">
+        <div className="md:pl-[calc(3rem+1.5rem)]">
+          <div className="pt-2">
             <p className="font-body text-[13px] text-ivory-dim leading-relaxed font-light">
               {edu.description}
             </p>
@@ -76,7 +76,7 @@ const CertificationRow = ({ cert, index }: { cert: Certification; index: number 
       initial={{ opacity: 0, y: 14 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="border-b border-dark-border py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+      className="soft-panel px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
     >
       <div>
         <p className="font-body text-sm text-ivory">{cert.title}</p>
@@ -98,6 +98,8 @@ const Education = () => {
   return (
     <section id="education" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="section-shell">
+          <div className="section-content">
 
         {/* Section label bar */}
         <motion.div
@@ -110,7 +112,7 @@ const Education = () => {
           <span className="font-mono text-[10px] text-accent tracking-[0.3em] uppercase whitespace-nowrap">
             03 — Education
           </span>
-          <div className="h-px flex-1 bg-dark-border" />
+          <div className="section-kicker-line" />
           <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
             {education.length} institutions
           </span>
@@ -126,7 +128,7 @@ const Education = () => {
         </div>
 
         {/* Records */}
-        <div className="mt-16 border-t border-dark-border">
+        <div className="mt-16 grid gap-5">
           {education.map((edu, index) => (
             <EducationRecord key={edu.id} edu={edu} index={index} />
           ))}
@@ -144,15 +146,17 @@ const Education = () => {
             <h3 className="font-display text-2xl md:text-3xl text-accent italic whitespace-nowrap">
               Certifications
             </h3>
-            <div className="h-px flex-1 bg-dark-border" />
+            <div className="section-kicker-line" />
           </div>
-          <div className="border-t border-dark-border">
+          <div className="grid gap-3">
             {certifications.map((cert, index) => (
               <CertificationRow key={cert.id} cert={cert} index={index} />
             ))}
           </div>
         </motion.div>
 
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -11,6 +11,8 @@ const Publications = () => {
   return (
     <section id="publications" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="section-shell">
+          <div className="section-content">
 
         {/* Section label bar */}
         <motion.div
@@ -23,7 +25,7 @@ const Publications = () => {
           <span className="font-mono text-[10px] text-accent tracking-[0.3em] uppercase whitespace-nowrap">
             06 — Publications
           </span>
-          <div className="h-px flex-1 bg-dark-border" />
+          <div className="section-kicker-line" />
           <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
             peer-reviewed
           </span>
@@ -39,12 +41,14 @@ const Publications = () => {
         </div>
 
         {/* Records */}
-        <div className="mt-16 border-t border-dark-border">
+        <div className="mt-16 grid gap-5">
           {publications.map((pub, index) => (
             <PublicationRecord key={pub.id} pub={pub} index={index} />
           ))}
         </div>
 
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -65,7 +69,7 @@ const PublicationRecord = ({ pub, index }: PubRecordProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="border-b border-dark-border group hover:bg-dark-surface transition-colors duration-300 py-10"
+      className="soft-panel group p-6 md:p-8"
     >
       <div className="grid grid-cols-[3rem_1fr] gap-x-6">
         {/* Number */}

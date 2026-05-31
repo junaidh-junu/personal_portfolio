@@ -90,6 +90,8 @@ const Skills = () => {
   return (
     <section id="skills" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="section-shell">
+          <div className="section-content">
 
         {/* Section label bar */}
         <motion.div
@@ -102,7 +104,7 @@ const Skills = () => {
           <span className="font-mono text-[10px] text-accent tracking-[0.3em] uppercase whitespace-nowrap">
             04 — Skills
           </span>
-          <div className="h-px flex-1 bg-dark-border" />
+          <div className="section-kicker-line" />
           <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
             {categories.length} categories · {totalSkills} skills
           </span>
@@ -118,7 +120,7 @@ const Skills = () => {
         </div>
 
         {/* Category table */}
-        <div className="mt-16 border-t border-dark-border">
+        <div className="mt-16 grid gap-5">
           {categories.map(([category, categorySkills], i) => (
             <CategoryRow
               key={category}
@@ -129,6 +131,8 @@ const Skills = () => {
           ))}
         </div>
 
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -150,7 +154,7 @@ const CategoryRow = ({ category, categorySkills, index }: CategoryRowProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="border-b border-dark-border group hover:bg-dark-surface transition-colors duration-300 py-8"
+      className="soft-panel group p-6"
     >
       <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-x-8 gap-y-3 items-start">
         {/* Category name */}
@@ -165,12 +169,22 @@ const CategoryRow = ({ category, categorySkills, index }: CategoryRowProps) => {
             return (
               <span
                 key={skill.name}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 border border-dark-border text-ivory-dim font-body text-sm tracking-wide hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default group/pill"
+                className="tag-pill gap-1.5 cursor-default group/pill"
               >
                 {Icon && (
                   <Icon className="w-4 h-4 text-ivory-muted group-hover/pill:text-accent transition-colors duration-300 flex-shrink-0" />
                 )}
                 {skill.name}
+                {skill.level !== undefined && (
+                  <span className="flex items-center gap-0.5 ml-1 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-200">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span
+                        key={i}
+                        className={`w-1 h-1 rounded-full ${i < skill.level! ? 'bg-accent' : 'bg-dark-border'}`}
+                      />
+                    ))}
+                  </span>
+                )}
               </span>
             );
           })}

@@ -19,10 +19,10 @@ const ExperienceRecord = ({ exp, index }: RecordProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="border-b border-dark-border group hover:bg-dark-surface transition-colors duration-300 py-10"
+      className="soft-panel group p-6 md:p-8"
     >
       {/* Header row */}
-      <div className="grid grid-cols-[3rem_1fr_auto] gap-x-6 items-start mb-6">
+      <div className="grid grid-cols-[3rem_1fr] gap-x-6 gap-y-4 items-start mb-6 md:grid-cols-[3rem_1fr_auto]">
         {/* Number */}
         <span className="font-display text-5xl leading-none text-accent/30 select-none pt-1">
           {String(index + 1).padStart(2, '0')}
@@ -45,15 +45,15 @@ const ExperienceRecord = ({ exp, index }: RecordProps) => {
 
         {/* Current badge */}
         {exp.current && (
-          <span className="px-2.5 py-0.5 bg-accent/10 border border-accent/30 text-accent font-mono text-[10px] tracking-widest uppercase whitespace-nowrap">
+          <span className="rounded-full px-3 py-1 bg-accent/10 border border-accent/30 text-accent font-mono text-[10px] tracking-widest uppercase whitespace-nowrap col-start-2 md:col-start-auto">
             Current
           </span>
         )}
       </div>
 
       {/* Content — indent matches number column + gap */}
-      <div className="pl-[calc(3rem+1.5rem)]">
-        <div className="border-t border-dark-border pt-6">
+      <div className="md:pl-[calc(3rem+1.5rem)]">
+        <div className="pt-2">
           <ul className="space-y-2.5 mb-6">
             {exp.description.map((desc, i) => (
               <li key={i} className="flex items-start gap-3">
@@ -69,7 +69,7 @@ const ExperienceRecord = ({ exp, index }: RecordProps) => {
             {exp.skills.map((skill) => (
               <span
                 key={skill}
-                className="px-2.5 py-0.5 border border-dark-border text-ivory-muted font-body text-xs tracking-wide hover:border-accent/30 hover:text-accent transition-all duration-300"
+                className="tag-pill"
               >
                 {skill}
               </span>
@@ -88,6 +88,8 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="section-shell">
+          <div className="section-content">
 
         {/* Section label bar */}
         <motion.div
@@ -100,7 +102,7 @@ const Experience = () => {
           <span className="font-mono text-[10px] text-accent tracking-[0.3em] uppercase whitespace-nowrap">
             02 — Experience
           </span>
-          <div className="h-px flex-1 bg-dark-border" />
+          <div className="section-kicker-line" />
           <span className="font-mono text-[10px] text-ivory-muted tracking-[0.2em] uppercase whitespace-nowrap">
             2+ years · 4 roles
           </span>
@@ -116,12 +118,14 @@ const Experience = () => {
         </div>
 
         {/* Records */}
-        <div className="mt-16 border-t border-dark-border">
+        <div className="mt-16 grid gap-5">
           {experiences.map((exp, index) => (
             <ExperienceRecord key={exp.id} exp={exp} index={index} />
           ))}
         </div>
 
+          </div>
+        </div>
       </div>
     </section>
   );

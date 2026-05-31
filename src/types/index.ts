@@ -46,6 +46,7 @@ export interface Skill {
   name: string;
   category: 'Languages' | 'Frameworks' | 'Tools' | 'Cloud & DevOps' | 'Project Management' | 'AI/ML';
   icon?: string;
+  level?: number; // 1–5
 }
 
 export interface Certification {

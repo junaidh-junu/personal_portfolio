@@ -53,62 +53,74 @@ const Navigation = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-dark-bg/90 backdrop-blur-md border-b border-dark-border py-4'
-            : 'bg-transparent py-6'
+          isScrolled ? 'py-4' : 'py-5'
         }`}
       >
         <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
+          <div className={`flex items-center justify-between transition-all duration-500 ${
+            isScrolled
+              ? 'rounded-full border border-white/[0.08] bg-dark-bg/75 px-5 py-3 shadow-2xl shadow-black/25 backdrop-blur-xl'
+              : 'px-0 py-0'
+          }`}>
+            {/* Logo — always visible */}
             <button
               onClick={() => scrollToSection('home')}
               className="relative cursor-pointer group"
             >
-              <span className="font-display text-3xl text-ivory tracking-wide">
+              <span className={`font-display text-3xl tracking-wide transition-colors duration-300 group-hover:text-accent ${
+                isScrolled ? 'text-ivory' : 'text-ivory/70'
+              }`}>
                 JH
               </span>
               <span className="absolute -bottom-1 left-0 w-full h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </button>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
+            {/* Desktop Navigation — only visible when scrolled */}
+            <motion.div
+              animate={{ opacity: isScrolled ? 1 : 0, pointerEvents: isScrolled ? 'auto' : 'none' }}
+              transition={{ duration: 0.3 }}
+              className="hidden xl:flex items-center gap-1 rounded-full border border-white/[0.05] bg-white/[0.025] p-1"
+            >
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-2 transition-all duration-300 relative font-body text-sm tracking-wide ${
+                  className={`px-4 py-2 transition-all duration-300 relative rounded-full font-body text-sm tracking-wide ${
                     activeSection === item.id
-                      ? 'text-accent'
+                      ? 'text-dark-bg'
                       : 'text-ivory-muted hover:text-ivory'
                   }`}
                 >
-                  {item.label}
                   {activeSection === item.id && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute bottom-0 left-4 right-4 h-px bg-accent"
+                      className="absolute inset-0 -z-10 rounded-full bg-accent"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
+                  {item.label}
                 </button>
               ))}
-            </div>
+            </motion.div>
 
-            {/* CTA Button */}
-            <div className="hidden lg:block">
+            {/* CTA — only visible when scrolled */}
+            <motion.div
+              animate={{ opacity: isScrolled ? 1 : 0, pointerEvents: isScrolled ? 'auto' : 'none' }}
+              transition={{ duration: 0.3 }}
+              className="hidden xl:block"
+            >
               <button
                 onClick={() => scrollToSection('contact')}
-                className="px-6 py-2.5 border border-accent/40 text-accent text-sm font-body font-medium tracking-wide hover:bg-accent/10 transition-all duration-300"
+                className="pill-button px-6 py-2.5"
               >
                 Let's Talk
               </button>
-            </div>
+            </motion.div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button — always visible */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-ivory p-2 transition-colors duration-300"
+              className="xl:hidden text-ivory p-2 transition-colors duration-300"
               aria-label="Toggle menu"
             >
               <motion.div
@@ -139,14 +151,14 @@ const Navigation = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 250 }}
-              className="fixed top-0 right-0 bottom-0 w-72 bg-dark-surface border-l border-dark-border z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-72 bg-dark-surface/90 border-l border-white/[0.08] z-50 xl:hidden overflow-y-auto backdrop-blur-xl"
             >
               <div className="p-8 space-y-2 mt-16">
                 {navItems.map((item, index) => (
@@ -156,10 +168,10 @@ const Navigation = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full text-left px-4 py-3 font-body text-sm tracking-wide transition-all duration-300 border-l-2 ${
+                    className={`w-full text-left px-4 py-3 rounded-2xl font-body text-sm tracking-wide transition-all duration-300 ${
                       activeSection === item.id
-                        ? 'border-accent text-accent'
-                        : 'border-transparent text-ivory-muted hover:text-ivory hover:border-dark-border-light'
+                        ? 'bg-accent text-dark-bg'
+                        : 'text-ivory-muted hover:text-ivory hover:bg-white/[0.04]'
                     }`}
                   >
                     {item.label}
@@ -170,7 +182,7 @@ const Navigation = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
                   onClick={() => scrollToSection('contact')}
-                  className="w-full mt-6 px-6 py-3 border border-accent/40 text-accent text-sm font-body font-medium tracking-wide hover:bg-accent/10 transition-all duration-300"
+                  className="pill-button w-full mt-6"
                 >
                   Let's Talk
                 </motion.button>
