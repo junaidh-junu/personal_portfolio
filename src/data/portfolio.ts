@@ -1,4 +1,29 @@
-import { Experience, Education, Project, Publication, Skill, Certification } from '../types';
+import { Experience, Education, Project, Publication, Skill, Certification, SiteStat, ExpertiseArea } from '../types';
+
+export const siteStats: SiteStat[] = [
+  { label: 'Years Experience', value: '2+' },
+  { label: 'Projects Completed', value: '20+' },
+  { label: 'Technologies', value: '30+' },
+  { label: 'Publications', value: '1' },
+];
+
+export const expertiseAreas: ExpertiseArea[] = [
+  {
+    num: '01',
+    title: 'Mobile Development',
+    description: 'Cross-platform apps with Flutter and Kotlin, focusing on performance and seamless user experience across iOS and Android.',
+  },
+  {
+    num: '02',
+    title: 'Web Development',
+    description: 'Responsive web applications using MERN stack, Next.js, and modern frameworks — from admin dashboards to public platforms.',
+  },
+  {
+    num: '03',
+    title: 'DevOps & Cloud',
+    description: 'Server management, DNS configuration, CI/CD pipelines, and cloud infrastructure on DigitalOcean and Vercel.',
+  },
+];
 
 export const experiences: Experience[] = [
   {
@@ -242,7 +267,8 @@ export const projects: Project[] = [
     date: '2024',
     demo: 'https://readmeforger.junaidh.me/',
     image: '/images/readme-forger.png',
-    category: 'web'
+    category: 'web',
+    featured: true,
   },
   {
     id: '13',
@@ -434,6 +460,8 @@ export const certifications: Certification[] = [
     period: 'Mar 2023 – Sep 2023',
   },
 ];
+
+export const featuredProject = projects.find((p) => p.featured) ?? projects[0];
 
 export const contactInfo = {
   name: 'Junaidh Haneefa Muhammedhaneefa',

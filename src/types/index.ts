@@ -31,6 +31,18 @@ export interface Project {
   demo?: string;
   date: string;
   category?: 'web' | 'mobile' | 'tool' | 'other';
+  featured?: boolean;
+}
+
+export interface SiteStat {
+  label: string;
+  value: string;
+}
+
+export interface ExpertiseArea {
+  num: string;
+  title: string;
+  description: string;
 }
 
 export interface Publication {

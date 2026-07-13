@@ -3,12 +3,11 @@ import { useEffect, useState } from 'react';
 
 const sections = [
   { id: 'home', label: 'Home' },
+  { id: 'projects', label: 'Works' },
   { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'education', label: 'Education' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'publications', label: 'Publications' },
+  { id: 'journey', label: 'Journey' },
+  { id: 'skills', label: 'Toolbox' },
+  { id: 'publications', label: 'Pubs' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -42,23 +41,20 @@ const SectionDots = () => {
         return (
           <button
             key={section.id}
+            type="button"
             onClick={() => scrollTo(section.id)}
             aria-label={`Go to ${section.label}`}
             className="group relative flex items-center justify-end gap-2"
           >
-            {/* Label tooltip */}
-            <span className="pointer-events-none absolute right-6 whitespace-nowrap rounded-full border border-white/[0.08] bg-dark-bg/90 px-2.5 py-1 font-mono text-[9px] tracking-[0.2em] uppercase text-ivory-muted opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+            <span className="pointer-events-none absolute right-5 whitespace-nowrap border border-rule bg-canvas px-2 py-1 font-mono text-[9px] tracking-[0.2em] uppercase text-ink-muted opacity-0 transition-opacity group-hover:opacity-100">
               {section.label}
             </span>
-
-            {/* Dot */}
             <motion.div
-              animate={isActive ? { scale: 1.3 } : { scale: 1 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-              className={`rounded-full border transition-all duration-300 ${
+              animate={isActive ? { scale: 1.2 } : { scale: 1 }}
+              className={`border transition-all ${
                 isActive
-                  ? 'w-2 h-2 border-accent bg-accent'
-                  : 'w-1.5 h-1.5 border-accent/40 bg-transparent group-hover:border-accent/70 group-hover:bg-accent/20'
+                  ? 'w-2 h-2 border-ink bg-ink'
+                  : 'w-1.5 h-1.5 border-ink/30 bg-transparent group-hover:border-ink/60'
               }`}
             />
           </button>

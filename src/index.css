@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark-bg: #0A0A0A;
-  --color-dark-surface: #111111;
-  --color-dark-card: #161616;
-  --color-dark-card-elevated: #1C1C1C;
-  --color-dark-border: #222222;
-  --color-dark-border-light: #2A2A2A;
-  --color-accent: #C9A96E;
-  --color-accent-light: #D9BE8E;
-  --color-accent-dark: #A8884D;
-  --color-ivory: #E5E0DB;
-  --color-ivory-dim: #B0AAA3;
-  --color-ivory-muted: #7A756F;
-  --color-ivory-faint: #4A4744;
+  --color-canvas: #E8E2D9;
+  --color-surface: #F2EDE6;
+  --color-surface-elevated: #FAF7F2;
+  --color-ink: #111111;
+  --color-ink-dim: #3D3A36;
+  --color-ink-muted: #6B6560;
+  --color-ink-faint: #9A948C;
+  --color-accent: #2D4A3E;
+  --color-accent-light: #3D6354;
+  --color-accent-muted: rgba(45, 74, 62, 0.12);
+  --color-rule: rgba(17, 17, 17, 0.12);
+  --color-status: #4ADE80;
+  --color-border: rgba(17, 17, 17, 0.15);
 }
 
 @layer base {
@@ -25,175 +25,137 @@
 
   html {
     scroll-behavior: smooth;
-    font-size: 17px;
+    font-size: 16px;
   }
 
   body {
-    @apply bg-dark-bg;
-    color: #E5E0DB;
-    font-family: 'Libre Franklin', system-ui, sans-serif;
+    @apply bg-canvas text-ink;
+    font-family: 'DM Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.7;
-    font-weight: 300;
-    letter-spacing: 0.01em;
+    line-height: 1.65;
+    font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 400;
-    line-height: 1.15;
-    color: #E5E0DB;
+    font-family: 'Syne', system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    color: #111111;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
-  .card {
-    @apply bg-dark-card border border-dark-border;
+  .page-canvas {
+    @apply bg-canvas min-h-screen;
   }
 
-  .card-hover {
-    @apply transition-all duration-500;
+  .brutal-hero {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    font-size: clamp(3rem, 12vw, 9rem);
   }
 
-  .card-hover:hover {
-    border-color: rgba(201, 169, 110, 0.3);
+  .section-index {
+    @apply font-mono text-[10px] tracking-[0.25em] uppercase text-ink-muted;
   }
 
-  .gold-rule {
-    @apply h-px mx-auto;
-    background: linear-gradient(to right, transparent, #C9A96E, transparent);
+  .hairline {
+    @apply h-px w-full bg-rule;
   }
 
-  .gold-rule-left {
-    @apply h-px;
-    background: linear-gradient(to right, #C9A96E, transparent);
+  .hairline-v {
+    @apply w-px self-stretch bg-rule;
   }
 
-  .ambient-page {
-    background:
-      radial-gradient(circle at 12% 6%, rgba(201, 169, 110, 0.12), transparent 28rem),
-      radial-gradient(circle at 88% 20%, rgba(229, 224, 219, 0.06), transparent 24rem),
-      linear-gradient(180deg, #0A0A0A 0%, #0D0B08 48%, #080808 100%);
+  .section-block {
+    @apply py-20 md:py-28 border-b border-rule;
   }
 
-  .section-shell {
-    @apply relative rounded-[2rem] border border-white/[0.06] bg-dark-surface/[0.28] px-4 py-12 shadow-2xl shadow-black/20 backdrop-blur-sm sm:px-8 md:py-16 lg:px-12;
+  .work-card {
+    @apply border border-border bg-surface transition-colors duration-300;
   }
 
-  .section-shell::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(135deg, rgba(255,255,255,0.045), transparent 32%, rgba(201,169,110,0.035));
+  .work-card:hover {
+    @apply bg-surface-elevated border-ink/25;
   }
 
-  .section-content {
-    @apply relative z-10;
+  .cta-primary {
+    @apply inline-flex items-center justify-center gap-2 border border-ink bg-ink px-6 py-3 text-sm font-medium tracking-wide text-canvas transition-all duration-300;
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
 
-  .section-kicker-line {
-    @apply h-px flex-1;
-    background: linear-gradient(to right, rgba(201,169,110,0.35), rgba(229,224,219,0.06), transparent);
+  .cta-primary:hover {
+    @apply bg-accent border-accent;
   }
 
-  .soft-panel {
-    @apply rounded-[1.5rem] border border-white/[0.07] bg-white/[0.025] shadow-xl shadow-black/10 transition-all duration-500;
+  .cta-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-ink/30 bg-transparent px-6 py-3 text-sm font-medium tracking-wide text-ink transition-all duration-300;
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
 
-  .soft-panel:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(201, 169, 110, 0.18);
-  }
-
-  .pill-button {
-    @apply rounded-full border border-accent/35 px-6 py-3 text-sm font-medium tracking-wide text-accent transition-all duration-300;
-    font-family: 'Libre Franklin', system-ui, sans-serif;
-  }
-
-  .pill-button:hover {
-    background: rgba(201, 169, 110, 0.12);
-    border-color: rgba(201, 169, 110, 0.65);
-  }
-
-  .pill-button-filled {
-    @apply rounded-full bg-accent px-7 py-3 text-sm font-medium tracking-wide text-dark-bg transition-all duration-300;
-    font-family: 'Libre Franklin', system-ui, sans-serif;
-  }
-
-  .pill-button-filled:hover {
-    background: #D9BE8E;
-    box-shadow: 0 0 32px rgba(201, 169, 110, 0.18);
+  .cta-ghost:hover {
+    @apply border-ink bg-ink/5;
   }
 
   .tag-pill {
-    @apply inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.025] px-3 py-1 text-xs tracking-wide text-ivory-muted transition-all duration-300;
-    font-family: 'Libre Franklin', system-ui, sans-serif;
+    @apply inline-flex items-center border border-border bg-canvas px-3 py-1 text-xs tracking-wide text-ink-muted transition-all duration-300;
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
 
   .tag-pill:hover {
-    @apply text-accent;
-    border-color: rgba(201, 169, 110, 0.28);
-    background: rgba(201, 169, 110, 0.08);
+    @apply border-accent text-accent;
+  }
+
+  .status-pill {
+    @apply inline-flex items-center gap-2 border border-status/40 bg-status/10 px-3 py-1.5 font-mono text-[10px] tracking-[0.2em] uppercase text-ink-dim;
+  }
+
+  .expertise-card {
+    @apply border border-border bg-surface p-6 md:p-8 transition-colors duration-300;
+  }
+
+  .expertise-card:hover {
+    @apply border-ink/30 bg-surface-elevated;
   }
 
   .text-balance {
     text-wrap: balance;
   }
-
-  .noise {
-    position: relative;
-  }
-
-  .photo-frame { overflow: hidden; }
-  .photo-frame img { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-  .photo-frame:hover img { transform: scale(1.03); }
-
-  .noise::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.015;
-    pointer-events: none;
-    z-index: 0;
-  }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #E8E2D9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A2A2A;
+  background: rgba(17, 17, 17, 0.2);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3A3A3A;
+  background: rgba(17, 17, 17, 0.35);
 }
 
-/* Selection */
 ::selection {
-  background: rgba(201, 169, 110, 0.25);
-  color: #E5E0DB;
+  background: rgba(45, 74, 62, 0.2);
+  color: #111111;
 }
 
 ::-moz-selection {
-  background: rgba(201, 169, 110, 0.25);
-  color: #E5E0DB;
+  background: rgba(45, 74, 62, 0.2);
+  color: #111111;
 }
 
-/* Focus styles */
 *:focus-visible {
-  outline: 1px solid rgba(201, 169, 110, 0.5);
+  outline: 2px solid rgba(45, 74, 62, 0.5);
   outline-offset: 2px;
-  border-radius: 2px;
 }
