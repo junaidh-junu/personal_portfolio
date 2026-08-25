@@ -10,7 +10,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t border-rule bg-surface">
+    <footer className="bg-surface">
+      <div className="scribble-divider" />
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div className="space-y-3 font-mono text-[11px] tracking-[0.12em] uppercase text-ink-muted">
@@ -29,28 +30,28 @@ const Footer = () => {
         </div>
 
         <div className="flex items-center justify-between gap-6 border-t border-rule pt-8">
-          <span className="font-display text-xl md:text-2xl text-ink-dim">Junaidh Haneefa</span>
+          <span className="font-display text-lg md:text-xl text-ink-dim">Junaidh Haneefa</span>
           <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint hidden sm:inline">
             Full-Stack &amp; Mobile Developer
           </span>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-6 mt-8 pt-8 border-t border-rule">
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-3">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.url}
                 target={link.url.startsWith('mailto:') ? undefined : '_blank'}
                 rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted hover:text-accent transition-colors"
+                className="sticker inline-flex items-center px-4 py-2 border-2 border-ink bg-canvas font-mono text-[10px] tracking-[0.2em] uppercase text-ink hover:text-accent hover:border-accent transition-colors"
               >
                 {link.name}
               </a>
             ))}
             <a
               href="#publications"
-              className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted hover:text-accent transition-colors"
+              className="sticker inline-flex items-center px-4 py-2 border-2 border-ink bg-canvas font-mono text-[10px] tracking-[0.2em] uppercase text-ink hover:text-accent hover:border-accent transition-colors"
             >
               Publications
             </a>
@@ -58,7 +59,7 @@ const Footer = () => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted hover:text-accent transition-colors inline-flex items-center gap-2"
+            className="sticker inline-flex items-center gap-2 px-4 py-2 border-2 border-ink bg-canvas font-mono text-[10px] tracking-[0.2em] uppercase text-ink hover:text-accent hover:border-accent transition-colors"
           >
             Back to top
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

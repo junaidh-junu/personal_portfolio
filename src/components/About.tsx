@@ -25,7 +25,7 @@ const About = () => {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
             About me
           </h2>
-          <div className="hairline mt-6" />
+          <div className="scribble-divider mt-6" />
         </motion.div>
 
         <div className="grid lg:grid-cols-[1fr_280px] gap-12 lg:gap-16">
@@ -35,9 +35,9 @@ const About = () => {
             animate={contentInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <blockquote className="border-l-2 border-accent pl-6 mb-8">
-              <p className="font-display text-xl md:text-2xl text-ink leading-snug">
-                "Shipping production software that scales — that's the work."
+            <blockquote className="mb-10">
+              <p className="font-display italic text-2xl md:text-3xl text-ink leading-snug">
+                "Shipping <span className="doodle-underline">production software that scales</span> — that's the work."
               </p>
             </blockquote>
 
@@ -66,16 +66,16 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={contentInView ? { opacity: 1, scale: 1 } : {}}
+            initial={{ opacity: 0, scale: 0.98, rotate: -2 }}
+            animate={contentInView ? { opacity: 1, scale: 1, rotate: -2 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="hidden lg:block"
           >
-            <div className="work-card overflow-hidden aspect-[3/4]">
+            <div className="blob-shape overflow-hidden aspect-[3/4] border-2 border-ink">
               <img
                 src="/images/profile.png"
                 alt="Junaidh Haneefa"
-                className="w-full h-full object-cover object-top grayscale contrast-[1.08]"
+                className="w-full h-full object-cover object-top"
               />
             </div>
           </motion.div>
@@ -91,20 +91,23 @@ const About = () => {
           <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted mb-8">
             My expertise
           </h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            {expertiseAreas.map((area, i) => (
-              <motion.div
-                key={area.title}
-                initial={{ opacity: 0, y: 14 }}
-                animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-                className="expertise-card"
-              >
-                <span className="font-display text-3xl text-accent/40">{area.num}</span>
-                <h4 className="font-display text-lg text-ink mt-3 mb-3">{area.title}</h4>
-                <p className="font-body text-sm text-ink-dim leading-relaxed">{area.description}</p>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-3 gap-6 md:gap-5">
+            {expertiseAreas.map((area, i) => {
+              const rotations = ['rotate-1', '-rotate-1', 'rotate-1.5'];
+              return (
+                <motion.div
+                  key={area.title}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+                  className={`expertise-card ${rotations[i % rotations.length]} hover:rotate-0 transition-transform duration-300`}
+                >
+                  <span className="font-display text-3xl text-accent/40">{area.num}</span>
+                  <h4 className="font-display text-lg text-ink mt-3 mb-3">{area.title}</h4>
+                  <p className="font-body text-sm text-ink-dim leading-relaxed">{area.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

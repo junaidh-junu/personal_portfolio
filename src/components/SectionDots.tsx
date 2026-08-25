@@ -46,15 +46,18 @@ const SectionDots = () => {
             aria-label={`Go to ${section.label}`}
             className="group relative flex items-center justify-end gap-2"
           >
-            <span className="pointer-events-none absolute right-5 whitespace-nowrap border border-rule bg-canvas px-2 py-1 font-mono text-[9px] tracking-[0.2em] uppercase text-ink-muted opacity-0 transition-opacity group-hover:opacity-100">
+            <span
+              className="pointer-events-none absolute right-6 whitespace-nowrap border-2 border-ink bg-surface-elevated px-2 py-1 font-mono text-[9px] tracking-[0.2em] uppercase text-ink opacity-0 transition-opacity group-hover:opacity-100"
+              style={{ boxShadow: '2px 2px 0 0 var(--color-ink)' }}
+            >
               {section.label}
             </span>
             <motion.div
-              animate={isActive ? { scale: 1.2 } : { scale: 1 }}
-              className={`border transition-all ${
+              animate={isActive ? { scale: 1.3, rotate: -6 } : { scale: 1, rotate: 0 }}
+              className={`border-2 transition-all ${
                 isActive
-                  ? 'w-2 h-2 border-ink bg-ink'
-                  : 'w-1.5 h-1.5 border-ink/30 bg-transparent group-hover:border-ink/60'
+                  ? 'w-2.5 h-2.5 border-ink bg-accent'
+                  : 'w-2 h-2 border-ink/30 bg-transparent group-hover:border-ink/70'
               }`}
             />
           </button>

@@ -78,80 +78,82 @@ const Navigation = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-          isScrolled ? 'bg-canvas/95 border-rule backdrop-blur-sm py-3' : 'bg-transparent border-transparent py-5'
+        className={`fixed left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] sm:w-auto transition-all duration-300 ${
+          isScrolled ? 'top-3' : 'top-5'
         }`}
       >
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between">
+        <div
+          className="flex items-center justify-between gap-4 sm:gap-8 rounded-full border-2 border-ink bg-surface-elevated px-5 sm:px-7 py-2.5"
+          style={{ boxShadow: '4px 4px 0 0 var(--color-ink)' }}
+        >
+          <button
+            type="button"
+            onClick={() => scrollToSection('home')}
+            className="font-display text-sm font-bold tracking-tight text-ink hover:text-accent transition-colors"
+          >
+            JH
+          </button>
+
+          <div className="hidden lg:flex items-center gap-6">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => scrollToSection(item.id)}
+                className={`font-mono text-[10px] tracking-[0.2em] uppercase transition-colors ${
+                  activeSection === item.id
+                    ? 'text-accent'
+                    : 'text-ink-muted hover:text-ink'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3">
             <button
               type="button"
-              onClick={() => scrollToSection('home')}
-              className="font-mono text-[10px] tracking-[0.25em] uppercase text-ink hover:text-accent transition-colors"
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+              className="sticker p-1.5 text-ink-muted hover:text-ink transition-colors"
             >
-              JH · Portfolio
+              {theme === 'dark' ? (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+              )}
             </button>
 
-            <div className="hidden lg:flex items-center gap-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => scrollToSection(item.id)}
-                  className={`font-mono text-[10px] tracking-[0.2em] uppercase transition-colors ${
-                    activeSection === item.id
-                      ? 'text-ink'
-                      : 'text-ink-muted hover:text-ink'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+            <button
+              type="button"
+              onClick={() => scrollToSection('contact')}
+              className="hidden sm:inline-flex cta-primary !px-4 !py-1.5 !border-[1.5px] text-xs"
+              style={{ boxShadow: '3px 3px 0 0 var(--color-ink)' }}
+            >
+              Say Hello
+            </button>
 
-            <div className="flex items-center gap-4">
-              <button
-                type="button"
-                onClick={toggleTheme}
-                aria-label="Toggle dark mode"
-                className="p-2 text-ink-muted hover:text-ink transition-colors"
-              >
-                {theme === 'dark' ? (
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
-                  </svg>
-                ) : (
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-                  </svg>
-                )}
-              </button>
-
-              <button
-                type="button"
-                onClick={() => scrollToSection('contact')}
-                className="hidden sm:inline-flex cta-primary !px-4 !py-2 text-xs"
-              >
-                Say Hello
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden text-ink p-2"
-                aria-label="Toggle menu"
-              >
-                {isMobileMenuOpen ? (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16" />
-                  </svg>
-                )}
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden text-ink p-1.5"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
       </motion.nav>
@@ -171,21 +173,21 @@ const Navigation = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 280 }}
-              className="fixed top-0 right-0 bottom-0 w-72 bg-surface border-l border-rule z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-72 bg-surface-elevated border-l-2 border-ink z-50 lg:hidden overflow-y-auto"
             >
-              <div className="p-8 space-y-1 mt-20">
+              <div className="p-8 space-y-2 mt-20">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.id}
                     type="button"
-                    initial={{ opacity: 0, x: 16 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, x: 16, rotate: 0 }}
+                    animate={{ opacity: 1, x: 0, rotate: index % 2 === 0 ? -1 : 1 }}
                     transition={{ delay: index * 0.04 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full text-left px-4 py-3 font-mono text-[10px] tracking-[0.2em] uppercase transition-colors ${
+                    className={`w-full text-left px-4 py-3 border-2 font-mono text-[10px] tracking-[0.2em] uppercase transition-all ${
                       activeSection === item.id
-                        ? 'bg-ink text-canvas'
-                        : 'text-ink-muted hover:text-ink hover:bg-canvas'
+                        ? 'bg-accent text-canvas border-ink'
+                        : 'bg-canvas text-ink-muted border-ink/20 hover:text-ink hover:border-ink'
                     }`}
                   >
                     {item.label}

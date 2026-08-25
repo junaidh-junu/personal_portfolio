@@ -88,6 +88,7 @@ interface CategoryRowProps {
 const CategoryRow = ({ category, categorySkills, index }: CategoryRowProps) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const tilt = index % 2 === 0 ? 'md:rotate-1' : 'md:-rotate-1';
 
   return (
     <motion.div
@@ -95,19 +96,21 @@ const CategoryRow = ({ category, categorySkills, index }: CategoryRowProps) => {
       initial={{ opacity: 0, y: 16 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.06 }}
-      className="work-card p-6"
+      className={`work-card p-6 ${tilt}`}
     >
-      <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-x-8 gap-y-3">
-        <span className="font-mono text-[10px] text-ink-muted tracking-[0.25em] uppercase">
+      <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-x-8 gap-y-4">
+        <span className="font-mono text-[10px] text-accent tracking-[0.25em] uppercase inline-flex items-center self-start px-2.5 py-1 border border-accent/40 rounded-full bg-accent/5">
           {category}
         </span>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2.5">
           {categorySkills.map((skill) => {
             const Icon = iconMap[skill.name];
             return (
-              <span key={skill.name} className="tag-pill gap-1.5">
-                {Icon && <Icon className="w-3.5 h-3.5 shrink-0" />}
-                {skill.name}
+              <span key={skill.name} className="sticker inline-block">
+                <span className="tag-pill gap-1.5">
+                  {Icon && <Icon className="w-3.5 h-3.5 shrink-0" />}
+                  {skill.name}
+                </span>
               </span>
             );
           })}

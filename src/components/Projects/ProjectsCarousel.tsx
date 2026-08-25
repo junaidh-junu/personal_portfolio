@@ -9,9 +9,12 @@ interface ProjectCardProps {
   onOpen: (project: Project) => void;
 }
 
+const rotations = ['rotate-1', '-rotate-1.5', 'rotate-2.5', '-rotate-1', 'rotate-1.5', '-rotate-2.5'];
+
 const ProjectCard = ({ project, index, onOpen }: ProjectCardProps) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const rotation = rotations[index % rotations.length];
 
   return (
     <motion.article
@@ -19,7 +22,7 @@ const ProjectCard = ({ project, index, onOpen }: ProjectCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.06 }}
-      className="work-card group flex flex-col overflow-hidden"
+      className={`work-card group flex flex-col overflow-hidden mb-6 break-inside-avoid ${rotation} hover:rotate-0 transition-transform duration-300`}
     >
       <button
         type="button"
@@ -107,16 +110,16 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-ink/40 p-0 sm:p-6"
+      className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-ink/50 p-0 sm:p-6"
       onClick={onClose}
     >
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 24 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: 24, rotate: -1.5, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 24, rotate: 1.5, scale: 0.98 }}
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-canvas border border-border w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto"
+        className="bg-canvas border-2 border-ink shadow-[8px_8px_0_0_#FF4E1F] w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto"
       >
         <div className="aspect-video bg-surface-elevated flex items-center justify-center overflow-hidden border-b border-rule">
           {project.image ? (
@@ -226,7 +229,7 @@ const ProjectsCarousel = () => {
           <div className="hairline mt-6" />
         </motion.div>
 
-        <div className="mt-8 flex flex-wrap gap-2 border border-rule p-2 w-fit">
+        <div className="mt-8 flex flex-wrap gap-3">
           {tabs.map((tab) => {
             const count = getCount(tab.key);
             const isActive = activeTab === tab.key;
@@ -235,14 +238,14 @@ const ProjectsCarousel = () => {
                 key={tab.key}
                 type="button"
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-4 py-2 font-mono text-[10px] tracking-[0.2em] uppercase transition-all ${
+                className={`sticker px-5 py-2.5 border-2 border-ink font-mono text-[10px] tracking-[0.2em] uppercase transition-all ${
                   isActive
-                    ? 'bg-ink text-canvas'
-                    : 'text-ink-muted hover:text-ink hover:bg-surface'
+                    ? 'bg-accent text-canvas shadow-[3px_3px_0_0_#181511]'
+                    : 'bg-canvas text-ink shadow-[3px_3px_0_0_#181511] hover:bg-surface-elevated'
                 }`}
               >
                 {tab.label}
-                <span className={`ml-2 ${isActive ? 'text-canvas/70' : 'text-ink-faint'}`}>
+                <span className={`ml-2 ${isActive ? 'text-canvas/80' : 'text-ink-faint'}`}>
                   {count}
                 </span>
               </button>
@@ -255,7 +258,7 @@ const ProjectsCarousel = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="mt-10 grid md:grid-cols-2 gap-5"
+          className="mt-10 columns-1 md:columns-2 lg:columns-3 gap-6"
         >
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} onOpen={setOpenProject} />

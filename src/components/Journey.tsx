@@ -8,6 +8,7 @@ const ExperienceItem = ({ exp, index }: { exp: Experience; index: number }) => {
   const inView = useInView(ref, { once: true, margin: '-60px' });
   const [expanded, setExpanded] = useState(false);
   const highlights = exp.description.slice(0, expanded ? exp.description.length : 2);
+  const tilt = index % 2 === 0 ? 'md:rotate-[0.4deg]' : 'md:-rotate-[0.4deg]';
 
   return (
     <motion.article
@@ -15,7 +16,7 @@ const ExperienceItem = ({ exp, index }: { exp: Experience; index: number }) => {
       initial={{ opacity: 0, y: 16 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="work-card p-6 md:p-8"
+      className={`work-card p-6 md:p-8 ${tilt}`}
     >
       <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
         <div>
@@ -24,7 +25,7 @@ const ExperienceItem = ({ exp, index }: { exp: Experience; index: number }) => {
         </div>
         <div className="flex items-center gap-3">
           {exp.current && (
-            <span className="font-mono text-[10px] tracking-[0.15em] uppercase border border-accent px-2 py-1 text-accent">
+            <span className="sticker font-mono text-[10px] tracking-[0.15em] uppercase bg-accent text-canvas rounded-full px-3 py-1 border-2 border-ink">
               Current
             </span>
           )}
@@ -130,23 +131,27 @@ const Journey = () => {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
             My digital journey
           </h2>
-          <div className="hairline mt-6 max-w-full" />
+          <div className="scribble-divider mt-6 max-w-full" />
         </motion.div>
 
-        <div className="mb-16">
-          <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted mb-6">
-            [01] Experience
+        <div className="mb-14">
+          <h3 className="inline-flex items-center gap-3 mb-6">
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase bg-ink text-canvas rounded-full w-7 h-7 flex items-center justify-center">01</span>
+            <span className="font-display text-xl text-ink">Experience</span>
           </h3>
-          <div className="grid gap-4">
+          <div className="grid gap-6">
             {experiences.map((exp, i) => (
               <ExperienceItem key={exp.id} exp={exp} index={i} />
             ))}
           </div>
         </div>
 
-        <div className="mb-16">
-          <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted mb-6">
-            [02] Education
+        <div className="scribble-divider my-14" />
+
+        <div className="mb-14">
+          <h3 className="inline-flex items-center gap-3 mb-6">
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase bg-ink text-canvas rounded-full w-7 h-7 flex items-center justify-center">02</span>
+            <span className="font-display text-xl text-ink">Education</span>
           </h3>
           <div className="grid gap-4">
             {education.map((edu, i) => (
@@ -155,9 +160,12 @@ const Journey = () => {
           </div>
         </div>
 
+        <div className="scribble-divider my-14" />
+
         <div>
-          <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted mb-6">
-            [03] Certifications
+          <h3 className="inline-flex items-center gap-3 mb-6">
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase bg-ink text-canvas rounded-full w-7 h-7 flex items-center justify-center">03</span>
+            <span className="font-display text-xl text-ink">Certifications</span>
           </h3>
           <div className="grid gap-3">
             {certifications.map((cert) => (

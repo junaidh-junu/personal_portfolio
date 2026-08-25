@@ -32,7 +32,7 @@ const Contact = () => {
         >
           <span className="section-index">/ 07 Contact</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
-            Let's talk about your project
+            Let's talk about your <span className="doodle-underline">project</span>
           </h2>
           <div className="hairline mt-6" />
         </motion.div>
@@ -48,20 +48,24 @@ const Contact = () => {
             <p className="font-body text-ink-dim text-base leading-relaxed mb-8 max-w-lg">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hello — my inbox is open.
             </p>
-            <a
-              href={`mailto:${contactInfo.email}`}
-              className="cta-primary mb-10 px-10 py-5 text-base"
-            >
-              Write a line ↗
-            </a>
-            <div className="space-y-2">
-              {socialLinks.map((social) => (
+            <div className="sticker inline-block mb-10 -rotate-2">
+              <a
+                href={`mailto:${contactInfo.email}`}
+                className="cta-primary px-12 py-6 text-lg md:text-xl"
+              >
+                Write a line ↗
+              </a>
+            </div>
+            <div className="space-y-3">
+              {socialLinks.map((social, i) => (
                 <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="work-card flex items-center justify-between px-5 py-4 text-ink-muted hover:text-accent transition-colors"
+                  className={`work-card flex items-center justify-between px-5 py-4 text-ink-muted hover:text-accent transition-colors ${
+                    i % 2 === 0 ? 'md:rotate-1' : 'md:-rotate-1'
+                  }`}
                 >
                   <span className="font-body text-sm">{social.name}</span>
                   <span className="font-mono text-[10px] tracking-[0.15em] uppercase">↗</span>
