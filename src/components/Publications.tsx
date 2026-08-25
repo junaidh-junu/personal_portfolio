@@ -18,7 +18,7 @@ const PublicationRecord = ({ pub, index }: { pub: Publication; index: number }) 
       <span className="font-mono text-[10px] text-ink-faint tracking-[0.2em] uppercase">
         {String(index + 1).padStart(2, '0')}
       </span>
-      <h3 className="font-display text-xl md:text-2xl text-ink mt-3 mb-3 lowercase">{pub.title}</h3>
+      <h3 className="font-display text-xl md:text-2xl text-ink mt-3 mb-3">{pub.title}</h3>
       <div className="font-mono text-[10px] text-ink-muted tracking-[0.12em] uppercase flex flex-wrap gap-x-4 gap-y-1 mb-4">
         <span>{pub.journal}</span>
         <span>·</span>
@@ -60,8 +60,8 @@ const Publications = () => {
           className="mb-12"
         >
           <span className="section-index">/ 06 Publications</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4 lowercase">
-            research publications
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+            Research publications
           </h2>
           <div className="hairline mt-6" />
         </motion.div>

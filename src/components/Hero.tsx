@@ -1,110 +1,91 @@
 import { motion } from 'framer-motion';
-import { featuredProject, contactInfo } from '../data/portfolio';
+import { siteStats } from '../data/portfolio';
 
 const Hero = () => {
-  const projectLink = featuredProject.demo ?? featuredProject.github ?? '#projects';
-
   return (
-    <section id="home" className="min-h-screen flex flex-col relative border-b border-rule">
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 flex-1 flex flex-col pt-28 pb-12 md:pt-32">
+    <section id="home" className="relative border-b border-rule">
+      <div className="grid lg:grid-cols-[1fr_460px]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex-1"
+          className="flex flex-col justify-between px-6 sm:px-8 lg:pl-12 lg:pr-14 pt-28 pb-12 md:pt-32 lg:min-h-screen"
         >
-          <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span className="status-pill">
-              <span className="w-1.5 h-1.5 rounded-full bg-status animate-pulse" />
-              Open to work · Remote · GCC
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] tracking-[0.1em] uppercase text-ink-faint">
+            <span>Junaidh Haneefa</span>
+            <span>Open to work · Remote · GCC</span>
           </div>
 
-          <h1
-            className="brutal-hero text-ink mb-8"
-            itemScope
-            itemType="https://schema.org/Person"
-          >
-            <span itemProp="name">junaidh haneefa</span>
-          </h1>
-
-          <div className="hairline mb-8 max-w-4xl" />
-
-          <p className="font-body text-base md:text-lg text-ink-dim max-w-2xl leading-relaxed mb-4">
-            <span className="font-semibold text-ink">I am Junaidh Haneefa.</span>{' '}
-            Full-stack and mobile developer building production software that scales — MERN, Next.js, Flutter, and cloud infrastructure.
-          </p>
-          <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-ink-muted mb-10">
-            {contactInfo.subtitle}
-          </p>
-
-          <div className="flex flex-wrap gap-3 mb-16">
-            <a href="#contact" className="cta-primary">Say Hello</a>
-            <a href="#projects" className="cta-ghost">View Works</a>
-            <a
-              href="/Junaidh_CV_Dublin_ATS_v2.pdf"
-              download="Junaidh_Haneefa_CV.pdf"
-              className="cta-ghost"
+          <div className="mt-12 lg:mt-0">
+            <p className="font-mono text-xs tracking-[0.12em] uppercase text-ink-dim mb-5">
+              Full-Stack &amp; Mobile Developer
+            </p>
+            <h1
+              className="font-display text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.08] max-w-xl text-balance"
+              itemScope
+              itemType="https://schema.org/Person"
             >
-              Resume
-            </a>
+              <span itemProp="name">I build production software that scales.</span>
+            </h1>
+            <p className="font-body text-base md:text-lg text-ink-dim max-w-lg leading-relaxed mt-7">
+              MERN, Next.js, Flutter, and Kotlin — from admin dashboards and civic
+              platforms to cross-platform mobile apps and the cloud infrastructure
+              behind them.
+            </p>
+
+            <div className="flex flex-wrap gap-3 mt-9">
+              <a href="#projects" className="cta-primary">View the work</a>
+              <a href="#contact" className="cta-ghost">Get in touch</a>
+              <a
+                href="/Junaidh_CV_Dublin_ATS_v2.pdf"
+                download="Junaidh_Haneefa_CV.pdf"
+                className="cta-ghost"
+              >
+                Resume
+              </a>
+            </div>
           </div>
 
-          <motion.a
-            href={projectLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="work-card block group max-w-4xl overflow-hidden"
-          >
-            <div className="relative aspect-[16/9] md:aspect-[21/9] bg-surface-elevated overflow-hidden">
-              {featuredProject.image ? (
-                <img
-                  src={featuredProject.image}
-                  alt={featuredProject.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint">
-                    Featured project
-                  </span>
-                </div>
-              )}
-              <span className="absolute top-4 right-4 bg-canvas border border-ink px-3 py-1.5 font-mono text-[10px] tracking-[0.15em] uppercase text-ink">
-                New case ↗
-              </span>
-            </div>
-            <div className="p-6 md:p-8 border-t border-rule">
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted mb-2">
-                Featured work · {featuredProject.date}
-              </p>
-              <h2 className="font-display text-2xl md:text-3xl text-ink lowercase group-hover:text-accent transition-colors">
-                {featuredProject.title}
-              </h2>
-              <p className="font-body text-sm text-ink-dim mt-3 max-w-2xl line-clamp-2">
-                {featuredProject.description}
-              </p>
-            </div>
-          </motion.a>
+          <div className="hidden lg:flex items-center justify-between pt-7 border-t border-rule mt-16">
+            {siteStats.map((stat) => (
+              <div key={stat.label} className="flex flex-col gap-1">
+                <span className="font-display text-2xl text-ink">{stat.value}</span>
+                <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-ink-faint">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mt-12 flex items-center gap-3"
+          transition={{ duration: 1, delay: 0.2 }}
+          className="relative min-h-[420px] lg:min-h-screen bg-ink overflow-hidden"
         >
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted">
-            Scroll to explore
-          </span>
-          <div className="h-px flex-1 max-w-24 bg-rule" />
-          <svg className="w-4 h-4 text-ink-muted animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7" />
-          </svg>
+          <img
+            src="/images/profile.png"
+            alt="Junaidh Haneefa"
+            className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.08]"
+            style={{ objectPosition: 'center 18%' }}
+          />
+          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between font-mono text-[10px] tracking-[0.08em] uppercase text-canvas/85">
+            <span>Kozhikode, India</span>
+            <span className="font-medium text-canvas">JH · 2026</span>
+          </div>
         </motion.div>
+      </div>
+
+      <div className="flex lg:hidden items-stretch justify-between px-6 sm:px-8 py-7 border-t border-rule">
+        {siteStats.map((stat) => (
+          <div key={stat.label} className="flex flex-col gap-1">
+            <span className="font-display text-xl text-ink">{stat.value}</span>
+            <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-ink-faint">
+              {stat.label}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );

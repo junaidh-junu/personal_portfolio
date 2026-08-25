@@ -9,10 +9,35 @@ const navItems = [
   { id: 'contact', label: 'Contact' },
 ];
 
+type ThemePref = 'light' | 'dark';
+
+const getInitialTheme = (): ThemePref | null => {
+  if (typeof window === 'undefined') return null;
+  const stored = window.localStorage.getItem('theme');
+  return stored === 'light' || stored === 'dark' ? stored : null;
+};
+
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<ThemePref | null>(getInitialTheme);
+
+  useEffect(() => {
+    if (theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      window.localStorage.setItem('theme', theme);
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      window.localStorage.removeItem('theme');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const current = theme ?? (prefersDark ? 'dark' : 'light');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  };
 
   useEffect(() => {
     const sections = ['home', 'stats', 'projects', 'about', 'journey', 'skills', 'publications', 'contact'];
@@ -85,6 +110,23 @@ const Navigation = () => {
             </div>
 
             <div className="flex items-center gap-4">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                aria-label="Toggle dark mode"
+                className="p-2 text-ink-muted hover:text-ink transition-colors"
+              >
+                {theme === 'dark' ? (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                  </svg>
+                )}
+              </button>
+
               <button
                 type="button"
                 onClick={() => scrollToSection('contact')}

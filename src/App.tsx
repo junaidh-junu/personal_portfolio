@@ -1,6 +1,5 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import StatsStrip from './components/StatsStrip';
 import Projects from './components/Projects';
 import About from './components/About';
 import Journey from './components/Journey';
@@ -27,7 +26,6 @@ function App() {
           <SectionDots />
           <main className="relative z-0">
             <Hero />
-            <StatsStrip />
             <Projects />
             <About />
             <Journey />

@@ -31,8 +31,8 @@ const Contact = () => {
           className="mb-12"
         >
           <span className="section-index">/ 07 Contact</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4 lowercase">
-            let's talk about your project
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+            Let's talk about your project
           </h2>
           <div className="hairline mt-6" />
         </motion.div>
@@ -48,7 +48,10 @@ const Contact = () => {
             <p className="font-body text-ink-dim text-base leading-relaxed mb-8 max-w-lg">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hello — my inbox is open.
             </p>
-            <a href={`mailto:${contactInfo.email}`} className="cta-primary mb-8">
+            <a
+              href={`mailto:${contactInfo.email}`}
+              className="cta-primary mb-10 px-10 py-5 text-base"
+            >
               Write a line ↗
             </a>
             <div className="space-y-2">

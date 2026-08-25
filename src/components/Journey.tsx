@@ -127,8 +127,8 @@ const Journey = () => {
           className="mb-12"
         >
           <span className="section-index">/ 04 Journey</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4 lowercase">
-            my digital journey
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+            My digital journey
           </h2>
           <div className="hairline mt-6 max-w-full" />
         </motion.div>

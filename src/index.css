@@ -1,19 +1,51 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #E8E2D9;
-  --color-surface: #F2EDE6;
-  --color-surface-elevated: #FAF7F2;
-  --color-ink: #111111;
-  --color-ink-dim: #3D3A36;
-  --color-ink-muted: #6B6560;
-  --color-ink-faint: #9A948C;
-  --color-accent: #2D4A3E;
-  --color-accent-light: #3D6354;
-  --color-accent-muted: rgba(45, 74, 62, 0.12);
-  --color-rule: rgba(17, 17, 17, 0.12);
+  --color-canvas: #F6F3EC;
+  --color-surface: #F1ECE1;
+  --color-surface-elevated: #FBF9F4;
+  --color-ink: #16151A;
+  --color-ink-dim: #4B4740;
+  --color-ink-muted: #71695D;
+  --color-ink-faint: #746D61;
+  --color-accent: #16151A;
+  --color-accent-light: #3A362F;
+  --color-accent-muted: rgba(22, 21, 26, 0.08);
+  --color-rule: rgba(22, 21, 26, 0.12);
   --color-status: #4ADE80;
-  --color-border: rgba(17, 17, 17, 0.15);
+  --color-border: #E2DDCF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-canvas: #141319;
+    --color-surface: #1A1920;
+    --color-surface-elevated: #201F27;
+    --color-ink: #F3F0E8;
+    --color-ink-dim: #C7C2B6;
+    --color-ink-muted: #9C968A;
+    --color-ink-faint: #837D72;
+    --color-accent: #F3F0E8;
+    --color-accent-light: #C7C2B6;
+    --color-accent-muted: rgba(243, 240, 232, 0.08);
+    --color-rule: rgba(243, 240, 232, 0.14);
+    --color-border: rgba(243, 240, 232, 0.16);
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-canvas: #141319;
+  --color-surface: #1A1920;
+  --color-surface-elevated: #201F27;
+  --color-ink: #F3F0E8;
+  --color-ink-dim: #C7C2B6;
+  --color-ink-muted: #9C968A;
+  --color-ink-faint: #837D72;
+  --color-accent: #F3F0E8;
+  --color-accent-light: #C7C2B6;
+  --color-accent-muted: rgba(243, 240, 232, 0.08);
+  --color-rule: rgba(243, 240, 232, 0.14);
+  --color-border: rgba(243, 240, 232, 0.16);
 }
 
 @layer base {
@@ -30,7 +62,7 @@
 
   body {
     @apply bg-canvas text-ink;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.65;
@@ -38,11 +70,11 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Syne', system-ui, sans-serif;
-    font-weight: 700;
-    line-height: 1.05;
-    color: #111111;
-    letter-spacing: -0.02em;
+    font-family: 'Domine', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
   }
 }
 
@@ -52,12 +84,11 @@
   }
 
   .brutal-hero {
-    font-family: 'Syne', system-ui, sans-serif;
-    font-weight: 800;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    text-transform: lowercase;
-    font-size: clamp(3rem, 12vw, 9rem);
+    font-family: 'Domine', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    font-size: clamp(2.75rem, 7vw, 4.75rem);
   }
 
   .section-index {
@@ -86,7 +117,7 @@
 
   .cta-primary {
     @apply inline-flex items-center justify-center gap-2 border border-ink bg-ink px-6 py-3 text-sm font-medium tracking-wide text-canvas transition-all duration-300;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
   }
 
   .cta-primary:hover {
@@ -95,7 +126,7 @@
 
   .cta-ghost {
     @apply inline-flex items-center justify-center gap-2 border border-ink/30 bg-transparent px-6 py-3 text-sm font-medium tracking-wide text-ink transition-all duration-300;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
   }
 
   .cta-ghost:hover {
@@ -104,7 +135,7 @@
 
   .tag-pill {
     @apply inline-flex items-center border border-border bg-canvas px-3 py-1 text-xs tracking-wide text-ink-muted transition-all duration-300;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
   }
 
   .tag-pill:hover {
@@ -133,29 +164,29 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #E8E2D9;
+  background: var(--color-canvas);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(17, 17, 17, 0.2);
+  background: color-mix(in srgb, var(--color-ink) 20%, transparent);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(17, 17, 17, 0.35);
+  background: color-mix(in srgb, var(--color-ink) 35%, transparent);
 }
 
 ::selection {
-  background: rgba(45, 74, 62, 0.2);
-  color: #111111;
+  background: color-mix(in srgb, var(--color-ink) 10%, transparent);
+  color: var(--color-ink);
 }
 
 ::-moz-selection {
-  background: rgba(45, 74, 62, 0.2);
-  color: #111111;
+  background: color-mix(in srgb, var(--color-ink) 10%, transparent);
+  color: var(--color-ink);
 }
 
 *:focus-visible {
-  outline: 2px solid rgba(45, 74, 62, 0.5);
+  outline: 2px solid color-mix(in srgb, var(--color-ink) 50%, transparent);
   outline-offset: 2px;
 }

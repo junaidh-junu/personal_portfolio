@@ -28,17 +28,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden border-t border-rule pt-12">
-          <h2
-            className="font-display font-extrabold text-ink leading-[0.85] lowercase select-none"
-            style={{ fontSize: 'clamp(4rem, 18vw, 14rem)' }}
-            aria-hidden
-          >
-            haneefa
-          </h2>
+        <div className="flex items-center justify-between gap-6 border-t border-rule pt-8">
+          <span className="font-display text-xl md:text-2xl text-ink-dim">Junaidh Haneefa</span>
+          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint hidden sm:inline">
+            Full-Stack &amp; Mobile Developer
+          </span>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-6 mt-10 pt-8 border-t border-rule">
+        <div className="flex flex-wrap items-center justify-between gap-6 mt-8 pt-8 border-t border-rule">
           <div className="flex flex-wrap gap-6">
             {socialLinks.map((link) => (
               <a

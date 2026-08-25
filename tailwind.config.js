@@ -7,30 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#E8E2D9',
+        canvas: '#F6F3EC',
         surface: {
-          DEFAULT: '#F2EDE6',
-          elevated: '#FAF7F2',
+          DEFAULT: '#F1ECE1',
+          elevated: '#FBF9F4',
         },
         ink: {
-          DEFAULT: '#111111',
-          dim: '#3D3A36',
-          muted: '#6B6560',
-          faint: '#9A948C',
+          DEFAULT: '#16151A',
+          dim: '#4B4740',
+          muted: '#71695D',
+          faint: '#8A8479',
         },
         accent: {
-          DEFAULT: '#2D4A3E',
-          light: '#3D6354',
-          muted: 'rgba(45, 74, 62, 0.12)',
+          DEFAULT: '#16151A',
+          light: '#3A362F',
+          muted: 'rgba(22, 21, 26, 0.08)',
         },
-        rule: 'rgba(17, 17, 17, 0.12)',
+        rule: 'rgba(22, 21, 26, 0.12)',
         status: '#4ADE80',
-        border: 'rgba(17, 17, 17, 0.15)',
+        border: '#E2DDCF',
       },
       fontFamily: {
-        display: ['"Syne"', 'system-ui', 'sans-serif'],
-        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        display: ['"Domine"', 'Georgia', 'serif'],
+        body: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'monospace'],
       },
       spacing: {
         '18': '4.5rem',

@@ -22,8 +22,8 @@ const About = () => {
           className="mb-12"
         >
           <span className="section-index">/ 03 About</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4 lowercase">
-            about me
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+            About me
           </h2>
           <div className="hairline mt-6" />
         </motion.div>
@@ -36,7 +36,7 @@ const About = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <blockquote className="border-l-2 border-accent pl-6 mb-8">
-              <p className="font-display text-xl md:text-2xl text-ink leading-snug lowercase">
+              <p className="font-display text-xl md:text-2xl text-ink leading-snug">
                 "Shipping production software that scales — that's the work."
               </p>
             </blockquote>
@@ -75,7 +75,7 @@ const About = () => {
               <img
                 src="/images/profile.png"
                 alt="Junaidh Haneefa"
-                className="w-full h-full object-cover object-top grayscale-[20%]"
+                className="w-full h-full object-cover object-top grayscale contrast-[1.08]"
               />
             </div>
           </motion.div>
@@ -101,7 +101,7 @@ const About = () => {
                 className="expertise-card"
               >
                 <span className="font-display text-3xl text-accent/40">{area.num}</span>
-                <h4 className="font-display text-lg text-ink mt-3 mb-3 lowercase">{area.title}</h4>
+                <h4 className="font-display text-lg text-ink mt-3 mb-3">{area.title}</h4>
                 <p className="font-body text-sm text-ink-dim leading-relaxed">{area.description}</p>
               </motion.div>
             ))}

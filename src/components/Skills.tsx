@@ -58,8 +58,8 @@ const Skills = () => {
           className="mb-12"
         >
           <span className="section-index">/ 05 Toolbox</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4 lowercase">
-            everyday's toolbox
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+            Everyday's toolbox
           </h2>
           <div className="hairline mt-6" />
         </motion.div>
