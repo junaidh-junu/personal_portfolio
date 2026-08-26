@@ -42,7 +42,7 @@ const About = () => {
 
             <div className="space-y-5 font-body text-ink-dim text-[15px] leading-relaxed mb-10">
               <p>
-                <span className="text-ink font-medium">Junaidh Haneefa</span> is a Full-Stack and Mobile Developer with 1.5+ years of production experience shipping scalable web and cross-platform mobile apps — including{' '}
+                <span className="text-ink font-medium">Junaidh Haneefa</span> is a Full-Stack and Mobile Developer with 2+ years of production experience shipping scalable web and cross-platform mobile apps — including{' '}
                 <span className="text-ink font-medium">10+ MERN web applications and 13 Flutter apps</span> serving 30,000+ active users.
               </p>
               <p>
@@ -50,8 +50,9 @@ const About = () => {
                 <span className="text-ink font-medium">Master's in Computing Science</span> at Griffith College Dublin. Previously led a 12-member team at D4DX Innovations, shipping 20+ web and 5+ mobile applications.
               </p>
               <p>
-                Deep experience with{' '}
-                <span className="text-ink font-medium">DigitalOcean, GitHub Actions, Docker, Supabase, and Next.js</span> — end-to-end product delivery from architecture through cloud infrastructure.
+                Builds with{' '}
+                <span className="text-ink font-medium">AI/ML where it matters</span> — production RAG chatbots and explainable geospatial models (XGBoost, SHAP) — alongside{' '}
+                <span className="text-ink font-medium">DigitalOcean, GitHub Actions, Docker, Supabase, and Next.js</span> for end-to-end delivery.
               </p>
             </div>
 
@@ -92,8 +93,8 @@ const About = () => {
           </h3>
           <div className="grid md:grid-cols-5 gap-6 md:gap-5">
             {expertiseAreas.map((area, i) => {
-              const rotations = ['rotate-1', '-rotate-1', 'rotate-1.5'];
-              const spans = ['md:col-span-3', 'md:col-span-2', 'md:col-span-5'];
+              const rotations = ['rotate-1', '-rotate-1', 'rotate-1.5', '-rotate-1.5'];
+              const spans = ['md:col-span-3', 'md:col-span-2', 'md:col-span-2', 'md:col-span-3'];
               return (
                 <motion.div
                   key={area.title}

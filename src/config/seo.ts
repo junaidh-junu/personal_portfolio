@@ -22,6 +22,10 @@ export const seoConfig = {
     'Dublin Developer',
     'Ireland Developer',
     'Remote Developer',
+    'AI/ML',
+    'Machine Learning',
+    'Explainable AI',
+    'RAG',
     'Computer Science',
     'Software Engineer'
   ],
@@ -108,7 +112,13 @@ export const structuredData = {
       'REST APIs',
       'Cross-platform Development',
       'DevOps',
-      'Cloud Infrastructure'
+      'Cloud Infrastructure',
+      'Machine Learning',
+      'Explainable AI',
+      'XGBoost',
+      'SHAP',
+      'RAG',
+      'Geospatial ML'
     ],
     hasCredential: [
       {

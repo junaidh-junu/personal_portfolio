@@ -20,6 +20,11 @@ export const expertiseAreas: ExpertiseArea[] = [
   },
   {
     num: '03',
+    title: 'AI / ML',
+    description: 'Explainable and applied ML — XGBoost, SHAP, spatial cross-validation, RAG chatbots, and geospatial flood-risk modelling with production APIs and interactive maps.',
+  },
+  {
+    num: '04',
     title: 'DevOps & Cloud',
     description: 'Server management, DNS configuration, CI/CD pipelines, and cloud infrastructure on DigitalOcean and Vercel.',
   },
@@ -453,6 +458,8 @@ export const skills: Skill[] = [
   // AI/ML
   { name: 'RAG', category: 'AI/ML', level: 3 },
   { name: 'LLM Integration', category: 'AI/ML', level: 3 },
+  { name: 'Explainable AI', category: 'AI/ML', level: 4 },
+  { name: 'Geospatial ML', category: 'AI/ML', level: 4 },
   { name: 'XGBoost', category: 'AI/ML', level: 4 },
   { name: 'SHAP', category: 'AI/ML', level: 4 },
   { name: 'scikit-learn', category: 'AI/ML', level: 3 },
@@ -479,13 +486,13 @@ export const certifications: Certification[] = [
 export const contactInfo = {
   name: 'Junaidh Haneefa Muhammedhaneefa',
   title: 'Full-Stack & Mobile Developer',
-  subtitle: 'MERN Stack · Next.js · Flutter · Kotlin · MSc Computing Science',
+  subtitle: 'MERN Stack · Next.js · Flutter · Kotlin · AI/ML · MSc Computing Science',
   email: 'junaidhhaneef.m@gmail.com',
   phone: '+353 89 253 4784',
   location: 'Dublin, Ireland',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
-  bio: 'Full-Stack and Mobile Developer with 2+ years of production experience building scalable web and cross-platform mobile apps. Shipped 10+ MERN web applications and 13 Flutter apps serving 30,000+ active users. Led a 12-member cross-functional team across 20+ concurrent projects. Currently IT Coordinator (part-time, remote) at New Leaf School while pursuing an MSc in Computing Science in Dublin — open to full-stack and mobile roles. Works across React, Node.js, Next.js, Flutter, and Kotlin/Jetpack Compose — from database design and REST API development through cloud infrastructure and CI/CD automation.',
+  bio: 'Full-Stack and Mobile Developer with 2+ years of production experience building scalable web and cross-platform mobile apps. Shipped 10+ MERN web applications and 13 Flutter apps serving 30,000+ active users. Led a 12-member cross-functional team across 20+ concurrent projects. Applies AI/ML in production — RAG chatbots and explainable geospatial models (XGBoost, SHAP). Currently IT Coordinator (part-time, remote) at New Leaf School while pursuing an MSc in Computing Science in Dublin — open to full-stack and mobile roles. Works across React, Node.js, Next.js, Flutter, and Kotlin/Jetpack Compose — from database design and REST API development through cloud infrastructure and CI/CD automation.',
   languages: [
     { name: 'English', level: 'Fluent' },
     { name: 'Malayalam', level: 'Native' },

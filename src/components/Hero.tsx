@@ -32,9 +32,9 @@ const Hero = () => {
             </h1>
 
             <p className="font-body text-base md:text-lg text-ink-dim max-w-md leading-relaxed mt-8 lg:ml-10">
-              MERN, Next.js, Flutter, and Kotlin — from admin dashboards and civic
-              platforms to cross-platform mobile apps and the cloud infrastructure
-              behind them.
+              MERN, Next.js, Flutter, Kotlin, and AI/ML — from admin dashboards and civic
+              platforms to explainable models, cross-platform mobile apps, and the cloud
+              infrastructure behind them.
             </p>
 
             <div className="flex flex-wrap gap-3 mt-9 lg:ml-10">
