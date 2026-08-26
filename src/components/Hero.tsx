@@ -41,7 +41,7 @@ const Hero = () => {
               <a href="#projects" className="cta-primary">View the work</a>
               <a href="#contact" className="cta-ghost">Get in touch</a>
               <a
-                href="/Junaidh_CV_Dublin_ATS_v2.pdf"
+                href="/Junaidh_CV_Dublin_ATS_v3.pdf"
                 download="Junaidh_Haneefa_CV.pdf"
                 className="cta-ghost"
               >

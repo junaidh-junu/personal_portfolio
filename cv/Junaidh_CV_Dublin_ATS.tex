@@ -1,0 +1,334 @@
+\documentclass[10pt, a4paper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=1.5 cm,
+    bottom=1.5 cm,
+    left=1.6 cm,
+    right=1.6 cm,
+    footskip=0.8 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Junaidh Haneefa Muhammedhaneefa - CV},
+    pdfauthor={Junaidh Haneefa Muhammedhaneefa},
+    pdfsubject={Full-Stack and Mobile Developer CV},
+    pdfkeywords={Full-Stack, Mobile, Flutter, React, AI/ML, Dublin},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+\fi
+
+\usepackage{charter}
+
+% Settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{3\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{-1pt}{0.25 cm}{0.15 cm}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.08 cm,
+        parsep=0.06 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.8 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\let\hrefWithoutArrow\href
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{22 pt}{22 pt}\selectfont Junaidh Haneefa Muhammedhaneefa
+
+        \vspace{3 pt}
+
+        \normalsize\textbf{Full-Stack \& Mobile Developer}
+
+        \vspace{4 pt}
+
+        \normalsize
+        \mbox{Dublin, Ireland}%
+        \kern 4.0 pt%
+        \AND%
+        \kern 4.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+353-89-253-4784}{+353 89 253 4784}}%
+        \kern 4.0 pt%
+        \AND%
+        \kern 4.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:junaidhhaneef.m@gmail.com}{junaidhhaneef.m@gmail.com}}%
+        \kern 4.0 pt%
+        \AND%
+        \kern 4.0 pt%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/junaidhhaneefa}{linkedin.com/in/junaidhhaneefa}}%
+        \kern 4.0 pt%
+        \AND%
+        \kern 4.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/junaidh-junu}{github.com/junaidh-junu}}%
+        \kern 4.0 pt%
+        \AND%
+        \kern 4.0 pt%
+        \mbox{\hrefWithoutArrow{https://junaidh.me}{junaidh.me}}%
+    \end{header}
+
+    \vspace{2 pt}
+
+    \section{Professional Summary}
+
+    \begin{onecolentry}
+        Full-Stack and Mobile Developer with 2+ years of production experience shipping 13 apps to both the Play Store and the App Store, including a flagship app with 30,000 active users and a 4.5-star rating. Strong expertise across Flutter/Dart, MERN/Next.js, and Kotlin --- plus applied AI/ML where it matters: production RAG chatbots and explainable geospatial models (XGBoost, SHAP). Promoted from Junior Developer to Team Lead within 9 months, leading a 12-member cross-functional squad across 20 concurrent projects. Comfortable with monorepo tooling, CI/CD pipelines, OTA updates, and end-to-end cloud delivery. Immediately available.
+    \end{onecolentry}
+
+    \section{Technical Skills}
+
+    \begin{onecolentry}
+        \textbf{Languages:} JavaScript, TypeScript, Dart, Python, Kotlin, C, C++, SQL, HTML5, CSS3\\
+        \textbf{Frontend:} React, Next.js, Redux / Redux Toolkit, TypeScript, Responsive Design, REST API Integration, Mapbox\\
+        \textbf{Mobile:} Flutter, Dart, Jetpack Compose, BLoC, GetX, Riverpod, Provider, Offline-first Architecture, Google Play Store, Apple App Store\\
+        \textbf{Backend:} Node.js, Express.js, FastAPI, RESTful API Design, Django, Flask, GraphQL\\
+        \textbf{AI / ML:} Explainable AI (SHAP), Geospatial ML, XGBoost, scikit-learn, RAG, ChromaDB, Gemini API, LLM Integration, Vector Search, Prompt Engineering, Pandas, NumPy, Jupyter\\
+        \textbf{Databases:} MongoDB, PostgreSQL, PostGIS, MySQL, SQLite, Firebase, Supabase, Prisma ORM\\
+        \textbf{DevOps / Cloud:} GitHub Actions CI/CD, Docker, DigitalOcean, Cloudways, Vercel, Netlify, Codemagic, Shorebird OTA, WHM/cPanel\\
+        \textbf{Tools:} Git, GitHub, Figma, Postman, JIRA, ClickUp, Notion, Directus, Appwrite, Android Studio, Xcode\\
+        \textbf{Methodologies:} Agile, Scrum, Sprint Planning, Backlog Grooming, Code Review, CI/CD, TDD
+    \end{onecolentry}
+
+    \section{Work Experience}
+
+    \begin{twocolentry}{
+        Jul 2024 -- Present
+    }
+        \textbf{IT Coordinator}, New Leaf School For Quran And English -- Remote (Puthucode, Kerala, India) | Part-time
+    \end{twocolentry}
+    \vspace{0.08 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Sole point of contact for day-to-day digital issues; support teachers with tools, accounts, and classroom technology
+            \item Train staff on the school's ERP software and related workflows; provide ongoing support so teachers can use existing systems confidently
+            \item Build internal software tools for school operations (including an event manager) and maintain the public school website (React, Supabase) at \hrefWithoutArrow{https://newleafschool.org}{newleafschool.org} --- events, notices, admin panel, and real-time updates
+            \item Architecting and leading development of a school ERP from scratch to replace the legacy platform (admissions, attendance, exams, fees, communications); PostgreSQL/Prisma data architecture, access-control design, and requirements gathering with school leadership
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.15 cm}
+
+    \begin{twocolentry}{
+        Nov 2025 -- May 2026
+    }
+        \textbf{Full-Stack \& Mobile Developer}, Appetite Studio -- Remote
+    \end{twocolentry}
+    \vspace{0.08 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Built Ente Ward civic engagement Flutter app serving 20 Kerala ward constituencies and 500 active users; led Flutter mobile app, React admin dashboard, and Supabase backend migration (PostgreSQL schema redesign, row-level security, real-time data flows)
+            \item Shipped ToyCar Showroom as a cross-platform Flutter app (Play Store \& App Store) and web platform --- auth, virtual garage, social features, leaderboards, peer-to-peer transfers; reached 100 active users post-launch
+            \item Built QuantumX landing page and community database tracking post-quantum cryptography vulnerabilities --- React/TypeScript with Directus CMS
+            \item Delivered end-to-end Flutter and Kotlin/Jetpack Compose mobile apps from UI through backend API integration and store deployment
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.15 cm}
+
+    \begin{twocolentry}{
+        Mar 2025 -- Oct 2025
+    }
+        \textbf{Team Lead \& Full-Stack Developer}, D4DX Innovations LLP -- Kozhikode, India
+    \end{twocolentry}
+    \vspace{0.08 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Promoted from Junior Developer to Team Lead within 9 months based on technical delivery and architectural contributions
+            \item Led a 12-member cross-functional team using Agile/Scrum --- daily standups, sprint planning, backlog grooming, and $\sim$10 PR reviews/week via ClickUp and Notion
+            \item Architected Tafheem ul Quran web platform end-to-end --- React/TypeScript, Express/Node.js REST API, SQL with auth, custom audio streaming, and admin CMS --- growing to 30,000 active users with a 4.5$\star$ Play Store rating
+            \item Shipped production MERN admin panels for Thanima Hajj \& Umrah and Hira+ with RBAC, CRUD, and analytics; built an internal ERP for D4media on MERN
+            \item Managed production infrastructure across DigitalOcean, Cloudways, and WHM/cPanel (SSL, DNS, backups, migrations); implemented Shorebird OTA updates and GitHub Actions CI/CD organisation-wide
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.15 cm}
+
+    \begin{twocolentry}{
+        Jul 2024 -- Feb 2025
+    }
+        \textbf{Junior Full-Stack Developer}, D4DX Innovations LLP -- Kozhikode, India
+    \end{twocolentry}
+    \vspace{0.08 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Built Tafheem ul Quran Flutter mobile app --- custom audio streaming, prayer times, quizzes, multi-language support --- deployed to both stores; contributed to 30,000 active users
+            \item Reduced flagship app size by 60\% (150~MB to 60~MB) via asset optimisation, refactoring, and cloud migration; crash rate down to 2.7\%
+            \item Shipped 5 production Flutter apps to both stores: Thanima Hajj \& Umrah (GPS, offline-first), Zai Toon Kids (Razorpay), Hira Plus, Muhasabah, and Mishkath -- JIH Kerala
+            \item Built a production RAG chatbot using Python, ChromaDB, and Gemini LLM for context-aware Quranic Q\&A --- live within the application
+            \item Wrote Flutter widget and unit tests; participated in Agile sprint reviews and weekly reporting
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.15 cm}
+
+    \begin{twocolentry}{
+        Mar 2023 -- Sep 2023
+    }
+        \textbf{Flutter Developer --- Internship}, IroHub Infotech Pvt.\ Ltd.\ -- Ernakulam, India
+    \end{twocolentry}
+    \vspace{0.08 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Built cross-platform mobile apps with Flutter and Dart over 6 months; shipped production UI components and REST API integrations to Google Play Store
+            \item Implemented Provider state management and reusable component libraries adopted across multiple project teams
+        \end{highlights}
+    \end{onecolentry}
+
+    \section{Selected Projects}
+
+    \begin{twocolentry}{
+        \hrefWithoutArrow{https://floodscope.junaidh.me}{floodscope.junaidh.me}
+    }
+        \textbf{FloodScope} --- Python, XGBoost, SHAP, PostGIS, FastAPI, React, Mapbox
+    \end{twocolentry}
+    \vspace{0.05 cm}
+    \begin{onecolentry}
+        MSc dissertation: explainable-ML geospatial flood-risk mapping for Dublin (Dodder, Tolka, Liffey; 157,735-cell 50\,m grid). Shows naive random-split evaluation overstates accuracy versus spatial block cross-validation (AUC $-0.157$ / F1 $-0.400$). FastAPI on DigitalOcean, React/Mapbox on Netlify, SHAP per-cell explanations. Submission Sep 2026.
+    \end{onecolentry}
+
+    \vspace{0.12 cm}
+
+    \begin{twocolentry}{
+        \hrefWithoutArrow{https://github.com/junaidh-junu/transcribio}{github.com/junaidh-junu/transcribio}
+    }
+        \textbf{Transcribio} --- JavaScript, Node.js, Gemini API --- Open Source
+    \end{twocolentry}
+    \vspace{0.05 cm}
+    \begin{onecolentry}
+        npm package for audio transcription with speaker detection, timestamps, 50+ language support, and SRT/VTT/JSON export. Ships a CLI tool and web UI for Node.js workflows.
+    \end{onecolentry}
+
+    \vspace{0.12 cm}
+
+    \begin{twocolentry}{
+        \hrefWithoutArrow{https://newleafschool.org}{newleafschool.org}
+    }
+        \textbf{newleafschool.org} --- React, Supabase, TypeScript
+    \end{twocolentry}
+    \vspace{0.05 cm}
+    \begin{onecolentry}
+        School management site with events, notices, admin panel, and real-time updates.
+    \end{onecolentry}
+
+    \section{Education}
+
+    \begin{twocolentry}{
+        Sep 2025 -- Oct 2026 (Expected)
+    }
+        \textbf{MSc in Computing Science}, Griffith College Dublin -- Dublin, Ireland
+    \end{twocolentry}
+    \vspace{0.05 cm}
+    \begin{onecolentry}
+        Scrum Master on MSc team project (JIRA, Agile/Scrum). Dissertation: FloodScope --- explainable geospatial flood-risk ML for Dublin.
+    \end{onecolentry}
+
+    \vspace{0.12 cm}
+
+    \begin{twocolentry}{
+        Sep 2019 -- Apr 2024
+    }
+        \textbf{B.Tech in Computer Science and Engineering}, APJ Abdul Kalam Technological University -- India
+    \end{twocolentry}
+    \vspace{0.05 cm}
+    \begin{onecolentry}
+        Jawaharlal College of Engineering and Technology, Kerala, India
+    \end{onecolentry}
+
+    \section{Publications \& Certifications}
+
+    \begin{twocolentry}{
+        Jan 2024
+    }
+        \textbf{Anti Theft Flooring Mat System Using IoT} --- Journal of Electronics and Informatics
+    \end{twocolentry}
+    \vspace{0.05 cm}
+    \begin{onecolentry}
+        DOI: \hrefWithoutArrow{https://doi.org/10.36548/jei.2024.1.004}{10.36548/jei.2024.1.004}
+    \end{onecolentry}
+
+    \vspace{0.10 cm}
+
+    \begin{onecolentry}
+        \textbf{Flutter Development Certification} --- IroHub Infotech Pvt.\ Ltd., Kochi | Mar -- Sep 2023\\
+        \textbf{Web Design and Development (Grade S)} --- ICS India, Palakkad | Nov 2022 -- Apr 2023
+    \end{onecolentry}
+
+    \section{Languages}
+
+    \begin{onecolentry}
+        English (Fluent) | Malayalam (Native) | Tamil (Fluent) | Hindi (Fluent)\\
+        \textit{References available on request}
+    \end{onecolentry}
+
+\end{document}
