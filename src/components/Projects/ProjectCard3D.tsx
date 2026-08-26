@@ -8,7 +8,7 @@ interface ProjectCard3DProps {
 }
 
 const ProjectCard3D = ({ project, index, isFocused }: ProjectCard3DProps) => {
-  const isFeatured = project.id === '12'; // ReadmeForger is featured
+  const isFeatured = Boolean(project.featured);
 
   return (
     <motion.div

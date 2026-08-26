@@ -284,6 +284,15 @@ export const projects: Project[] = [
     demo: 'https://readmeforger.junaidh.me/',
     image: '/images/readme-forger.png',
     category: 'web',
+  },
+  {
+    id: '21',
+    title: 'FloodScope',
+    description: 'MSc dissertation project: explainable-ML geospatial flood-risk mapping for Dublin (Dodder, Tolka, Liffey catchments; 157,735-cell 50m grid). Shows that naive random-split evaluation overstates accuracy versus spatial block cross-validation (AUC −0.157 / F1 −0.400). Full-stack build with FastAPI on DigitalOcean, React/Mapbox on Netlify, and SHAP-based per-cell explanations. Griffith College Dublin — submission Sep 2026.',
+    technologies: ['Python', 'XGBoost', 'SHAP', 'PostGIS', 'FastAPI', 'React', 'Mapbox'],
+    date: '2026',
+    demo: 'https://floodscope.junaidh.me',
+    category: 'tool',
     featured: true,
   },
   {
