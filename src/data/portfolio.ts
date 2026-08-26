@@ -231,15 +231,6 @@ export const projects: Project[] = [
     category: 'mobile'
   },
   {
-    id: '9a',
-    title: 'holydwarf.com',
-    description: 'Designed and developed a personal portfolio website for a client, featuring project showcases, responsive layout, and custom UI design.',
-    technologies: ['React', 'JavaScript', 'CSS'],
-    date: '2025',
-    demo: 'https://holydwarf.com',
-    category: 'web'
-  },
-  {
     id: '9',
     title: 'New Leaf School Website',
     description: 'A user-friendly School Management Website focusing on school\'s events, notices, and other important information.',
@@ -302,14 +293,6 @@ export const projects: Project[] = [
     technologies: ['JavaScript', 'Node.js', 'Gemini API', 'npm', 'Audio Processing'],
     date: '2025',
     github: 'https://github.com/junaidh-junu/transcribio',
-    category: 'tool'
-  },
-  {
-    id: '14',
-    title: 'Spotify Discovery Plugin',
-    description: 'An intelligent Spotify plugin featuring multi-language support (Hindi, Malayalam, Tamil, Telugu, Kannada, Punjabi, Urdu, English) for discovering fresh music. Includes a novelty engine that blacklists played tracks for 7 days, audio-feature matching for similar vibes, cross-language discovery for finding tracks with similar energy across different languages, auto-queue that injects fresh tracks before the current song ends, one-click playlist generation, and ensures no repetition unlike standard Spotify.',
-    technologies: ['Spotify API', 'JavaScript', 'Audio Analysis', 'Machine Learning', 'React'],
-    date: '2025',
     category: 'tool'
   },
   {
