@@ -132,6 +132,16 @@ export const education: Education[] = [
 
 export const projects: Project[] = [
   {
+    id: '21',
+    title: 'FloodScope',
+    description: 'MSc dissertation project: explainable-ML geospatial flood-risk mapping for Dublin (Dodder, Tolka, Liffey catchments; 157,735-cell 50m grid). Shows that naive random-split evaluation overstates accuracy versus spatial block cross-validation (AUC −0.157 / F1 −0.400). Full-stack build with FastAPI on DigitalOcean, React/Mapbox on Netlify, and SHAP-based per-cell explanations. Griffith College Dublin — submission Sep 2026.',
+    technologies: ['Python', 'XGBoost', 'SHAP', 'PostGIS', 'FastAPI', 'React', 'Mapbox'],
+    date: '2026',
+    demo: 'https://floodscope.junaidh.me',
+    category: 'tool',
+    featured: true,
+  },
+  {
     id: '2',
     title: 'Zai Toon Kids App',
     description: 'Mobile application for children featuring interactive content, animations, and engaging UI. Built with Flutter for cross-platform compatibility.',
@@ -267,35 +277,6 @@ export const projects: Project[] = [
     category: 'mobile'
   },
   {
-    id: '12',
-    title: 'ReadmeForger - GitHub Profile Generator',
-    description: 'A powerful web application for creating professional GitHub profile READMEs with live preview. Features customizable sections, badges, statistics, tech stacks, and social links. Generates markdown code instantly with one-click copy functionality.',
-    technologies: ['React', 'JavaScript', 'Markdown', 'CSS', 'GitHub API'],
-    date: '2024',
-    demo: 'https://readmeforger.junaidh.me/',
-    image: '/images/readme-forger.png',
-    category: 'web',
-  },
-  {
-    id: '21',
-    title: 'FloodScope',
-    description: 'MSc dissertation project: explainable-ML geospatial flood-risk mapping for Dublin (Dodder, Tolka, Liffey catchments; 157,735-cell 50m grid). Shows that naive random-split evaluation overstates accuracy versus spatial block cross-validation (AUC −0.157 / F1 −0.400). Full-stack build with FastAPI on DigitalOcean, React/Mapbox on Netlify, and SHAP-based per-cell explanations. Griffith College Dublin — submission Sep 2026.',
-    technologies: ['Python', 'XGBoost', 'SHAP', 'PostGIS', 'FastAPI', 'React', 'Mapbox'],
-    date: '2026',
-    demo: 'https://floodscope.junaidh.me',
-    category: 'tool',
-    featured: true,
-  },
-  {
-    id: '13',
-    title: 'Transcribio',
-    description: 'An npm package for audio transcription using Google\'s Gemini API. Features speaker detection, timestamps, support for 50+ languages, and export in SRT/VTT/JSON formats. Ships with both a CLI tool and a web UI for flexible integration into Node.js workflows.',
-    technologies: ['JavaScript', 'Node.js', 'Gemini API', 'npm', 'Audio Processing'],
-    date: '2025',
-    github: 'https://github.com/junaidh-junu/transcribio',
-    category: 'tool'
-  },
-  {
     id: '15',
     title: 'Tafheem ul Quran Web Platform',
     description: 'Full-stack MERN web platform for Quranic learning with 30,000+ active users. Features custom audio streaming service, multi-language tafseer, user authentication, a RAG-based AI chatbot for context-aware Q&A, and a CMS admin panel for content management.',
@@ -348,6 +329,15 @@ export const projects: Project[] = [
     date: '2025',
     image: '/images/hiraplus-web.png',
     category: 'web'
+  },
+  {
+    id: '13',
+    title: 'Transcribio',
+    description: 'An npm package for audio transcription using Google\'s Gemini API. Features speaker detection, timestamps, support for 50+ languages, and export in SRT/VTT/JSON formats. Ships with both a CLI tool and a web UI for flexible integration into Node.js workflows.',
+    technologies: ['JavaScript', 'Node.js', 'Gemini API', 'npm', 'Audio Processing'],
+    date: '2025',
+    github: 'https://github.com/junaidh-junu/transcribio',
+    category: 'tool'
   },
   {
     id: '1',
