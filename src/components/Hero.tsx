@@ -13,10 +13,6 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 lg:col-start-1 lg:pt-8"
           >
-            <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-[0.1em] uppercase text-ink-faint">
-              <span className="tag-pill !py-0.5 !text-[10px]">Open to work</span>
-              <span>Remote · GCC</span>
-            </div>
 
             <p className="font-mono text-xs tracking-[0.12em] uppercase text-accent mt-8 mb-3">
               Full-Stack &amp; Mobile Developer
