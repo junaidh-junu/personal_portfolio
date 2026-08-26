@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
           <div className="md:text-right space-y-3 font-mono text-[11px] tracking-[0.12em] uppercase text-ink-muted">
             <p>&copy; {new Date().getFullYear()} {contactInfo.name}</p>
-            <p>Built with React · Vite · Tailwind</p>
+            <p>Built with Love &amp; Passion</p>
           </div>
         </div>
 
