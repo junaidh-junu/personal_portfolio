@@ -139,7 +139,6 @@ export const projects: Project[] = [
     date: '2026',
     demo: 'https://floodscope.junaidh.me',
     category: 'tool',
-    featured: true,
   },
   {
     id: '2',
@@ -458,8 +457,6 @@ export const certifications: Certification[] = [
     period: 'Mar 2023 – Sep 2023',
   },
 ];
-
-export const featuredProject = projects.find((p) => p.featured) ?? projects[0];
 
 export const contactInfo = {
   name: 'Junaidh Haneefa Muhammedhaneefa',

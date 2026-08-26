@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { projects, featuredProject } from '../../data/portfolio';
+import { projects } from '../../data/portfolio';
 import type { Project } from '../../types';
 
 interface ProjectCardProps {
@@ -200,7 +200,7 @@ const ProjectsCarousel = () => {
   const [activeTab, setActiveTab] = useState<TabKey>('all');
   const [openProject, setOpenProject] = useState<Project | null>(null);
 
-  const gridProjects = projects.filter((p) => !p.featured || p.id !== featuredProject.id);
+  const gridProjects = projects;
 
   const filteredProjects = activeTab === 'all'
     ? gridProjects
@@ -251,70 +251,6 @@ const ProjectsCarousel = () => {
             );
           })}
         </div>
-
-        {featuredProject && (activeTab === 'all' || featuredProject.category === activeTab) && (
-          <motion.article
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt-10 work-card border-2 border-ink overflow-hidden"
-            style={{ boxShadow: '6px 6px 0 0 var(--color-ink)' }}
-          >
-            <div className="grid lg:grid-cols-2 gap-0">
-              <button
-                type="button"
-                onClick={() => setOpenProject(featuredProject)}
-                className="aspect-video lg:aspect-auto lg:min-h-[280px] bg-surface-elevated flex items-center justify-center overflow-hidden text-left"
-                aria-label={`View details for ${featuredProject.title}`}
-              >
-                {featuredProject.image ? (
-                  <img
-                    src={featuredProject.image}
-                    alt={featuredProject.title}
-                    className="w-full h-full object-contain"
-                  />
-                ) : (
-                  <span className="font-mono text-[10px] text-ink-faint tracking-[0.2em] uppercase px-6 text-center">
-                    {featuredProject.title} · Featured
-                  </span>
-                )}
-              </button>
-              <div className="p-8 flex flex-col border-t lg:border-t-0 lg:border-l border-rule">
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent mb-3">
-                  Featured · {featuredProject.date}
-                </span>
-                <h3 className="font-display text-3xl text-ink mb-3">{featuredProject.title}</h3>
-                <p className="font-body text-sm text-ink-dim leading-relaxed flex-1 mb-6">
-                  {featuredProject.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {featuredProject.technologies.slice(0, 6).map((tech) => (
-                    <span key={tech} className="tag-pill text-[11px]">{tech}</span>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setOpenProject(featuredProject)}
-                    className="cta-ghost"
-                  >
-                    Details →
-                  </button>
-                  {featuredProject.demo && (
-                    <a
-                      href={featuredProject.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cta-primary"
-                    >
-                      Live demo ↗
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </motion.article>
-        )}
 
         <motion.div
           key={activeTab}
