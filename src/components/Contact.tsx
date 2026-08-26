@@ -45,7 +45,7 @@ const Contact = () => {
         >
           <div>
             <p className="font-body text-ink-dim text-base leading-relaxed mb-8 max-w-lg">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hello — my inbox is open.
+              Open to full-stack and mobile roles in Dublin, and to freelance builds worth doing properly. Send the details — I read every email myself, usually within a day.
             </p>
             <div className="sticker inline-block mb-10 -rotate-2">
               <a

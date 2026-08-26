@@ -36,7 +36,7 @@ const About = () => {
           >
             <blockquote className="mb-10">
               <p className="font-display font-medium text-2xl md:text-3xl text-ink leading-snug">
-                "Shipping <span className="doodle-underline">production software that scales</span> — that's the work."
+                Cut a 150MB app down to <span className="doodle-underline">60</span> — then went looking for the next problem worth solving.
               </p>
             </blockquote>
 

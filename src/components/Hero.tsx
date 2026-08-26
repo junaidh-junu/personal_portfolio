@@ -24,10 +24,10 @@ const Hero = () => {
               itemType="https://schema.org/Person"
             >
               <span itemProp="name">
-                I build{' '}
-                <span className="doodle-underline text-accent">production</span>
+                I build software{' '}
+                <span className="doodle-underline text-accent">30,000+ people</span>
                 <br />
-                software that scales.
+                actually use.
               </span>
             </h1>
 
