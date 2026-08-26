@@ -110,7 +110,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-ink/50 p-0 sm:p-6"
+      className="fixed inset-0 z-[var(--z-modal)] flex items-end sm:items-center justify-center bg-ink/50 p-0 sm:p-6"
       onClick={onClose}
     >
       <motion.div
@@ -219,14 +219,13 @@ const ProjectsCarousel = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="section-index">/ 02 Works</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink">
             Selected projects
           </h2>
           <p className="font-body text-ink-dim mt-4 max-w-2xl">
             Production apps, tools, and platforms — from 30,000+ user web platforms to cross-platform mobile apps.
           </p>
-          <div className="hairline mt-6" />
+          <div className="scribble-divider mt-6" />
         </motion.div>
 
         <div className="mt-8 flex flex-wrap gap-3">
@@ -240,12 +239,12 @@ const ProjectsCarousel = () => {
                 onClick={() => setActiveTab(tab.key)}
                 className={`sticker px-5 py-2.5 border-2 border-ink font-mono text-[10px] tracking-[0.2em] uppercase transition-all ${
                   isActive
-                    ? 'bg-accent text-canvas shadow-[3px_3px_0_0_#181511]'
+                    ? 'bg-accent text-accent-ink shadow-[3px_3px_0_0_#181511]'
                     : 'bg-canvas text-ink shadow-[3px_3px_0_0_#181511] hover:bg-surface-elevated'
                 }`}
               >
                 {tab.label}
-                <span className={`ml-2 ${isActive ? 'text-canvas/80' : 'text-ink-faint'}`}>
+                <span className={`ml-2 ${isActive ? 'text-accent-ink/70' : 'text-ink-faint'}`}>
                   {count}
                 </span>
               </button>

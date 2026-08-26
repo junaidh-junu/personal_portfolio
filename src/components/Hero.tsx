@@ -29,7 +29,7 @@ const Hero = () => {
             >
               <span itemProp="name">
                 I build{' '}
-                <span className="doodle-underline text-accent italic">production</span>
+                <span className="doodle-underline text-accent">production</span>
                 <br />
                 software that scales.
               </span>

@@ -25,7 +25,7 @@ const ExperienceItem = ({ exp, index }: { exp: Experience; index: number }) => {
         </div>
         <div className="flex items-center gap-3">
           {exp.current && (
-            <span className="sticker font-mono text-[10px] tracking-[0.15em] uppercase bg-accent text-canvas rounded-full px-3 py-1 border-2 border-ink">
+            <span className="sticker font-mono text-[10px] tracking-[0.15em] uppercase bg-accent text-accent-ink rounded-full px-3 py-1 border-2 border-ink">
               Current
             </span>
           )}
@@ -127,8 +127,7 @@ const Journey = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="section-index">/ 04 Journey</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink">
             My digital journey
           </h2>
           <div className="scribble-divider mt-6 max-w-full" />

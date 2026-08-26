@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
@@ -16,7 +17,7 @@ import SectionDots from './components/SectionDots';
 
 function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <SEOHead />
       <StructuredData />
       <ScrollProgress />
@@ -37,7 +38,7 @@ function App() {
           <BackToTop />
         </div>
       </SmoothScroll>
-    </>
+    </MotionConfig>
   );
 }
 

@@ -57,11 +57,10 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="section-index">/ 05 Toolbox</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink">
             Everyday's toolbox
           </h2>
-          <div className="hairline mt-6" />
+          <div className="scribble-divider mt-6" />
         </motion.div>
 
         <div className="grid gap-4">

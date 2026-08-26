@@ -21,8 +21,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="section-index">/ 03 About</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink">
             About me
           </h2>
           <div className="scribble-divider mt-6" />
@@ -36,7 +35,7 @@ const About = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <blockquote className="mb-10">
-              <p className="font-display italic text-2xl md:text-3xl text-ink leading-snug">
+              <p className="font-display font-medium text-2xl md:text-3xl text-ink leading-snug">
                 "Shipping <span className="doodle-underline">production software that scales</span> — that's the work."
               </p>
             </blockquote>
@@ -91,20 +90,23 @@ const About = () => {
           <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted mb-8">
             My expertise
           </h3>
-          <div className="grid md:grid-cols-3 gap-6 md:gap-5">
+          <div className="grid md:grid-cols-5 gap-6 md:gap-5">
             {expertiseAreas.map((area, i) => {
               const rotations = ['rotate-1', '-rotate-1', 'rotate-1.5'];
+              const spans = ['md:col-span-3', 'md:col-span-2', 'md:col-span-5'];
               return (
                 <motion.div
                   key={area.title}
                   initial={{ opacity: 0, y: 14 }}
                   animate={servicesInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-                  className={`expertise-card ${rotations[i % rotations.length]} hover:rotate-0 transition-transform duration-300`}
+                  className={`expertise-card ${spans[i % spans.length]} ${rotations[i % rotations.length]} hover:rotate-0 transition-transform duration-300`}
                 >
-                  <span className="font-display text-3xl text-accent/40">{area.num}</span>
-                  <h4 className="font-display text-lg text-ink mt-3 mb-3">{area.title}</h4>
-                  <p className="font-body text-sm text-ink-dim leading-relaxed">{area.description}</p>
+                  <div className="flex items-baseline gap-3 mb-3">
+                    <span className="font-display text-2xl text-accent">{area.num}</span>
+                    <h4 className="font-display text-lg text-ink">{area.title}</h4>
+                  </div>
+                  <p className="font-body text-sm text-ink-dim leading-relaxed max-w-md">{area.description}</p>
                 </motion.div>
               );
             })}

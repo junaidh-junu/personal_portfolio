@@ -22,6 +22,7 @@ export default {
           DEFAULT: '#FF4E1F',
           light: '#FF6F42',
           dark: '#D63C13',
+          ink: '#181511',
           muted: 'rgba(255, 78, 31, 0.12)',
         },
         rule: 'rgba(24, 21, 17, 0.14)',
