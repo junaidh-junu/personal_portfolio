@@ -28,12 +28,28 @@ export const expertiseAreas: ExpertiseArea[] = [
 export const experiences: Experience[] = [
   {
     id: '1',
+    title: 'IT Coordinator',
+    company: 'New Leaf School For Quran And English',
+    location: 'Remote (Puthucode, Palakkad, Kerala, India)',
+    period: 'Jul 2024 - Present',
+    type: 'Part-time',
+    current: true,
+    description: [
+      'Part-time remote IT Coordinator — sole point of contact for day-to-day digital issues, supporting teachers with tools, accounts, and classroom technology',
+      'Train staff on the school\'s ERP software and related workflows; provide ongoing support so teachers can use existing systems confidently',
+      'Build internal software tools for school operations (including an event manager) and maintain the public school website (React, Supabase) at newleafschool.org — events, notices, admin panel, and real-time updates',
+      'Architecting and leading development of a school ERP from scratch to replace the legacy platform, covering admissions, attendance, exams, fees, and communications; PostgreSQL/Prisma data architecture, access-control design, and requirements gathering with school leadership'
+    ],
+    skills: ['React', 'Supabase', 'PostgreSQL', 'Prisma', 'ERP', 'Training', 'REST APIs']
+  },
+  {
+    id: '2',
     title: 'Full-Stack & Mobile Developer',
     company: 'Appetite Studio',
     location: 'Remote',
-    period: 'Nov 2025 - Present',
+    period: 'Nov 2025 - May 2026',
     type: 'Full-time',
-    current: true,
+    current: false,
     description: [
       'Built the QuantumX landing page and community-maintained database for tracking cryptographic systems vulnerable to quantum attacks, supporting the transition to post-quantum cryptography — built with React and Directus as the backend',
       'Supported the Ente Ward backend migration to Supabase — contributed to database schema design, row-level security policies, and real-time data flows; helped develop and maintain the mobile app for the civic engagement platform serving Kerala constituencies',
@@ -44,7 +60,7 @@ export const experiences: Experience[] = [
     skills: ['React', 'Node.js', 'Next.js', 'Supabase', 'Flutter', 'Dart', 'Kotlin', 'Jetpack Compose', 'Directus', 'REST APIs']
   },
   {
-    id: '2',
+    id: '3',
     title: 'Team Lead & Full-Stack Developer',
     company: 'D4DX Innovations LLP',
     location: 'Kozhikode, India',
@@ -63,7 +79,7 @@ export const experiences: Experience[] = [
     skills: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Team Leadership', 'CI/CD Pipeline', 'DigitalOcean', 'Cloudways', 'GitHub Actions', 'Project Management']
   },
   {
-    id: '3',
+    id: '4',
     title: 'Junior Full-Stack Developer',
     company: 'D4DX Innovations LLP',
     location: 'Kozhikode, India',
@@ -80,7 +96,7 @@ export const experiences: Experience[] = [
     skills: ['Flutter', 'Dart', 'Python', 'RAG', 'Firebase', 'REST APIs', 'Flutter Testing', 'MVVM']
   },
   {
-    id: '4',
+    id: '5',
     title: 'Flutter Developer',
     company: 'IroHub Infotech Pvt. Ltd.',
     location: 'Ernakulam, Kerala, India',
@@ -472,7 +488,7 @@ export const contactInfo = {
   location: 'Dublin, Ireland',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
-  bio: 'Full-Stack and Mobile Developer with 1.5+ years of production experience building scalable web and cross-platform mobile apps. Shipped 10+ MERN web applications and 13 Flutter apps serving 30,000+ active users. Led a 12-member cross-functional team across 20+ concurrent projects. Works across React, Node.js, Next.js, Flutter, and Kotlin/Jetpack Compose — from database design and REST API development through cloud infrastructure and CI/CD automation.',
+  bio: 'Full-Stack and Mobile Developer with 2+ years of production experience building scalable web and cross-platform mobile apps. Shipped 10+ MERN web applications and 13 Flutter apps serving 30,000+ active users. Led a 12-member cross-functional team across 20+ concurrent projects. Currently IT Coordinator (part-time, remote) at New Leaf School while pursuing an MSc in Computing Science in Dublin — open to full-stack and mobile roles. Works across React, Node.js, Next.js, Flutter, and Kotlin/Jetpack Compose — from database design and REST API development through cloud infrastructure and CI/CD automation.',
   languages: [
     { name: 'English', level: 'Fluent' },
     { name: 'Malayalam', level: 'Native' },

@@ -69,7 +69,7 @@ const Hero = () => {
                 style={{ objectPosition: 'center 18%' }}
               />
               <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between font-mono text-[10px] tracking-[0.08em] uppercase text-canvas/85">
-                <span>Kozhikode, India</span>
+                <span>Dublin, Ireland</span>
                 <span className="font-medium text-canvas">JH · 2026</span>
               </div>
             </div>

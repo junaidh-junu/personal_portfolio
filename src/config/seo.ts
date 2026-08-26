@@ -2,7 +2,7 @@ export const seoConfig = {
   siteName: 'Junaidh Haneefa Portfolio',
   siteUrl: 'https://junaidh.me',
   defaultTitle: 'Junaidh Haneefa | Full Stack Developer & Flutter Specialist',
-  defaultDescription: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. Currently pursuing MSc in Computer Science at Griffith College Dublin. View portfolio, projects, and contact information.',
+  defaultDescription: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. Currently pursuing MSc in Computer Science at Griffith College Dublin and open to full-stack and mobile opportunities. View portfolio, projects, and contact information.',
   defaultKeywords: [
     'Junaidh Haneefa',
     'junaidh haneefa',
@@ -49,7 +49,7 @@ export const structuredData = {
     familyName: 'Haneefa',
     additionalName: 'Muhammedhaneefa',
     jobTitle: ['Full Stack Developer', 'Flutter Developer', 'Mobile App Developer', 'Team Lead'],
-    description: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. Currently pursuing MSc in Computer Science at Griffith College Dublin.',
+    description: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. Currently pursuing MSc in Computer Science at Griffith College Dublin and open to full-stack and mobile opportunities.',
     url: seoConfig.siteUrl,
     email: seoConfig.socialMedia.email,
     image: `${seoConfig.siteUrl}/images/profile.png`,
@@ -60,8 +60,8 @@ export const structuredData = {
     },
     worksFor: {
       '@type': 'Organization',
-      name: 'Appetite Studio',
-      jobTitle: 'Full-Stack & Mobile Developer'
+      name: 'New Leaf School For Quran And English',
+      jobTitle: 'IT Coordinator'
     },
     seeks: {
       '@type': 'JobPosting',
