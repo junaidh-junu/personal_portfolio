@@ -25,7 +25,7 @@ const Hero = () => {
             >
               <span itemProp="name">
                 I build software{' '}
-                <span className="doodle-underline text-accent">30,000+ people</span>
+                <span className="text-accent">30,000+ people</span>
                 <br />
                 actually use.
               </span>
