@@ -31,7 +31,7 @@ const Contact = () => {
           className="mb-12"
         >
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-ink">
-            Let's talk about your <span className="doodle-underline">project</span>
+            Let's talk about your <span className="text-accent">project</span>
           </h2>
           <div className="scribble-divider mt-6" />
         </motion.div>

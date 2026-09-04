@@ -22,7 +22,7 @@ const PublicationRecord = ({ pub, index }: { pub: Publication; index: number }) 
       </div>
       <div className="flex-1 min-w-0">
         <h3 className="font-display text-xl md:text-2xl text-ink mb-3">
-          <span className="doodle-underline">{pub.title}</span>
+          <span className="text-accent">{pub.title}</span>
         </h3>
         <div className="font-mono text-[10px] text-ink-muted tracking-[0.12em] uppercase flex flex-wrap gap-x-4 gap-y-1 mb-4">
           <span>{pub.journal}</span>
