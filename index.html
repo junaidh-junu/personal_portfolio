@@ -43,6 +43,30 @@
 
     <!-- Preload LCP image -->
     <link rel="preload" as="image" href="/images/profile.png" />
+
+    <!-- Static Person schema (crawlable without JS execution) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Junaidh Haneefa Muhammedhaneefa",
+      "alternateName": ["Junaidh", "Junaidh Haneefa", "junaidh haneefa", "Junaidh Haneefa Muhammedhaneefa"],
+      "givenName": "Junaidh",
+      "familyName": "Haneefa",
+      "jobTitle": ["Full Stack Developer", "Flutter Developer", "Mobile App Developer"],
+      "url": "https://junaidh.me",
+      "image": "https://junaidh.me/images/profile.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/junaidhhaneefa",
+        "https://github.com/junaidh-junu"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dublin",
+        "addressCountry": "Ireland"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

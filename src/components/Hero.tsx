@@ -18,17 +18,11 @@ const Hero = () => {
               Full-Stack &amp; Mobile Developer
             </p>
 
-            <h1
-              className="font-display text-[2.75rem] sm:text-6xl md:text-7xl text-ink leading-[0.98] max-w-2xl"
-              itemScope
-              itemType="https://schema.org/Person"
-            >
-              <span itemProp="name">
-                I build software{' '}
-                <span className="text-accent">30,000+ people</span>
-                <br />
-                actually use.
-              </span>
+            <h1 className="font-display text-[2.75rem] sm:text-6xl md:text-7xl text-ink leading-[0.98] max-w-2xl">
+              I build software{' '}
+              <span className="text-accent">30,000+ people</span>
+              <br />
+              actually use.
             </h1>
 
             <p className="font-body text-base md:text-lg text-ink-dim max-w-md leading-relaxed mt-8 lg:ml-10">

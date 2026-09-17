@@ -48,7 +48,7 @@ export const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Junaidh Haneefa Muhammedhaneefa',
-    alternateName: ['Junaidh Haneefa', 'junaidh haneefa', 'Junaidh Haneefa Muhammedhaneefa'],
+    alternateName: ['Junaidh', 'Junaidh Haneefa', 'junaidh haneefa', 'Junaidh Haneefa Muhammedhaneefa'],
     givenName: 'Junaidh',
     familyName: 'Haneefa',
     additionalName: 'Muhammedhaneefa',
