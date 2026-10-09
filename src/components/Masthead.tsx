@@ -1,12 +1,13 @@
 import { nav, person } from '../data/site';
 import ThemeToggle from './ThemeToggle';
+import Logo from './Logo';
 
 export default function Masthead() {
   return (
     <header className="masthead">
       <div className="page flex h-16 items-center justify-between gap-4">
         <a href="#top" className="t-title flex items-center gap-3 no-underline">
-          <img src={person.avatar} width={28} height={28} alt="" className="h-7 w-7 rounded-full" decoding="async" />
+          <Logo size={28} className="text-ink" />
           <span className="max-sm:hidden">{person.name}</span>
         </a>
         <nav aria-label="Primary" className="flex items-center gap-1">
