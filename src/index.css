@@ -1,25 +1,32 @@
 @import "tailwindcss";
 
-/* Tokens: see the design system (tokens.json). Light values here, dark below. */
+/* Tokens mirror the design system (tokens.json). Dark is the default theme. */
 @theme {
-  --color-ground: #fcfcfa;
-  --color-surface: #f4f4f1;
-  --color-ink: #171717;
-  --color-ink-muted: #5f5f5a;
-  --color-ink-subtle: #6f6f69;
-  --color-rule: #e6e6e1;
-  --color-rule-strong: #c9c9c3;
-  --color-accent: #2456d6;
+  --color-ground: #0f0f0e;
+  --color-surface: #161615;
+  --color-surface-raised: #1d1d1b;
+  --color-ink: #f2f2ef;
+  --color-ink-muted: #a3a39d;
+  --color-ink-subtle: #86867f;
+  --color-rule: #262624;
+  --color-rule-strong: #3a3a37;
+  --color-accent: #7fa0ff;
 
   --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --text-statement: 28px;
-  --text-statement--line-height: 36px;
-  --text-statement--letter-spacing: -0.015em;
-  --text-title: 15px;
+  --text-display: clamp(44px, 7.2vw, 92px);
+  --text-display--line-height: 0.96;
+  --text-display--letter-spacing: -0.04em;
+  --text-heading: 36px;
+  --text-heading--line-height: 40px;
+  --text-heading--letter-spacing: -0.025em;
+  --text-lede: 20px;
+  --text-lede--line-height: 30px;
+  --text-lede--letter-spacing: -0.01em;
+  --text-title: 17px;
   --text-title--line-height: 24px;
-  --text-title--letter-spacing: -0.005em;
+  --text-title--letter-spacing: -0.01em;
   --text-body: 15px;
   --text-body--line-height: 24px;
   --text-small: 13px;
@@ -27,38 +34,25 @@
   --text-meta: 12px;
   --text-meta--line-height: 18px;
 
-  --spacing-measure: 640px;
-  --spacing-label: 160px;
-  --spacing-page: 896px;
+  --spacing-page: 1200px;
 
   --radius-sm: 4px;
   --radius-md: 10px;
+  --radius-lg: 16px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-ground: #0f0f0e;
-    --color-surface: #181817;
-    --color-ink: #ecece8;
-    --color-ink-muted: #a3a39d;
-    --color-ink-subtle: #86867f;
-    --color-rule: #262624;
-    --color-rule-strong: #3a3a37;
-    --color-accent: #7fa0ff;
-  }
-}
-
-:root[data-theme="dark"] {
-  --color-ground: #0f0f0e;
-  --color-surface: #181817;
-  --color-ink: #ecece8;
-  --color-ink-muted: #a3a39d;
-  --color-ink-subtle: #86867f;
-  --color-rule: #262624;
-  --color-rule-strong: #3a3a37;
-  --color-accent: #7fa0ff;
+:root[data-theme="light"] {
+  --color-ground: #fcfcfa;
+  --color-surface: #f4f4f1;
+  --color-surface-raised: #ffffff;
+  --color-ink: #171717;
+  --color-ink-muted: #5f5f5a;
+  --color-ink-subtle: #6f6f69;
+  --color-rule: #e6e6e1;
+  --color-rule-strong: #c9c9c3;
+  --color-accent: #2456d6;
 }
 
 @layer base {
@@ -70,6 +64,11 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  html[data-theme="light"] {
+    color-scheme: light;
   }
 
   body {
@@ -86,7 +85,7 @@
 
   :focus-visible {
     outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
+    outline-offset: 3px;
     border-radius: 2px;
   }
 
@@ -98,45 +97,62 @@
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { transition-duration: 0.01ms !important; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
   }
 }
 
 @layer components {
   .page {
-    max-width: calc(var(--spacing-page) + 48px);
+    max-width: calc(var(--spacing-page) + 80px);
     margin: 0 auto;
     padding: 0 24px;
   }
+  @media (min-width: 768px) {
+    .page { padding: 0 40px; }
+  }
 
   .section {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 16px;
-    padding: 64px 0;
+    padding: 96px 0;
     border-top: 1px solid var(--color-rule);
   }
-
   @media (min-width: 768px) {
-    .section {
-      grid-template-columns: var(--spacing-label) minmax(0, 1fr);
-      column-gap: 48px;
-      padding: 96px 0;
-    }
+    .section { padding: 128px 0; }
   }
 
-  .section-label {
-    margin: 0;
-    font-size: var(--text-title);
-    line-height: var(--text-title--line-height);
-    letter-spacing: var(--text-title--letter-spacing);
+  .t-display {
+    font-size: var(--text-display);
+    line-height: var(--text-display--line-height);
+    letter-spacing: var(--text-display--letter-spacing);
+    font-weight: 500;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  .t-heading {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: var(--text-heading--letter-spacing);
     font-weight: 500;
     color: var(--color-ink);
   }
+  @media (min-width: 768px) {
+    .t-heading {
+      font-size: var(--text-heading);
+      line-height: var(--text-heading--line-height);
+    }
+  }
 
-  .section-body {
-    max-width: var(--spacing-measure);
-    min-width: 0;
+  .t-lede {
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: var(--text-lede--letter-spacing);
+    color: var(--color-ink-muted);
+  }
+  @media (min-width: 768px) {
+    .t-lede {
+      font-size: var(--text-lede);
+      line-height: var(--text-lede--line-height);
+    }
   }
 
   .t-title {
@@ -171,34 +187,94 @@
     text-decoration: underline;
     text-decoration-color: var(--color-rule-strong);
     text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
     transition: text-decoration-color 150ms var(--ease-out);
   }
+  .link:hover { text-decoration-color: var(--color-ink); }
 
-  .link:hover {
-    text-decoration-color: var(--color-ink);
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    text-decoration: none;
+    transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out), border-color 150ms var(--ease-out), transform 150ms var(--ease-out);
   }
+  .btn-primary {
+    background: var(--color-ink);
+    color: var(--color-ground);
+    border: 1px solid var(--color-ink);
+  }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-rule-strong);
+  }
+  .btn-ghost:hover { border-color: var(--color-ink); }
 
-  .frame {
-    display: block;
+  /* Project card: a surface frame holding a cropped screenshot, text beneath. */
+  .card { display: block; text-decoration: none; color: inherit; }
+  .card-frame {
+    position: relative;
     overflow: hidden;
     background: var(--color-surface);
     border: 1px solid var(--color-rule);
-    border-radius: var(--radius-sm);
-    transition: border-color 150ms var(--ease-out);
+    border-radius: var(--radius-lg);
+    padding: 24px 24px 0;
+    transition: border-color 300ms var(--ease-out);
   }
-
-  .work:hover .frame,
-  .frame:focus-visible {
-    border-color: var(--color-rule-strong);
+  @media (min-width: 768px) {
+    .card-frame { padding: 40px 40px 0; }
   }
+  .card-shot {
+    overflow: hidden;
+    border: 1px solid var(--color-rule-strong);
+    border-bottom: 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    background: var(--color-surface-raised);
+    transform: translateY(0);
+    transition: transform 500ms var(--ease-out);
+  }
+  .card-shot img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+  }
+  .card:hover .card-frame { border-color: var(--color-rule-strong); }
+  .card:hover .card-shot { transform: translateY(-6px); }
+  .card-arrow {
+    display: inline-block;
+    transition: transform 300ms var(--ease-out);
+  }
+  .card:hover .card-arrow { transform: translate(2px, -2px); }
 
   .row-hover {
     border-radius: var(--radius-sm);
     transition: background-color 150ms var(--ease-out);
   }
+  .row-hover:hover { background: var(--color-surface); }
 
-  .row-hover:hover {
-    background: var(--color-surface);
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--color-ground);
+    border-bottom: 1px solid var(--color-rule);
   }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rise { animation: rise 700ms var(--ease-out) both; }
+  .rise-2 { animation-delay: 80ms; }
+  .rise-3 { animation-delay: 160ms; }
 }

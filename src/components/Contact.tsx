@@ -1,30 +1,48 @@
 import { languages, person } from '../data/site';
-import Section from './Section';
 
 export default function Contact() {
-  const rows = [
-    { label: 'Email', node: <a href={`mailto:${person.email}`} className="link">{person.email}</a> },
-    { label: 'Phone', node: <a href={`tel:${person.phone.replace(/\s/g, '')}`} className="link">{person.phone}</a> },
-    { label: 'GitHub', node: <a href={person.github} target="_blank" rel="noopener noreferrer" className="link">github.com/junaidh-junu ↗</a> },
-    { label: 'LinkedIn', node: <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="link">linkedin.com/in/junaidhhaneefa ↗</a> },
-    { label: 'CV', node: <a href={person.cv} download="Junaidh_Haneefa_CV.pdf" className="link">Download PDF</a> },
-    { label: 'Location', node: <>{person.location}</> },
-    { label: 'Languages', node: <>{languages}</> },
+  const links = [
+    { label: 'GitHub', href: person.github, external: true },
+    { label: 'LinkedIn', href: person.linkedin, external: true },
+    { label: 'Download CV', href: person.cv, download: 'Junaidh_Haneefa_CV.pdf' },
   ];
-
   return (
-    <Section id="contact" label="Contact">
-      <p className="t-body mb-8">
-        {person.availability}. I read every email myself, usually within a day.
-      </p>
-      <dl className="divide-y divide-rule border-y border-rule">
-        {rows.map((row) => (
-          <div key={row.label} className="grid grid-cols-[112px_minmax(0,1fr)] gap-4 py-3">
-            <dt className="t-small text-ink">{row.label}</dt>
-            <dd className="t-small m-0 break-words">{row.node}</dd>
+    <section id="contact" className="section scroll-mt-16" aria-labelledby="contact-heading">
+      <div className="page">
+        <p className="t-meta flex items-center gap-2.5">
+          <span className="inline-block h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+          {person.availability}
+        </p>
+        <h2 id="contact-heading" className="t-display mt-8 max-w-[12ch]">
+          Let's build something.
+        </h2>
+        <a
+          href={`mailto:${person.email}`}
+          className="link mt-10 inline-block break-all text-[clamp(20px,3.2vw,40px)] leading-tight tracking-[-0.02em] md:mt-14"
+        >
+          {person.email}
+        </a>
+        <div className="mt-12 grid gap-8 border-t border-rule pt-8 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16">
+          <ul className="flex flex-wrap gap-x-8 gap-y-3">
+            {links.map((l) => (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  className="link t-body text-ink"
+                  {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  {...(l.download ? { download: l.download } : {})}
+                >
+                  {l.label} {l.external ? '↗' : '↓'}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="t-small md:text-right">
+            <p>{person.location} · {person.phone}</p>
+            <p className="mt-1">{languages}</p>
           </div>
-        ))}
-      </dl>
-    </Section>
+        </div>
+      </div>
+    </section>
   );
 }

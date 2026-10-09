@@ -11,9 +11,8 @@
     <meta name="author" content="Junaidh Haneefa Muhammedhaneefa" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://junaidh.me" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfcfa" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f0f0e" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0f0f0e" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://junaidh.me" />
@@ -33,8 +32,7 @@
     <script>
       (function () {
         try {
-          var t = localStorage.getItem('theme');
-          if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+          if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');
         } catch (e) {}
       })();
     </script>
