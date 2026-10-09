@@ -63,9 +63,14 @@ export const person = {
 
 export const hero = {
   eyebrow: 'Dublin, Ireland',
-  lineOne: 'Full-stack and mobile developer.',
-  lineTwo: 'I build web and mobile products people use every day.',
-  lede: 'Flutter apps for 30,000+ users, admin platforms for organisations in Kerala and Ireland, and an explainable flood-risk model for Dublin. MSc Computing, Griffith College Dublin.',
+  lineOne: 'Full-stack and mobile developer',
+  lineTwo: 'building products people use every day.',
+  lede: 'I design and ship web platforms and cross-platform mobile apps end to end: React and Node on the web, Flutter and Kotlin on mobile, PostgreSQL and Supabase underneath, and the CI and cloud that keep them running.',
+  facts: [
+    { value: '30,000+', label: 'active users on Tafheem ul Quran' },
+    { value: '13', label: 'Flutter apps on both stores' },
+    { value: '20+', label: 'web apps shipped as team lead' },
+  ],
 };
 
 export const nav: Link[] = [

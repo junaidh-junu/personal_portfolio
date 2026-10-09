@@ -9,8 +9,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SEOHead from './components/SEO/SEOHead';
 import StructuredData from './components/SEO/StructuredData';
+import { useReveal } from './hooks/useReveal';
 
 export default function App() {
+  useReveal();
   return (
     <>
       <SEOHead />

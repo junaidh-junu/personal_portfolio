@@ -5,39 +5,36 @@ export default function Experience() {
   return (
     <section id="experience" className="section scroll-mt-16" aria-labelledby="experience-heading">
       <div className="page">
-        <SectionHeading id="experience-heading" title="Experience" />
-        <ol className="border-t border-rule">
-          {roles.map((role) => (
-            <li key={`${role.org}-${role.period}`} className="grid gap-2 border-b border-rule py-6 md:grid-cols-[180px_minmax(0,1fr)] md:gap-8 md:py-8">
-              <p className="t-meta">{role.period}</p>
-              <div>
-                <h3 className="t-title">
-                  {role.title}
-                  <span className="font-normal text-ink-muted">, {role.org}</span>
-                </h3>
-                <p className="t-meta mt-1">{role.location}</p>
-                <p className="t-body mt-3 max-w-[70ch]">{role.summary}</p>
-                <p className="t-meta mt-2">{role.stack}</p>
-              </div>
+        <SectionHeading id="experience-heading" label="Experience" title="From intern to team lead in two years." />
+        <ol className="timeline">
+          {roles.map((role, i) => (
+            <li key={`${role.org}-${role.period}`} className="relative pl-10 pb-10 last:pb-0 md:pl-12" data-reveal={String((i % 2) + 1)}>
+              <span className={`timeline-dot ${role.current ? 'current' : ''}`} aria-hidden="true" />
+              <p className="t-meta">{role.period} · {role.location}</p>
+              <h3 className="t-title mt-2">
+                {role.title}
+                <span className="font-normal text-ink-muted">, {role.org}</span>
+              </h3>
+              <p className="t-body mt-3 max-w-[70ch]">{role.summary}</p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {role.stack.split(', ').map((s) => (
+                  <li key={s} className="t-meta rounded-full border border-rule px-2.5 py-1">{s}</li>
+                ))}
+              </ul>
             </li>
           ))}
         </ol>
 
-        <h3 className="t-heading mt-20 md:mt-28">Education</h3>
-        <ol className="mt-8 border-t border-rule md:mt-10">
+        <div className="mt-20 grid gap-6 md:mt-28 md:grid-cols-2" data-reveal="1">
           {education.map((school) => (
-            <li key={school.degree} className="grid gap-2 border-b border-rule py-6 md:grid-cols-[180px_minmax(0,1fr)] md:gap-8">
+            <div key={school.degree} className="panel p-6 md:p-8">
               <p className="t-meta">{school.period}</p>
-              <div>
-                <h4 className="t-title">
-                  {school.degree}
-                  <span className="font-normal text-ink-muted">, {school.institution}</span>
-                </h4>
-                <p className="t-body mt-2 max-w-[70ch]">{school.detail}</p>
-              </div>
-            </li>
+              <h3 className="t-title mt-2">{school.degree}</h3>
+              <p className="t-small mt-0.5">{school.institution}</p>
+              <p className="t-body mt-4">{school.detail}</p>
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
