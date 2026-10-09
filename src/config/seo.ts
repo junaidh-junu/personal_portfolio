@@ -1,8 +1,8 @@
 export const seoConfig = {
-  siteName: 'Junaidh Haneefa Portfolio',
+  siteName: 'Junaidh Haneefa',
   siteUrl: 'https://junaidh.me',
-  defaultTitle: 'Junaidh Haneefa | Full Stack Developer & Flutter Specialist',
-  defaultDescription: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. MSc in Computing graduate (Griffith College Dublin, 2026) and open to full-stack and mobile opportunities. View portfolio, projects, and contact information.',
+  defaultTitle: 'Junaidh Haneefa | Full-stack and mobile developer',
+  defaultDescription: 'Junaidh Haneefa is a full-stack and mobile developer in Dublin. React, Node, Flutter and Kotlin, with production apps serving 30,000+ users. MSc Computing, Griffith College Dublin, 2026.',
   defaultKeywords: [
     'Junaidh Haneefa',
     'junaidh haneefa',
@@ -53,7 +53,7 @@ export const structuredData = {
     familyName: 'Haneefa',
     additionalName: 'Muhammedhaneefa',
     jobTitle: ['Full Stack Developer', 'Flutter Developer', 'Mobile App Developer', 'Team Lead'],
-    description: 'Junaidh Haneefa is an experienced Full Stack Developer specializing in Flutter, Kotlin, and cross-platform mobile development. MSc in Computing graduate (Griffith College Dublin, 2026) and open to full-stack and mobile opportunities.',
+    description: 'Full-stack and mobile developer in Dublin. React, Node, Flutter and Kotlin, with production apps serving 30,000+ users. MSc Computing, Griffith College Dublin, 2026.',
     url: seoConfig.siteUrl,
     email: seoConfig.socialMedia.email,
     image: `${seoConfig.siteUrl}/images/profile.png`,
