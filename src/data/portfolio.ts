@@ -58,8 +58,8 @@ export const experiences: Experience[] = [
     description: [
       'Built the QuantumX landing page and community-maintained database for tracking cryptographic systems vulnerable to quantum attacks, supporting the transition to post-quantum cryptography — built with React and Directus as the backend',
       'Supported the Ente Ward backend migration to Supabase — contributed to database schema design, row-level security policies, and real-time data flows; helped develop and maintain the mobile app for the civic engagement platform serving Kerala constituencies',
-      'Built and shipped the Ente Ward admin dashboard for managing ward constituencies, user roles, and civic engagement data',
-      'Designed and shipped ToyCar Showroom as a cross-platform Flutter app and web platform with user auth, virtual garage, social features, leaderboards, and peer-to-peer digital asset transfers',
+      'Led the full Ente Ward Flutter app and React admin dashboard for 20 Kerala ward constituencies and 500 active users, including the Supabase migration and PostgreSQL schema redesign',
+      'Shipped ToyCar Showroom on both stores and the web (100 active users post-launch) as a cross-platform Flutter app and web platform with user auth, virtual garage, social features, leaderboards, and peer-to-peer digital asset transfers',
       'Delivered cross-platform mobile apps and web apps in Flutter and Kotlin/Jetpack Compose, handling end-to-end delivery from UI implementation to backend API integration'
     ],
     skills: ['React', 'Node.js', 'Next.js', 'Supabase', 'Flutter', 'Dart', 'Kotlin', 'Jetpack Compose', 'Directus', 'REST APIs']
@@ -74,7 +74,7 @@ export const experiences: Experience[] = [
     current: false,
     description: [
       'Promoted from Junior Developer to Team Lead within 9 months based on technical delivery and architectural contributions',
-      'Led a 12-member cross-functional team shipping 20+ web applications and 5+ mobile apps; orchestrated sprint planning, backlog grooming, code reviews (~10 PRs/week), and release cycles using ClickUp and Notion',
+      'Led a 12-member cross-functional team, mentored interns, acted as the team\'s single point of contact with clients, and shipped 20+ web applications and 5+ mobile apps; orchestrated sprint planning, backlog grooming, code reviews (~10 PRs/week), and release cycles using ClickUp and Notion',
       'Architected the Tafheem ul Quran web platform end-to-end using MERN — React frontend, Express/Node.js REST API, SQL database with auth, custom audio streaming service, and admin CMS, growing to 30,000+ active users',
       'Built and shipped production MERN web applications: admin panels for Thanima Hajj & Umrah and Hira+ — each with role-based access control, CRUD operations, and analytics views',
       'Engineered an internal ERP system using the MERN stack, automating resource allocation and centralizing project tracking and employee management',
@@ -93,9 +93,9 @@ export const experiences: Experience[] = [
     current: false,
     description: [
       'Built the Tafheem ul Quran mobile app with audio streaming, prayer times, quizzes, and multi-language support, and assisted in developing the web platform — contributing to 30,000+ active users',
-      'Reduced flagship mobile app size by 60% (150MB to 60MB) through asset optimization, code refactoring, and cloud migration of bundled resources, improving user acquisition',
+      'Reduced flagship mobile app size by 60% (150MB to 60MB) through asset optimization, code refactoring, and cloud migration of bundled resources, improving download conversion and bringing the crash rate down to 2.7%',
       'Shipped Thanima Hajj & Umrah (GPS pilgrimage guide, offline-first), Zai Toon Kids (educational app with Razorpay subscriptions), Hira Plus (office management), Muhasabah (Islamic education), and Mishkath – JIH Kerala (heritage explorer for Jamaat-e-Islami Kerala)',
-      'Implemented a RAG-based AI chatbot for Tafheem ul Quran using Python, enabling context-aware Q&A with vector search and LLM-powered responses over Quran content',
+      'Implemented a RAG-based AI chatbot for Tafheem ul Quran using Python, ChromaDB, and Gemini, enabling context-aware Q&A over Quran content — live in production within the app',
       'Wrote widget and unit tests for Flutter applications to ensure reliability across releases'
     ],
     skills: ['Flutter', 'Dart', 'Python', 'RAG', 'Firebase', 'REST APIs', 'Flutter Testing', 'MVVM']
@@ -118,20 +118,21 @@ export const experiences: Experience[] = [
 export const education: Education[] = [
   {
     id: '1',
-    degree: 'MSc in Computing Science',
+    degree: 'MSc in Computing',
     institution: 'Griffith College Dublin',
     location: 'Dublin, Ireland',
-    period: 'Sep 2025 - Oct 2026',
-    status: 'Ongoing',
-    description: 'Pursuing a Master\'s in Computer Science at Griffith College Dublin, focusing on advanced software engineering, mobile development, and cloud technologies. Coursework covers distributed systems, machine learning, and advanced algorithms.'
+    period: 'Sep 2025 - 2026',
+    status: 'Completed',
+    description: 'QQI Level 9 award, 90 ECTS. Modules: Mobile Development, Cloud Platforms and Applications, Agile Software Development, Parallel and Distributed Programming, Advanced Networks and Cybersecurity, Deep Learning and Generative AI, Data Mining and Machine Learning, Research Methods. Scrum Master on the MSc team project. Dissertation: FloodScope, explainable geospatial flood-risk ML for Dublin.'
   },
   {
     id: '2',
     degree: 'B.Tech in Computer Science and Engineering',
     institution: 'APJ Abdul Kalam Technological University',
     location: 'Kerala, India',
-    period: 'Sep 2019 - Apr 2024',
-    description: 'Completed Bachelor of Technology from Jawaharlal College of Engineering and Technology. Gained strong foundation in computer science fundamentals, software engineering, and mobile application development.'
+    period: 'Sep 2020 - May 2024',
+    gpa: 'First Class, CGPA 6.86/10',
+    description: 'Studied at Jawaharlal College of Engineering and Technology. Final year subjects included Artificial Intelligence, Cloud Computing, Distributed Computing, Mobile Computing and Block Chain Technologies. Final year project: an IoT anti-theft flooring mat (graded S, published in the Journal of Electronics and Informatics).'
   }
 ];
 
@@ -139,7 +140,7 @@ export const projects: Project[] = [
   {
     id: '21',
     title: 'FloodScope',
-    description: 'MSc dissertation project: explainable-ML geospatial flood-risk mapping for Dublin (Dodder, Tolka, Liffey catchments; 157,735-cell 50m grid). Shows that naive random-split evaluation overstates accuracy versus spatial block cross-validation (AUC −0.157 / F1 −0.400). Full-stack build with FastAPI on DigitalOcean, React/Mapbox on Netlify, and SHAP-based per-cell explanations. Griffith College Dublin — submission Sep 2026.',
+    description: 'MSc dissertation project: explainable-ML geospatial flood-risk mapping for Dublin (Dodder, Tolka, Liffey catchments; 157,735-cell 50m grid). A random 80/20 split gives AUC 0.991, while 5km spatial block cross-validation gives 0.834 (AUC gap −0.157, F1 gap −0.400), so naive evaluation badly overstates accuracy. Full-stack build with FastAPI on DigitalOcean, React/Mapbox on Netlify, and SHAP-based per-cell explanations. Fluvial flooding only; labels are modelled flood extents. Griffith College Dublin, 2026.',
     technologies: [
       'Python',
       'XGBoost',
@@ -486,13 +487,13 @@ export const certifications: Certification[] = [
 export const contactInfo = {
   name: 'Junaidh Haneefa Muhammedhaneefa',
   title: 'Full-Stack & Mobile Developer',
-  subtitle: 'MERN Stack · Next.js · Flutter · Kotlin · AI/ML · MSc Computing Science',
+  subtitle: 'MERN Stack · Next.js · Flutter · Kotlin · AI/ML · MSc Computing',
   email: 'junaidhhaneef.m@gmail.com',
   phone: '+353 89 253 4784',
   location: 'Dublin, Ireland',
   linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
   github: 'https://github.com/junaidh-junu',
-  bio: 'Full-Stack and Mobile Developer with 2+ years of production experience building scalable web and cross-platform mobile apps. Shipped 10+ MERN web applications and 13 Flutter apps serving 30,000+ active users. Led a 12-member cross-functional team across 20+ concurrent projects. Applies AI/ML in production — RAG chatbots and explainable geospatial models (XGBoost, SHAP). Currently IT Coordinator (part-time, remote) at New Leaf School while pursuing an MSc in Computing Science in Dublin — open to full-stack and mobile roles. Works across React, Node.js, Next.js, Flutter, and Kotlin/Jetpack Compose — from database design and REST API development through cloud infrastructure and CI/CD automation.',
+  bio: 'Full-Stack and Mobile Developer with 2+ years of production experience building scalable web and cross-platform mobile apps. Shipped 10+ MERN web applications and 13 Flutter apps serving 30,000+ active users. Led a 12-member cross-functional team across 20+ concurrent projects. Applies AI/ML in production — RAG chatbots and explainable geospatial models (XGBoost, SHAP). MSc in Computing graduate (Griffith College Dublin, 2026) and part-time remote IT Coordinator at New Leaf School — available immediately for full-stack and mobile roles. Works across React, Node.js, Next.js, Flutter, and Kotlin/Jetpack Compose — from database design and REST API development through cloud infrastructure and CI/CD automation.',
   languages: [
     { name: 'English', level: 'Fluent' },
     { name: 'Malayalam', level: 'Native' },

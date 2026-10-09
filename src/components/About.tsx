@@ -46,8 +46,8 @@ const About = () => {
                 <span className="text-ink font-medium">10+ MERN web applications and 13 Flutter apps</span> serving 30,000+ active users.
               </p>
               <p>
-                Currently pursuing a{' '}
-                <span className="text-ink font-medium">Master's in Computing Science</span> at Griffith College Dublin. Previously led a 12-member team at D4DX Innovations, shipping 20+ web and 5+ mobile applications.
+                Graduated in 2026 with an{' '}
+                <span className="text-ink font-medium">MSc in Computing</span> from Griffith College Dublin, and available immediately. Previously led a 12-member team at D4DX Innovations, shipping 20+ web and 5+ mobile applications.
               </p>
               <p>
                 Builds with{' '}
