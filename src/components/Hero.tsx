@@ -1,7 +1,7 @@
-import { apps, hero, person } from '../data/site';
+import { featured, hero, person } from '../data/site';
 
 export default function Hero() {
-  const icons = apps.slice(0, 6);
+  const lead = featured[0];
   return (
     <section id="top" className="relative overflow-hidden" aria-label="Introduction">
       <div className="hero-bg" aria-hidden="true" />
@@ -36,21 +36,12 @@ export default function Hero() {
           </dl>
         </div>
 
-        <div className="rise rise-3 relative mx-auto w-full max-w-[520px] lg:max-w-none" aria-hidden="true">
-          <div className="collage">
-            <div className="collage-shot float-1" style={{ left: '0%', top: '6%', width: '78%', aspectRatio: '16 / 11' }}>
-              <img src="/work/tafheem-web.webp" width={1600} height={842} alt="" />
-            </div>
-            <div className="collage-shot float-2" style={{ right: '0%', top: '38%', width: '60%', aspectRatio: '16 / 11' }}>
-              <img src="/work/quantumx.webp" width={1600} height={907} alt="" />
-            </div>
-            <div className="collage-apps float-3" style={{ left: '4%', bottom: '2%' }}>
-              {icons.map((a) => (
-                <img key={a.name} src={a.icon} width={44} height={44} alt="" />
-              ))}
-            </div>
+        <a href="#work" className="rise rise-3 showcase mx-auto w-full max-w-[520px] lg:max-w-none" aria-label={`${lead.title}, see selected work`}>
+          <div className="showcase-frame">
+            {lead.image && <img src={lead.image.src} width={lead.image.width} height={lead.image.height} alt={lead.image.alt} />}
           </div>
-        </div>
+          <p className="t-meta mt-3">{lead.title} · {lead.year} · 30,000+ active users</p>
+        </a>
       </div>
     </section>
   );
