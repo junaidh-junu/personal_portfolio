@@ -42,8 +42,6 @@
   --radius-md: 12px;
   --radius-lg: 20px;
 
-  --shadow-card: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset, 0 20px 50px -20px rgba(0, 0, 0, 0.6);
-  --shadow-card-hover: 0 1px 0 0 rgba(255, 255, 255, 0.07) inset, 0 30px 60px -20px rgba(0, 0, 0, 0.7);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -60,8 +58,6 @@
   --color-accent: #2a56d8;
   --color-accent-ink: #ffffff;
   --color-accent-soft: rgba(42, 86, 216, 0.1);
-  --shadow-card: 0 1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 16px 40px -20px rgba(20, 20, 20, 0.25);
-  --shadow-card-hover: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset, 0 28px 56px -22px rgba(20, 20, 20, 0.3);
 }
 
 @layer base {
@@ -155,14 +151,13 @@
     height: 44px; padding: 0 20px; border-radius: 999px;
     font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: -0.005em;
     text-decoration: none; white-space: nowrap;
-    transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out), border-color 150ms var(--ease-out), transform 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+    transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out), border-color 150ms var(--ease-out), transform 150ms var(--ease-out);
   }
   .btn-primary {
     background: var(--color-accent); color: var(--color-accent-ink);
     border: 1px solid transparent;
-    box-shadow: 0 8px 24px -10px var(--color-accent);
   }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 28px -10px var(--color-accent); }
+  .btn-primary:hover { transform: translateY(-1px); }
   .btn-ghost { background: transparent; color: var(--color-ink); border: 1px solid var(--color-rule-strong); }
   .btn-ghost:hover { border-color: var(--color-ink); background: var(--color-surface); }
   .btn-sm { height: 36px; padding: 0 14px; font-size: 13px; }
@@ -191,7 +186,7 @@
   }
   .chip:hover { border-color: var(--color-rule-strong); transform: translateY(-1px); }
 
-  /* Hero background: dot grid fading out plus a soft accent glow top right. */
+  /* Hero background: dot grid fading out. */
   .hero-bg {
     position: absolute; inset: 0; pointer-events: none; overflow: hidden;
   }
@@ -203,17 +198,12 @@
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 20%, transparent 70%);
     opacity: 0.6;
   }
-  .hero-bg::after {
-    content: ""; position: absolute; top: -200px; right: -120px; width: 640px; height: 640px;
-    background: radial-gradient(closest-side, var(--color-accent-soft), transparent 70%);
-  }
 
   /* Surfaces */
   .panel {
     background: var(--color-surface);
     border: 1px solid var(--color-rule);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
   }
 
   /* Project card */
@@ -223,9 +213,8 @@
     background: var(--color-surface);
     border: 1px solid var(--color-rule);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
     padding: 24px 24px 0;
-    transition: border-color 300ms var(--ease-out), box-shadow 300ms var(--ease-out), transform 300ms var(--ease-out);
+    transition: border-color 300ms var(--ease-out), transform 300ms var(--ease-out);
   }
   @media (min-width: 768px) { .card-frame { padding: 36px 36px 0; } }
   .card-shot {
@@ -239,7 +228,7 @@
     width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
     transition: object-position 1200ms ease-in-out;
   }
-  .card:hover .card-frame { border-color: var(--color-rule-strong); box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+  .card:hover .card-frame { border-color: var(--color-rule-strong); transform: translateY(-2px); }
   .card:hover .card-shot { transform: translateY(-8px); }
   .card:hover .card-shot img { object-position: bottom; }
   .card-tag {
@@ -256,29 +245,22 @@
   .card:hover .card-cta { color: var(--color-accent); }
   .card:hover .card-cta svg { transform: translate(2px, -2px); }
 
-  /* Hero collage */
-  .collage { position: relative; aspect-ratio: 1 / 1; }
-  .collage-shot {
-    position: absolute; overflow: hidden;
+  /* Hero showcase: one framed screenshot with a caption. */
+  .showcase { display: block; text-decoration: none; color: inherit; }
+  .showcase-frame {
+    overflow: hidden;
     background: var(--color-surface);
     border: 1px solid var(--color-rule-strong);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
+    border-radius: var(--radius-lg);
+    padding: 12px 12px 0;
+    transition: border-color 300ms var(--ease-out);
   }
-  .collage-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-  .collage-apps {
-    position: absolute; display: grid; grid-template-columns: repeat(3, 44px); gap: 10px; padding: 14px;
-    background: color-mix(in srgb, var(--color-surface) 85%, transparent);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--color-rule-strong);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
+  .showcase-frame img {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top;
+    border: 1px solid var(--color-rule); border-bottom: 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
   }
-  .collage-apps img { width: 44px; height: 44px; border-radius: 10px; }
-  .float-1 { animation: float 7s ease-in-out infinite; }
-  .float-2 { animation: float 9s ease-in-out infinite reverse; }
-  .float-3 { animation: float 8s ease-in-out 1s infinite; }
-  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .showcase:hover .showcase-frame { border-color: var(--color-ink-subtle); }
 
   /* Rows and timeline */
   .row-hover { border-radius: var(--radius-sm); transition: background-color 150ms var(--ease-out); }
