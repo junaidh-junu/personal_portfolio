@@ -61,23 +61,34 @@ export const person = {
   availability: 'Available for full-stack and mobile roles',
 };
 
-export const hero = {
-  eyebrow: 'Dublin, Ireland',
-  lineOne: 'Full-stack and mobile developer',
-  lineTwo: 'building products people use every day.',
-  lede: 'I design and ship web platforms and cross-platform mobile apps end to end: React and Node on the web, Flutter and Kotlin on mobile, PostgreSQL and Supabase underneath, and the CI and cloud that keep them running.',
-  facts: [
-    { value: '30,000+', label: 'active users on Tafheem ul Quran' },
-    { value: '13', label: 'Flutter apps on both stores' },
-    { value: '20+', label: 'web apps shipped as team lead' },
-  ],
+/** The listing header: the site presents one developer the way a store presents an app. */
+export const listing = {
+  subtitle: 'Full-stack and mobile developer',
+  status: 'Open to full-stack and mobile roles · Dublin, Ireland',
+  tagline: 'Ships to App Store, Google Play and the web.',
+};
+
+/** The metadata band under the header. Every value is real and checkable. */
+export const facts = [
+  { label: 'Active users', value: '30,000+', note: 'Tafheem ul Quran' },
+  { label: 'Apps', value: '13', note: 'on both stores' },
+  { label: 'Web apps', value: '20+', note: 'shipped as team lead' },
+  { label: 'Languages', value: '4', note: 'EN · ML · TA · HI' },
+  { label: 'Education', value: 'MSc', note: 'Computing, Dublin, 2026' },
+];
+
+export const whatsNew = {
+  version: '2026.11',
+  text: "Finished the MSc in Computing at Griffith College Dublin with FloodScope, an explainable flood-risk model for Dublin. Now architecting New Leaf School's ERP replacement on PostgreSQL and Prisma. Looking for the next full-stack or mobile role in Dublin or remote.",
 };
 
 export const nav: Link[] = [
-  { label: 'Work', href: '#work' },
+  { label: 'Screenshots', href: '#screenshots' },
   { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Apps', href: '#apps' },
+  { label: 'Research', href: '#research' },
+  { label: 'History', href: '#history' },
+  { label: 'Contact', href: '#information' },
 ];
 
 export const featured: WorkItem[] = [

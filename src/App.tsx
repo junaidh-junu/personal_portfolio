@@ -1,31 +1,29 @@
 import Masthead from './components/Masthead';
-import Hero from './components/Hero';
-import Work from './components/Work';
-import Apps from './components/Apps';
+import Listing from './components/Listing';
+import Facts from './components/Facts';
+import Screenshots from './components/Screenshots';
 import About from './components/About';
-import Experience from './components/Experience';
+import Apps from './components/Apps';
 import Research from './components/Research';
-import Contact from './components/Contact';
+import History from './components/History';
 import Footer from './components/Footer';
 import SEOHead from './components/SEO/SEOHead';
 import StructuredData from './components/SEO/StructuredData';
-import { useReveal } from './hooks/useReveal';
 
 export default function App() {
-  useReveal();
   return (
     <>
       <SEOHead />
       <StructuredData />
       <Masthead />
       <main>
-        <Hero />
-        <Work />
-        <Apps />
+        <Listing />
+        <Facts />
+        <Screenshots />
         <About />
-        <Experience />
+        <Apps />
         <Research />
-        <Contact />
+        <History />
       </main>
       <Footer />
     </>
