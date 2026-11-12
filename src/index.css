@@ -164,7 +164,15 @@
     background: var(--color-ink); color: var(--color-ground);
   }
   @media (min-width: 768px) { .tile { width: 176px; height: 176px; border-radius: var(--radius-tile); } }
-  .tile .fill-accent { fill: var(--color-accent); }
+
+  /* The logo's cursor stroke. The tile is inverted against the page, so there it takes the other theme's accent. */
+  .logo-cursor { stroke: var(--color-accent); }
+  .tile .logo-cursor { stroke: #0b7a4b; }
+  :root[data-theme="light"] .tile .logo-cursor { stroke: #2fbf7f; }
+  /* The header tile's cursor blinks like a text cursor. It dims rather than vanishes so the H stays readable. */
+  @keyframes logo-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.25; } }
+  .tile .logo-cursor { animation: logo-blink 1.2s steps(1) infinite; }
+  @media (prefers-reduced-motion: reduce) { .tile .logo-cursor { animation: none; } }
 
   /* Surfaces */
   .panel { background: var(--color-surface); border: 1px solid var(--color-rule); border-radius: var(--radius-lg); }

@@ -14,7 +14,7 @@
 | Meta text | `--color-ink-subtle` | `#8b8c86` | `#767369` | Uppercase fact labels, stack lines |
 | Hairline | `--color-rule` | `#26282c` | `#e6e3dc` | Section tops, rows, facts cells, frames |
 | Strong hairline | `--color-rule-strong` | `#3a3d43` | `#c9c5bc` | Ghost button border, quiet underlines |
-| Accent | `--color-accent` | `#2fbf7f` | `#0b7a4b` | The filled button, status line, links, logo dot, current-role dot, focus |
+| Accent | `--color-accent` | `#2fbf7f` | `#0b7a4b` | The filled button, status line, links, logo cursor, current-role dot, focus |
 | Accent text | `--color-accent-ink` | `#0e0f11` | `#ffffff` | Text on the filled button |
 
 Contrast: dark muted 8.1:1, dark subtle 5.9:1, dark accent 9.4:1 on ground; light muted 6.6:1, light subtle 4.6:1, light accent 5.0:1.
@@ -34,7 +34,8 @@ Contrast: dark muted 8.1:1, dark subtle 5.9:1, dark accent 9.4:1 on ground; ligh
 
 ## Components
 
-- **Icon tile** `.tile`: 176px (128px on mobile) square in `ink` with the jim mark in `ground` and the accent dot. Sits beside the name, never alone.
+- **Icon tile** `.tile`: 176px (128px on mobile) square in `ink` with the JH mark in `ground` and its cursor stroke in the opposite theme's accent. Sits beside the name, never alone.
+- **Logo** `Logo.tsx`: a JH monogram where the J and the H share one stem and the last stroke is a flat-ended text cursor in `accent`. A heavier cut is used at 32px and below. Files and rules live in `public/brand/README.md`.
 - **Button primary** `.btn .btn-primary`: accent fill, 44px pill, weight 800. One per page: "Get in touch" in the header.
 - **Button ghost** `.btn .btn-ghost`: 1px `rule-strong` border, hover to `ink`. "Download CV".
 - **Facts band** `.facts .fact`: five centred cells (label, stat, note) divided by hairlines, 2 columns on phones, 3 on tablets, 5 on desktop.
@@ -65,7 +66,7 @@ Section titles use the store's words where they fit, and never where they would 
 ### Don't
 - Don't add stars, ratings, review cards or download counts.
 - Don't copy Apple's or Google's store chrome, type or icons; the idea is borrowed, the surface is ours.
-- Don't add shadows, gradients, glass or motion beyond the screenshot pan and 150ms hover transitions.
+- Don't add shadows, gradients, glass or motion beyond the screenshot pan, 150ms hover transitions and the logo cursor's blink in the header tile (1.2s, dims to 25%, off under reduced motion).
 - Don't add a second typeface or a second accent.
 - Don't set text below 11px, and use `--color-ink-subtle` only for labels and stack lines.
 

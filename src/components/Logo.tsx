@@ -4,22 +4,25 @@ interface Props {
 }
 
 /**
- * The brand mark: the Arabic letter jim (ج), the first letter of Junaidh,
- * drawn as one rounded stroke with its dot cradled in the bowl.
- * The stroke follows the text colour; the dot is the accent.
+ * The brand mark: a JH monogram. The J and the H share one stem, and the
+ * last stroke of the H is a text cursor: flat ends, slightly taller than
+ * the letters. The letters follow the text colour; the cursor is the accent.
+ * At 32px and below a heavier cut keeps the line from thinning out.
  */
 export default function Logo({ size = 28, className = '' }: Props) {
+  const small = size <= 32;
+  const weight = small ? 11 : 8;
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" className={className} aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" className={className} aria-hidden="true">
       <path
-        d="M17 14 H38 a6 6 0 0 1 6 6 V30 C44 44 36 53 25 53 C16 53 10 47 10 40"
-        fill="none"
+        d={small ? 'M10 38A11 11 0 0 0 32 38V15' : 'M13 39A10 10 0 0 0 33 39V15'}
         stroke="currentColor"
-        strokeWidth="10"
+        strokeWidth={weight}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="29" cy="37" r="6" className="fill-accent" />
+      <path d={small ? 'M32 32H53' : 'M33 32H51'} stroke="currentColor" strokeWidth={weight} />
+      <path d={small ? 'M53 7V57' : 'M51 8V56'} className="logo-cursor" strokeWidth={weight} />
     </svg>
   );
 }
