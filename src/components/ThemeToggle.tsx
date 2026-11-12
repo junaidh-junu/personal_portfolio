@@ -32,7 +32,7 @@ export default function ThemeToggle() {
       onClick={() => setTheme(next)}
       aria-label={`Switch to ${next} theme`}
       title={`Switch to ${next} theme`}
-      className="row-hover ml-1 grid h-10 w-10 place-items-center text-ink-muted transition-colors hover:text-ink"
+      className="ml-1 grid h-10 w-10 cursor-pointer place-items-center rounded-full border-0 bg-transparent text-ink-muted transition-colors hover:text-ink"
     >
       {theme === 'dark' ? (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">

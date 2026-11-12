@@ -61,14 +61,14 @@ export const person = {
   availability: 'Available for full-stack and mobile roles',
 };
 
-/** The listing header: the site presents one developer the way a store presents an app. */
-export const listing = {
-  subtitle: 'Full-stack and mobile developer',
-  status: 'Open to full-stack and mobile roles · Dublin, Ireland',
-  tagline: 'Ships to App Store, Google Play and the web.',
+/** The lines under the name at the top of the page. */
+export const hello = {
+  role: 'Full-stack and mobile developer in Dublin',
+  status: 'Open to full-stack and mobile roles, in Dublin or remote.',
+  tagline: 'I ship to the App Store, Google Play and the web.',
 };
 
-/** The metadata band under the header. Every value is real and checkable. */
+/** The row of numbers under the header. Every value is real and checkable. */
 export const facts = [
   { label: 'Active users', value: '30,000+', note: 'Tafheem ul Quran' },
   { label: 'Apps', value: '13', note: 'on both stores' },
@@ -78,17 +78,14 @@ export const facts = [
 ];
 
 export const whatsNew = {
-  version: '2026.11',
   text: "Finished the MSc in Computing at Griffith College Dublin with FloodScope, an explainable flood-risk model for Dublin. Now architecting New Leaf School's ERP replacement on PostgreSQL and Prisma. Looking for the next full-stack or mobile role in Dublin or remote.",
 };
 
 export const nav: Link[] = [
-  { label: 'Screenshots', href: '#screenshots' },
-  { label: 'About', href: '#about' },
+  { label: 'Work', href: '#work' },
   { label: 'Apps', href: '#apps' },
-  { label: 'Research', href: '#research' },
-  { label: 'History', href: '#history' },
-  { label: 'Contact', href: '#information' },
+  { label: 'About', href: '#about' },
+  { label: 'Say hello', href: '#hello' },
 ];
 
 export const featured: WorkItem[] = [
