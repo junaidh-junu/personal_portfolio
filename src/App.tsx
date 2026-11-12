@@ -1,11 +1,11 @@
 import Masthead from './components/Masthead';
-import Listing from './components/Listing';
-import Facts from './components/Facts';
-import Screenshots from './components/Screenshots';
-import About from './components/About';
+import Hello from './components/Hello';
+import Numbers from './components/Numbers';
+import Work from './components/Work';
 import Apps from './components/Apps';
+import About from './components/About';
 import Research from './components/Research';
-import History from './components/History';
+import Path from './components/Path';
 import Footer from './components/Footer';
 import SEOHead from './components/SEO/SEOHead';
 import StructuredData from './components/SEO/StructuredData';
@@ -17,13 +17,13 @@ export default function App() {
       <StructuredData />
       <Masthead />
       <main>
-        <Listing />
-        <Facts />
-        <Screenshots />
-        <About />
+        <Hello />
+        <Numbers />
+        <Work />
         <Apps />
+        <About />
         <Research />
-        <History />
+        <Path />
       </main>
       <Footer />
     </>

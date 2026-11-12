@@ -1,64 +1,67 @@
 @import "tailwindcss";
 
 /*
-  junaidh.me — "The Listing".
-  The site presents one developer the way a store presents one of his apps.
-  Flat surfaces, hairlines, one green accent. Dark is the default theme.
+  junaidh.me — the cursor's page.
+  One calm column on a warm dark ground. The only decoration is a small
+  character made from the cursor in the JH logo. Dark is the default theme.
 */
 @theme {
-  --color-ground: #0e0f11;
-  --color-surface: #16181b;
-  --color-surface-raised: #1d2024;
-  --color-ink: #f2f1ec;
-  --color-ink-muted: #a2a39c;
-  --color-ink-subtle: #8b8c86;
-  --color-rule: #26282c;
-  --color-rule-strong: #3a3d43;
-  --color-accent: #2fbf7f;
-  --color-accent-ink: #0e0f11;
-  --color-accent-soft: rgba(47, 191, 127, 0.12);
+  --color-ground: #1b1920;
+  --color-surface: #24212b;
+  --color-surface-raised: #2c2934;
+  --color-ink: #f4efe6;
+  --color-ink-muted: #b3aca3;
+  --color-ink-subtle: #8f8996;
+  --color-rule: #2e2b36;
+  --color-rule-strong: #4a4654;
+  --color-accent: #7fdcb0;
+  --color-accent-ink: #1b1920;
+  --color-accent-soft: rgba(127, 220, 176, 0.12);
+  --color-blush: #f6b89a;
+  --color-mascot: #7fdcb0;
 
-  --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --text-display: clamp(34px, 4.2vw, 46px);
+  --text-display: clamp(36px, 6vw, 52px);
   --text-display--line-height: 1.05;
-  --text-display--letter-spacing: -0.03em;
-  --text-heading: 22px;
-  --text-heading--line-height: 28px;
-  --text-heading--letter-spacing: -0.02em;
+  --text-display--letter-spacing: -0.02em;
+  --text-heading: 26px;
+  --text-heading--line-height: 32px;
+  --text-heading--letter-spacing: -0.01em;
   --text-lede: 20px;
   --text-lede--line-height: 30px;
-  --text-title: 16px;
+  --text-title: 17px;
   --text-title--line-height: 24px;
-  --text-body: 15px;
-  --text-body--line-height: 24px;
-  --text-small: 13px;
-  --text-small--line-height: 20px;
-  --text-meta: 11px;
+  --text-body: 16px;
+  --text-body--line-height: 26px;
+  --text-small: 14px;
+  --text-small--line-height: 21px;
+  --text-meta: 12px;
   --text-meta--line-height: 16px;
 
-  --spacing-page: 1120px;
+  --spacing-page: 760px;
 
-  --radius-sm: 9px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-tile: 40px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root[data-theme="light"] {
-  --color-ground: #fbfaf7;
+  --color-ground: #fbf6ee;
   --color-surface: #ffffff;
-  --color-surface-raised: #f3f1ec;
-  --color-ink: #111111;
-  --color-ink-muted: #5f5f5a;
-  --color-ink-subtle: #767369;
-  --color-rule: #e6e3dc;
-  --color-rule-strong: #c9c5bc;
-  --color-accent: #0b7a4b;
+  --color-surface-raised: #f3ecdf;
+  --color-ink: #26222b;
+  --color-ink-muted: #655f6b;
+  --color-ink-subtle: #716b77;
+  --color-rule: #ebe4d8;
+  --color-rule-strong: #cfc6b6;
+  --color-accent: #1f7a57;
   --color-accent-ink: #ffffff;
-  --color-accent-soft: rgba(11, 122, 75, 0.1);
+  --color-accent-soft: rgba(31, 122, 87, 0.1);
+  --color-blush: #e58f6a;
+  --color-mascot: #3fae82;
 }
 
 @layer base {
@@ -105,9 +108,9 @@
   }
   @media (min-width: 768px) { .page { padding: 0 40px; } }
 
-  /* Every listing section is a hairline-topped band. */
-  .section { padding: 32px 0; border-top: 1px solid var(--color-rule); }
-  @media (min-width: 768px) { .section { padding: 40px 0; } }
+  /* Sections are separated by space, not lines. */
+  .section { padding: 40px 0; }
+  @media (min-width: 768px) { .section { padding: 56px 0; } }
 
   /* Type */
   .t-display {
@@ -127,101 +130,99 @@
   }
   .t-lede { font-size: 18px; line-height: 27px; color: var(--color-ink-muted); }
   @media (min-width: 768px) { .t-lede { font-size: var(--text-lede); line-height: var(--text-lede--line-height); } }
-  .t-title { font-size: var(--text-title); line-height: var(--text-title--line-height); font-weight: 600; color: var(--color-ink); }
+  .t-title { font-size: var(--text-title); line-height: var(--text-title--line-height); font-weight: 800; color: var(--color-ink); }
   .t-body { font-size: var(--text-body); line-height: var(--text-body--line-height); color: var(--color-ink-muted); }
-  .t-prose { font-size: 16px; line-height: 26px; color: var(--color-ink-muted); }
   .t-small { font-size: var(--text-small); line-height: var(--text-small--line-height); color: var(--color-ink-muted); }
-  .t-label {
-    font-size: var(--text-meta); line-height: var(--text-meta--line-height);
-    font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
-    color: var(--color-ink-subtle);
-  }
-  .t-stat { font-size: 24px; line-height: 28px; letter-spacing: -0.02em; font-weight: 800; color: var(--color-ink); }
+  .t-meta { font-size: var(--text-small); line-height: var(--text-small--line-height); color: var(--color-ink-subtle); }
+  .t-stat { font-size: 22px; line-height: 26px; font-weight: 800; color: var(--color-ink); }
 
   .link { color: var(--color-accent); font-weight: 600; text-decoration: none; }
   .link:hover { text-decoration: underline; text-underline-offset: 3px; }
   .link-quiet { color: var(--color-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--color-rule-strong); }
   .link-quiet:hover { text-decoration-color: var(--color-ink); }
 
-  /* Buttons: pills, like a store's Get button. One filled per screen. */
+  /* Buttons are pills. One filled per screen. */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    height: 44px; padding: 0 22px; border-radius: 999px;
-    font-size: 15px; font-weight: 600; line-height: 1; text-decoration: none;
+    height: 46px; padding: 0 22px; border-radius: 999px;
+    font-size: 16px; font-weight: 600; line-height: 1; text-decoration: none;
     border: 1px solid transparent; cursor: pointer; white-space: nowrap;
     transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out), transform 150ms var(--ease-out);
   }
   .btn-primary { background: var(--color-accent); color: var(--color-accent-ink); font-weight: 800; padding: 0 26px; }
-  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-primary:hover { transform: translateY(-2px); }
   .btn-ghost { background: transparent; color: var(--color-ink); border-color: var(--color-rule-strong); }
   .btn-ghost:hover { border-color: var(--color-ink); }
-  .btn-sm { height: 36px; padding: 0 14px; font-size: 13px; }
 
-  /* The icon tile at the top of the listing. */
-  .tile {
-    display: grid; place-items: center;
-    width: 128px; height: 128px; border-radius: 30px;
-    background: var(--color-ink); color: var(--color-ground);
-  }
-  @media (min-width: 768px) { .tile { width: 176px; height: 176px; border-radius: var(--radius-tile); } }
-
-  /* The logo's cursor stroke. The tile is inverted against the page, so there it takes the other theme's accent. */
+  /* The logo's cursor stroke takes the accent. */
   .logo-cursor { stroke: var(--color-accent); }
-  .tile .logo-cursor { stroke: #0b7a4b; }
-  :root[data-theme="light"] .tile .logo-cursor { stroke: #2fbf7f; }
-  /* The header tile's cursor blinks like a text cursor. It dims rather than vanishes so the H stays readable. */
-  @keyframes logo-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.25; } }
-  .tile .logo-cursor { animation: logo-blink 1.2s steps(1) infinite; }
-  @media (prefers-reduced-motion: reduce) { .tile .logo-cursor { animation: none; } }
 
-  /* Surfaces */
-  .panel { background: var(--color-surface); border: 1px solid var(--color-rule); border-radius: var(--radius-lg); }
+  /* Numbers: one quiet row of rounded chips. */
+  .chip {
+    display: flex; flex-direction: column; gap: 2px; flex: 1 1 130px;
+    padding: 14px 18px; border-radius: var(--radius-md);
+    background: var(--color-surface);
+  }
+
+  /* A project screenshot. */
   .frame {
     overflow: hidden; background: var(--color-surface);
-    border: 1px solid var(--color-rule); border-radius: var(--radius-lg);
+    border: 1px solid var(--color-rule); border-radius: var(--radius-md);
+    transition: transform 150ms var(--ease-out), border-color 150ms var(--ease-out);
   }
-  .frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: object-position 1200ms ease-in-out; }
-  a:hover > .frame img, a:focus-visible > .frame img { object-position: bottom; }
+  .frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+  a:hover > .frame, a:focus-visible > .frame { transform: translateY(-2px); border-color: var(--color-rule-strong); }
 
-  /* Key facts strip: cells divided by hairlines, like a store's metadata band. */
-  .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule); }
-  @media (min-width: 640px) { .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  @media (min-width: 1024px) { .facts { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
-  .fact { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 12px; text-align: center; border-right: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule); }
-  .fact:nth-child(2n) { border-right: 0; }
-  @media (min-width: 640px) {
-    .fact:nth-child(2n) { border-right: 1px solid var(--color-rule); }
-    .fact:nth-child(3n) { border-right: 0; }
+  /* Apps: an icon grid with one detail line beneath it. */
+  .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 6px; }
+  .app {
+    display: grid; justify-items: center; align-content: start; gap: 8px; width: 100%;
+    padding: 12px 4px; border: 0; border-radius: var(--radius-md); background: transparent;
+    color: var(--color-ink-muted); font: inherit; font-size: 13px; line-height: 17px; text-align: center; cursor: pointer;
+    transition: transform 150ms var(--ease-out), color 150ms var(--ease-out);
   }
-  @media (min-width: 1024px) {
-    .fact { border-bottom: 0; padding: 20px 16px; }
-    .fact:nth-child(3n) { border-right: 1px solid var(--color-rule); }
-    .fact:last-child { border-right: 0; }
+  .app img { width: 64px; height: 64px; border-radius: 16px; outline: 2px solid transparent; outline-offset: 3px; transition: outline-color 150ms var(--ease-out); }
+  .app:hover { transform: translateY(-2px); }
+  .app[aria-pressed="true"] { color: var(--color-ink); }
+  .app[aria-pressed="true"] img { outline-color: var(--color-blush); }
+  .app-detail { min-height: 104px; margin-top: 12px; padding: 16px 20px; border-radius: var(--radius-md); background: var(--color-surface); }
+  .app-list { display: none; }
+  /* Touch screens have no hover, so every description is listed instead. */
+  @media (hover: none) {
+    .app-detail { display: none; }
+    .app-list { display: grid; }
+    .app[aria-pressed="true"] img { outline-color: transparent; }
   }
-  @media (max-width: 639px) { .fact:nth-last-child(-n+1) { border-bottom: 0; grid-column: span 2; border-right: 0; } }
-  @media (min-width: 640px) and (max-width: 1023px) { .fact:nth-last-child(-n+2) { border-bottom: 0; } }
 
-  /* Horizontal strip of screenshots. */
-  .strip {
-    display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px;
-    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin; scrollbar-color: var(--color-rule-strong) transparent;
-  }
-  .strip > * { flex: 0 0 min(440px, 86vw); scroll-snap-align: start; }
-
-  /* Rows: Information table, Version history, apps. */
-  .row { display: flex; justify-content: space-between; gap: 24px; padding: 11px 0; border-bottom: 1px solid var(--color-rule); font-size: 14px; line-height: 20px; }
+  /* Rows: a label on the left, its value on the right. */
+  .row { display: grid; gap: 2px; padding: 10px 0; border-bottom: 1px solid var(--color-rule); font-size: 15px; line-height: 22px; }
+  @media (min-width: 640px) { .row { grid-template-columns: 130px minmax(0, 1fr); gap: 24px; } }
   .row:last-child { border-bottom: 0; }
-  .row dt { color: var(--color-ink-muted); flex: 0 0 auto; }
-  .row dd { margin: 0; text-align: right; color: var(--color-ink); min-width: 0; overflow-wrap: anywhere; }
-
-  .app-row { display: flex; gap: 14px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--color-rule); color: inherit; text-decoration: none; }
-  .app-row img { width: 56px; height: 56px; border-radius: var(--radius-md); flex: 0 0 auto; }
+  .row dt { color: var(--color-ink-subtle); }
+  .row dd { margin: 0; color: var(--color-ink); min-width: 0; }
 
   .masthead {
     position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--color-ground) 85%, transparent);
+    background: color-mix(in srgb, var(--color-ground) 88%, transparent);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--color-rule);
+  }
+
+  /* The character: the logo's cursor with a face. Body in mint, face in the page colour. */
+  .mascot { display: block; flex: 0 0 auto; overflow: visible; }
+  .mascot-body { fill: var(--color-mascot); }
+  .mascot-limb { stroke: var(--color-mascot); stroke-width: 2.6; stroke-linecap: round; fill: none; }
+  .mascot-eye { fill: var(--color-ground); transform-box: fill-box; transform-origin: center; animation: mascot-blink 4s infinite; }
+  .mascot-line { stroke: var(--color-ground); stroke-width: 1.4; stroke-linecap: round; fill: none; }
+  .mascot-phone { fill: var(--color-surface); stroke: var(--color-ink); stroke-width: 1.3; }
+  .mascot-prop { fill: var(--color-blush); }
+  .mascot-z { fill: var(--color-ink-subtle); font-weight: 800; animation: mascot-z 3s ease-in-out infinite; }
+  .mascot-z + .mascot-z { animation-delay: 1.5s; }
+  .mascot-wave-arm { transform-box: view-box; transform-origin: 39px 30px; animation: mascot-wave 1.8s ease-in-out 0.4s 1; }
+  @keyframes mascot-blink { 0%, 96%, 100% { transform: scaleY(1); } 98% { transform: scaleY(0.1); } }
+  @keyframes mascot-wave { 0%, 100% { transform: rotate(0deg); } 15%, 45%, 75% { transform: rotate(-16deg); } 30%, 60%, 90% { transform: rotate(10deg); } }
+  @keyframes mascot-z { 0% { opacity: 0; transform: translateY(2px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(-5px); } }
+  @media (prefers-reduced-motion: reduce) {
+    .mascot-eye, .mascot-z, .mascot-wave-arm { animation: none; }
+    .btn-primary:hover, .app:hover, a:hover > .frame, a:focus-visible > .frame { transform: none; }
   }
 }
