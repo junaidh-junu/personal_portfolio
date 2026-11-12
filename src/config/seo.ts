@@ -1,158 +1,82 @@
-export const seoConfig = {
+import { education, languages, person, research } from '../data/site';
+
+/**
+ * Search and sharing metadata. The site is served from the www host (the bare
+ * domain redirects to it), so every absolute URL here uses www.
+ * The static tags in index.html must match `title` and `description`.
+ */
+export const seo = {
+  siteUrl: 'https://www.junaidh.me',
   siteName: 'Junaidh Haneefa',
-  siteUrl: 'https://junaidh.me',
-  defaultTitle: 'Junaidh Haneefa | Full-stack and mobile developer',
-  defaultDescription: 'Junaidh Haneefa is a full-stack and mobile developer in Dublin. React, Node, Flutter and Kotlin, with production apps serving 30,000+ users. MSc Computing, Griffith College Dublin, 2026.',
-  defaultKeywords: [
-    'Junaidh Haneefa',
-    'junaidh haneefa',
-    'Junaidh Haneefa developer',
-    'Junaidh Haneefa portfolio',
-    'Junaidh Haneefa Flutter developer',
-    'Full Stack Developer',
-    'Flutter Developer',
-    'Mobile App Development',
-    'Kotlin Developer',
-    'React Developer',
-    'Next.js Developer',
-    'MERN Stack Developer',
-    'TypeScript Developer',
-    'Web Development',
-    'Cross-platform Development',
-    'Dublin Developer',
-    'Ireland Developer',
-    'Remote Developer',
-    'AI/ML',
-    'Machine Learning',
-    'Explainable AI',
-    'RAG',
-    'Computer Science',
-    'Software Engineer'
-  ],
-  author: 'Junaidh Haneefa Muhammedhaneefa',
-  socialMedia: {
-    linkedin: 'https://www.linkedin.com/in/junaidhhaneefa',
-    github: 'https://github.com/junaidh-junu',
-    email: 'junaidhhaneef.m@gmail.com'
-  },
-  location: {
-    city: 'Dublin',
-    country: 'Ireland'
-  },
+  title: 'Junaidh Haneefa | Full-stack and mobile developer',
+  description:
+    'Junaidh Haneefa is a full-stack and mobile developer in Dublin. React, Node, Flutter and Kotlin, with production apps serving 30,000+ users. MSc Computing, Griffith College Dublin, 2026.',
   image: '/images/og-image.png',
-  twitterHandle: '@junaidhhaneefa',
 };
 
-export const structuredData = {
-  person: {
+const id = (name: string) => `${seo.siteUrl}/#${name}`;
+
+/** One linked JSON-LD graph: the site, this profile page, the person and the published paper. */
+export function jsonLd(dateModified: string) {
+  const paper = research.find((r) => r.href);
+  return {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Junaidh Haneefa Muhammedhaneefa',
-    alternateName: ['Junaidh', 'Junaidh Haneefa', 'junaidh haneefa', 'Junaidh Haneefa Muhammedhaneefa'],
-    givenName: 'Junaidh',
-    familyName: 'Haneefa',
-    additionalName: 'Muhammedhaneefa',
-    jobTitle: ['Full Stack Developer', 'Flutter Developer', 'Mobile App Developer', 'Team Lead'],
-    description: 'Full-stack and mobile developer in Dublin. React, Node, Flutter and Kotlin, with production apps serving 30,000+ users. MSc Computing, Griffith College Dublin, 2026.',
-    url: seoConfig.siteUrl,
-    email: seoConfig.socialMedia.email,
-    image: `${seoConfig.siteUrl}/images/profile.png`,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: seoConfig.location.city,
-      addressCountry: seoConfig.location.country
-    },
-    worksFor: {
-      '@type': 'Organization',
-      name: 'New Leaf School For Quran And English',
-      jobTitle: 'IT Coordinator'
-    },
-    seeks: {
-      '@type': 'JobPosting',
-      title: 'Full Stack Developer',
-      jobLocationType: 'TELECOMMUTE',
-      employmentType: 'FULL_TIME'
-    },
-    sameAs: [
-      seoConfig.socialMedia.linkedin,
-      seoConfig.socialMedia.github
-    ],
-    alumniOf: [
+    '@graph': [
       {
-        '@type': 'CollegeOrUniversity',
-        name: 'Griffith College Dublin',
-        location: 'Dublin, Ireland'
+        '@type': 'WebSite',
+        '@id': id('website'),
+        url: `${seo.siteUrl}/`,
+        name: seo.siteName,
+        description: seo.description,
+        inLanguage: 'en-IE',
+        publisher: { '@id': id('person') },
       },
       {
-        '@type': 'CollegeOrUniversity',
-        name: 'APJ Abdul Kalam Technological University',
-        location: 'Kerala, India'
-      }
-    ],
-    knowsAbout: [
-      'Flutter Development',
-      'Mobile App Development',
-      'Full Stack Development',
-      'MERN Stack',
-      'Kotlin',
-      'Dart',
-      'React',
-      'Next.js',
-      'Node.js',
-      'Express.js',
-      'TypeScript',
-      'JavaScript',
-      'MongoDB',
-      'PostgreSQL',
-      'Firebase',
-      'Supabase',
-      'Docker',
-      'DigitalOcean',
-      'GitHub Actions',
-      'REST APIs',
-      'Cross-platform Development',
-      'DevOps',
-      'Cloud Infrastructure',
-      'Machine Learning',
-      'Explainable AI',
-      'XGBoost',
-      'SHAP',
-      'RAG',
-      'Geospatial ML'
-    ],
-    hasCredential: [
+        '@type': 'ProfilePage',
+        '@id': id('profile'),
+        url: `${seo.siteUrl}/`,
+        name: seo.title,
+        description: seo.description,
+        inLanguage: 'en-IE',
+        dateModified,
+        isPartOf: { '@id': id('website') },
+        mainEntity: { '@id': id('person') },
+        primaryImageOfPage: `${seo.siteUrl}${seo.image}`,
+      },
       {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'Anti Theft Flooring Mat System Using IOT',
-        credentialCategory: 'Research Publication',
-        recognizedBy: {
-          '@type': 'Organization',
-          name: 'Journal of Electronics and Informatics'
-        },
-        identifier: 'DOI: 10.36548/jei.2024.1.004',
-        dateCreated: '2024-01-01'
-      }
-    ]
-  },
-  website: {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: seoConfig.siteName,
-    url: seoConfig.siteUrl,
-    description: seoConfig.defaultDescription,
-    author: {
-      '@type': 'Person',
-      name: seoConfig.author
-    }
-  },
-  portfolio: {
-    '@context': 'https://schema.org',
-    '@type': 'ProfilePage',
-    name: seoConfig.siteName,
-    url: seoConfig.siteUrl,
-    mainEntity: {
-      '@type': 'Person',
-      name: seoConfig.author
-    }
-  }
-};
+        '@type': 'Person',
+        '@id': id('person'),
+        name: person.name,
+        alternateName: [person.fullName, 'Junaidh'],
+        givenName: 'Junaidh',
+        familyName: 'Haneefa',
+        jobTitle: person.role,
+        description: seo.description,
+        url: `${seo.siteUrl}/`,
+        image: `${seo.siteUrl}/images/profile.png`,
+        email: `mailto:${person.email}`,
+        address: { '@type': 'PostalAddress', addressLocality: 'Dublin', addressCountry: 'IE' },
+        sameAs: [person.linkedin, person.github],
+        knowsLanguage: languages.replace(' and ', ', ').split(', '),
+        worksFor: { '@type': 'Organization', name: 'New Leaf School for Quran and English' },
+        alumniOf: education.map((school) => ({ '@type': 'CollegeOrUniversity', name: school.institution })),
+        knowsAbout: [
+          'Full-stack web development', 'Mobile app development', 'React', 'Next.js', 'TypeScript', 'Node.js',
+          'Flutter', 'Dart', 'Kotlin', 'Jetpack Compose', 'PostgreSQL', 'Supabase', 'MongoDB', 'Docker',
+          'GitHub Actions', 'Machine learning', 'Explainable AI', 'Retrieval-augmented generation', 'Geospatial analysis',
+        ],
+      },
+      ...(paper
+        ? [{
+            '@type': 'ScholarlyArticle',
+            '@id': id('paper'),
+            headline: paper.title,
+            author: { '@id': id('person') },
+            datePublished: '2024-01',
+            isPartOf: { '@type': 'Periodical', name: 'Journal of Electronics and Informatics' },
+            sameAs: paper.href,
+          }]
+        : []),
+    ],
+  };
+}

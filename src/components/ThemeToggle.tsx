@@ -2,34 +2,32 @@ import { useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
-const read = (): Theme => {
-  try {
-    return localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
-  } catch {
-    return 'dark';
-  }
-};
-
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(read);
+  // The built page is rendered as dark; the real theme is read after mount so the markup matches.
+  const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
+    if (document.documentElement.getAttribute('data-theme') === 'light') setTheme('light');
+  }, []);
+
+  const next: Theme = theme === 'dark' ? 'light' : 'dark';
+
+  const toggle = () => {
     const root = document.documentElement;
-    if (theme === 'light') root.setAttribute('data-theme', 'light');
+    if (next === 'light') root.setAttribute('data-theme', 'light');
     else root.removeAttribute('data-theme');
     try {
-      localStorage.setItem('theme', theme);
+      localStorage.setItem('theme', next);
     } catch {
       /* storage unavailable: the attribute still applies for this page */
     }
-  }, [theme]);
-
-  const next: Theme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+  };
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(next)}
+      onClick={toggle}
       aria-label={`Switch to ${next} theme`}
       title={`Switch to ${next} theme`}
       className="ml-1 grid h-10 w-10 cursor-pointer place-items-center rounded-full border-0 bg-transparent text-ink-muted transition-colors hover:text-ink"

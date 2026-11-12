@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!;
+const app = (
   <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </React.StrictMode>,
+    <App />
+  </React.StrictMode>
 );
+
+// The production build ships the page already rendered; take it over. In dev the root is empty.
+if (root.hasChildNodes()) ReactDOM.hydrateRoot(root, app);
+else ReactDOM.createRoot(root).render(app);

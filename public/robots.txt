@@ -1,9 +1,5 @@
-# Allow all crawlers
+# Everyone is welcome, AI assistants and their crawlers included.
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://junaidh.me/sitemap.xml
-
-# Crawl delay (optional, helps with server load)
-Crawl-delay: 1
+Sitemap: https://www.junaidh.me/sitemap.xml

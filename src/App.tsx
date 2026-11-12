@@ -7,14 +7,10 @@ import About from './components/About';
 import Research from './components/Research';
 import Path from './components/Path';
 import Footer from './components/Footer';
-import SEOHead from './components/SEO/SEOHead';
-import StructuredData from './components/SEO/StructuredData';
 
 export default function App() {
   return (
     <>
-      <SEOHead />
-      <StructuredData />
       <Masthead />
       <main>
         <Hello />
